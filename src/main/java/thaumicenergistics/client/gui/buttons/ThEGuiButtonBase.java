@@ -4,9 +4,9 @@ import java.util.List;
 
 import net.minecraft.client.gui.GuiButton;
 
-import thaumicenergistics.client.gui.ThEGuiHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.client.gui.ThEGuiHelper;
 
 /**
  * Base class for ThE buttons.

@@ -7,6 +7,8 @@ import java.util.Map.Entry;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 
+import appeng.api.config.Actionable;
+import appeng.api.storage.data.IAEFluidStack;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.IAspectContainer;
@@ -18,8 +20,6 @@ import thaumicenergistics.common.fluids.GaseousEssentia;
 import thaumicenergistics.common.storage.AspectStack;
 import thaumicenergistics.common.tiles.TileEssentiaVibrationChamber;
 import thaumicenergistics.common.tiles.abstraction.TileEVCBase;
-import appeng.api.config.Actionable;
-import appeng.api.storage.data.IAEFluidStack;
 
 /**
  * Helper class for working with Thaumcraft TileEntity essentia containers.

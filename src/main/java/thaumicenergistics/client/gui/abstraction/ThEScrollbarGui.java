@@ -6,11 +6,11 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
-import thaumicenergistics.client.gui.ThEGuiHelper;
 import appeng.client.gui.AEBaseGui;
 import appeng.client.gui.widgets.GuiScrollbar;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.client.gui.ThEGuiHelper;
 
 /**
  * Base GUI for guis with scrollbars.

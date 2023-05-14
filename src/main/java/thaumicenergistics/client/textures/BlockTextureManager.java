@@ -7,9 +7,9 @@ import java.util.List;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.IIcon;
 
-import thaumicenergistics.common.ThaumicEnergistics;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.common.ThaumicEnergistics;
 
 /**
  * Textures for all ThE blocks.

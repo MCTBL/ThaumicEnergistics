@@ -10,16 +10,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Vec3;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.IAspectContainer;
-import thaumicenergistics.client.gui.GuiEssentiaIO;
-import thaumicenergistics.common.container.ContainerPartEssentiaIOBus;
-import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper;
-import thaumicenergistics.common.network.IAspectSlotPart;
-import thaumicenergistics.common.network.packet.client.Packet_C_AspectSlot;
-import thaumicenergistics.common.network.packet.client.Packet_C_EssentiaIOBus;
-import thaumicenergistics.common.registries.EnumCache;
-import thaumicenergistics.common.utils.EffectiveSide;
 import appeng.api.AEApi;
 import appeng.api.config.RedstoneMode;
 import appeng.api.config.SecurityPermissions;
@@ -38,6 +28,16 @@ import appeng.tile.inventory.IAEAppEngInventory;
 import appeng.tile.inventory.InvOperation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.IAspectContainer;
+import thaumicenergistics.client.gui.GuiEssentiaIO;
+import thaumicenergistics.common.container.ContainerPartEssentiaIOBus;
+import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper;
+import thaumicenergistics.common.network.IAspectSlotPart;
+import thaumicenergistics.common.network.packet.client.Packet_C_AspectSlot;
+import thaumicenergistics.common.network.packet.client.Packet_C_EssentiaIOBus;
+import thaumicenergistics.common.registries.EnumCache;
+import thaumicenergistics.common.utils.EffectiveSide;
 
 /**
  * Base class of {@link PartExportBus} and {@link PartImportBus}.

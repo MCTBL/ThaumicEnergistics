@@ -2,10 +2,10 @@ package thaumicenergistics.common.blocks;
 
 import net.minecraft.util.IIcon;
 
-import thaumicenergistics.client.textures.BlockTextureManager;
-import thaumicenergistics.common.tiles.TileGearBox;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.client.textures.BlockTextureManager;
+import thaumicenergistics.common.tiles.TileGearBox;
 
 /**
  * {@link TileGearBox} block, iron form.

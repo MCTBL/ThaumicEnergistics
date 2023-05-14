@@ -1,10 +1,10 @@
 package thaumicenergistics.common.grid;
 
-import thaumicenergistics.common.items.ItemCraftingAspect;
 import appeng.api.networking.security.BaseActionSource;
 import appeng.api.networking.storage.IBaseMonitor;
 import appeng.api.storage.IMEMonitorHandlerReceiver;
 import appeng.api.storage.data.IAEItemStack;
+import thaumicenergistics.common.items.ItemCraftingAspect;
 
 class CraftingAspect_ItemWatcher implements IMEMonitorHandlerReceiver<IAEItemStack> {
 

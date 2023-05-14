@@ -8,11 +8,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Vec3;
 
-import thaumicenergistics.common.utils.EffectiveSide;
 import appeng.api.config.SecurityPermissions;
 import appeng.api.parts.PartItemStack;
 import appeng.util.Platform;
 import io.netty.buffer.ByteBuf;
+import thaumicenergistics.common.utils.EffectiveSide;
 
 /**
  * Base class for rotatble cable parts.

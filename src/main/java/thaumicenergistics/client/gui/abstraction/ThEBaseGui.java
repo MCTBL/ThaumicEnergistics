@@ -11,16 +11,16 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
+import appeng.api.AEApi;
+import appeng.parts.automation.UpgradeInventory;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.api.gui.IWidgetHost;
 import thaumicenergistics.client.gui.ThEGuiHelper;
 import thaumicenergistics.client.gui.buttons.ThEGuiButtonBase;
 import thaumicenergistics.client.textures.AEStateIconsEnum;
 import thaumicenergistics.common.container.ContainerWithNetworkTool;
 import thaumicenergistics.common.container.slot.SlotNetworkTool;
-import appeng.api.AEApi;
-import appeng.parts.automation.UpgradeInventory;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Base gui of all Thaumic Energistics guis

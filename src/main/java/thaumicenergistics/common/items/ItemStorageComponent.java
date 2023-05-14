@@ -9,9 +9,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
+import appeng.api.implementations.items.IStorageComponent;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.storage.EnumEssentiaStorageTypes;
-import appeng.api.implementations.items.IStorageComponent;
 
 /**
  * {@link ItemEssentiaCell} storage components.

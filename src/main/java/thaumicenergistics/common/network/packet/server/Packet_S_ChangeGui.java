@@ -3,12 +3,12 @@ package thaumicenergistics.common.network.packet.server;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
+import io.netty.buffer.ByteBuf;
 import thaumicenergistics.api.ThEApi;
 import thaumicenergistics.common.ThEGuiHandler;
 import thaumicenergistics.common.network.NetworkHandler;
 import thaumicenergistics.common.network.ThEBasePacket;
 import thaumicenergistics.common.parts.ThEPartBase;
-import io.netty.buffer.ByteBuf;
 
 /**
  * Server-bound gui change request packet.

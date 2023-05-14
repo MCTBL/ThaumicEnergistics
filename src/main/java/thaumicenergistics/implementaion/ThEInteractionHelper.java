@@ -7,6 +7,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.FakePlayer;
 
+import appeng.api.AEApi;
+import appeng.api.implementations.tiles.IWirelessAccessPoint;
+import appeng.api.storage.data.IAEItemStack;
+import appeng.core.localization.PlayerMessages;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.IThEInteractionHelper;
 import thaumicenergistics.api.IThEWirelessEssentiaTerminal;
@@ -22,12 +28,6 @@ import thaumicenergistics.common.inventory.HandlerWirelessEssentiaTerminal;
 import thaumicenergistics.common.network.packet.server.Packet_S_ArcaneCraftingTerminal;
 import thaumicenergistics.common.storage.AspectStack;
 import thaumicenergistics.common.utils.ThELog;
-import appeng.api.AEApi;
-import appeng.api.implementations.tiles.IWirelessAccessPoint;
-import appeng.api.storage.data.IAEItemStack;
-import appeng.core.localization.PlayerMessages;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Implements {@link IThEInteractionHelper}

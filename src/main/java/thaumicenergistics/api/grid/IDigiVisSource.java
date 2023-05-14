@@ -5,9 +5,9 @@ import javax.annotation.Nullable;
 
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumcraft.api.aspects.Aspect;
 import appeng.api.networking.IGrid;
 import appeng.api.util.DimensionalCoord;
+import thaumcraft.api.aspects.Aspect;
 
 /**
  * Digital Vis source.

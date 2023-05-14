@@ -7,10 +7,10 @@ import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
-import thaumicenergistics.client.textures.AEStateIconsEnum;
-import thaumicenergistics.client.textures.IStateIconTexture;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.client.textures.AEStateIconsEnum;
+import thaumicenergistics.client.textures.IStateIconTexture;
 
 /**
  * Large corner-button.

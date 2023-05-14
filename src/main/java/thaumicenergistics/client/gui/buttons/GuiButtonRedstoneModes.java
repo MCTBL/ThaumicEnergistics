@@ -4,10 +4,10 @@ import java.util.List;
 
 import net.minecraft.util.StatCollector;
 
-import thaumicenergistics.client.textures.AEStateIconsEnum;
 import appeng.api.config.RedstoneMode;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.client.textures.AEStateIconsEnum;
 
 /**
  * Displays redstone mode icons.

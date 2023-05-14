@@ -3,10 +3,10 @@ package thaumicenergistics.common.network.packet.client;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
+import io.netty.buffer.ByteBuf;
 import thaumicenergistics.common.network.NetworkHandler;
 import thaumicenergistics.common.network.ThEBasePacket;
 import thaumicenergistics.common.utils.ThEUtils;
-import io.netty.buffer.ByteBuf;
 
 /**
  * Packed used to send miscellaneous events to the client.

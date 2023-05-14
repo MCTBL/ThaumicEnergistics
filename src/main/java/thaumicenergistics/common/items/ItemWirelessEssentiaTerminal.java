@@ -6,17 +6,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
+import com.google.common.base.Optional;
+
+import appeng.api.config.PowerMultiplier;
+import appeng.items.tools.powered.powersink.AEBasePoweredItem;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.api.IThEWirelessEssentiaTerminal;
 import thaumicenergistics.api.ThEApi;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.registries.ThEStrings;
-import appeng.api.config.PowerMultiplier;
-import appeng.items.tools.powered.powersink.AEBasePoweredItem;
-
-import com.google.common.base.Optional;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 // Note to fix inconsistent hierarchy: Include the COFHCore & IC2 Api's into
 // build path

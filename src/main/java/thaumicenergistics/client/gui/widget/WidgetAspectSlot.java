@@ -5,13 +5,13 @@ import net.minecraft.entity.player.EntityPlayer;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.gui.IWidgetHost;
 import thaumicenergistics.client.textures.GuiTextureManager;
 import thaumicenergistics.common.network.IAspectSlotPart;
 import thaumicenergistics.common.network.packet.server.Packet_S_AspectSlot;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Widget displaying an aspect.

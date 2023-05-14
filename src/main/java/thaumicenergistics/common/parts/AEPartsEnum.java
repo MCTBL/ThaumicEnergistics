@@ -10,10 +10,10 @@ import net.minecraft.util.MathHelper;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
+import appeng.api.config.Upgrades;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.items.ItemEnum;
 import thaumicenergistics.common.registries.ThEStrings;
-import appeng.api.config.Upgrades;
 
 /**
  * Enumeration of all ThE cable parts.

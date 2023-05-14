@@ -8,18 +8,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumicenergistics.api.IThEWirelessEssentiaTerminal;
-import thaumicenergistics.api.ThEApi;
-import thaumicenergistics.api.grid.ICraftingIssuerHost;
-import thaumicenergistics.api.grid.IMEEssentiaMonitor;
-import thaumicenergistics.common.grid.EssentiaPassThroughMonitor;
-import thaumicenergistics.common.grid.WirelessAELink;
-import thaumicenergistics.common.items.ItemEnum;
-import thaumicenergistics.common.items.ItemWirelessEssentiaTerminal;
-import thaumicenergistics.common.network.packet.server.Packet_S_ChangeGui;
-import thaumicenergistics.common.registries.EnumCache;
-import thaumicenergistics.common.storage.AspectStackComparator.AspectStackComparatorMode;
-import thaumicenergistics.common.utils.EffectiveSide;
 import appeng.api.config.Actionable;
 import appeng.api.config.PowerMultiplier;
 import appeng.api.config.ViewItems;
@@ -33,6 +21,18 @@ import appeng.api.networking.security.IActionHost;
 import appeng.api.util.AECableType;
 import appeng.api.util.IConfigManager;
 import appeng.core.AEConfig;
+import thaumicenergistics.api.IThEWirelessEssentiaTerminal;
+import thaumicenergistics.api.ThEApi;
+import thaumicenergistics.api.grid.ICraftingIssuerHost;
+import thaumicenergistics.api.grid.IMEEssentiaMonitor;
+import thaumicenergistics.common.grid.EssentiaPassThroughMonitor;
+import thaumicenergistics.common.grid.WirelessAELink;
+import thaumicenergistics.common.items.ItemEnum;
+import thaumicenergistics.common.items.ItemWirelessEssentiaTerminal;
+import thaumicenergistics.common.network.packet.server.Packet_S_ChangeGui;
+import thaumicenergistics.common.registries.EnumCache;
+import thaumicenergistics.common.storage.AspectStackComparator.AspectStackComparatorMode;
+import thaumicenergistics.common.utils.EffectiveSide;
 
 /**
  * Handles an {@link ItemWirelessEssentiaTerminal}

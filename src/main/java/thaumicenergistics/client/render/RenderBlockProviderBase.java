@@ -9,12 +9,12 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import org.lwjgl.opengl.GL11;
 
-import thaumicenergistics.client.textures.BlockTextureManager;
-import thaumicenergistics.common.registries.Renderers;
-import thaumicenergistics.common.tiles.abstraction.TileProviderBase;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.client.textures.BlockTextureManager;
+import thaumicenergistics.common.registries.Renderers;
+import thaumicenergistics.common.tiles.abstraction.TileProviderBase;
 
 /**
  * Renders the providers.

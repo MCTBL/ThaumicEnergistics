@@ -2,10 +2,10 @@ package thaumicenergistics.common.network.packet.server;
 
 import net.minecraft.entity.player.EntityPlayer;
 
+import io.netty.buffer.ByteBuf;
 import thaumicenergistics.common.container.ContainerDistillationPatternEncoder;
 import thaumicenergistics.common.network.NetworkHandler;
 import thaumicenergistics.common.tiles.TileDistillationPatternEncoder;
-import io.netty.buffer.ByteBuf;
 
 /**
  * {@link TileDistillationPatternEncoder} server-bound packet.

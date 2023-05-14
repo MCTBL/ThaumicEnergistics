@@ -12,9 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import thaumicenergistics.common.ThaumicEnergistics;
-import thaumicenergistics.common.parts.AEPartsEnum;
-import thaumicenergistics.common.utils.ThELog;
 import appeng.api.AEApi;
 import appeng.api.config.Upgrades;
 import appeng.api.implementations.items.IItemGroup;
@@ -22,6 +19,9 @@ import appeng.api.parts.IPart;
 import appeng.api.parts.IPartItem;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.common.ThaumicEnergistics;
+import thaumicenergistics.common.parts.AEPartsEnum;
+import thaumicenergistics.common.utils.ThELog;
 
 /**
  * Base class for all ThE's AE2 cable parts.

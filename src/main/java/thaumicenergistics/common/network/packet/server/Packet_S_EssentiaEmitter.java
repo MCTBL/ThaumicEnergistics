@@ -2,10 +2,10 @@ package thaumicenergistics.common.network.packet.server;
 
 import net.minecraft.entity.player.EntityPlayer;
 
+import io.netty.buffer.ByteBuf;
 import thaumicenergistics.common.network.NetworkHandler;
 import thaumicenergistics.common.network.ThEBasePacket;
 import thaumicenergistics.common.parts.PartEssentiaLevelEmitter;
-import io.netty.buffer.ByteBuf;
 
 /**
  * {@link PartEssentiaLevelEmitter} server-bound packet.

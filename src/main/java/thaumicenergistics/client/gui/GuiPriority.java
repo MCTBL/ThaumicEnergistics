@@ -8,6 +8,10 @@ import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
+import appeng.core.localization.GuiText;
+import appeng.helpers.IPriorityHost;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
 import thaumicenergistics.client.gui.buttons.GuiButtonAETab;
 import thaumicenergistics.client.gui.widget.DigitTextField;
@@ -17,10 +21,6 @@ import thaumicenergistics.common.container.ContainerPriority;
 import thaumicenergistics.common.network.packet.server.Packet_S_ChangeGui;
 import thaumicenergistics.common.network.packet.server.Packet_S_Priority;
 import thaumicenergistics.common.parts.ThEPartBase;
-import appeng.core.localization.GuiText;
-import appeng.helpers.IPriorityHost;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Gui for the priority window

@@ -6,14 +6,14 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import appeng.api.implementations.items.IUpgradeModule;
+import appeng.container.slot.SlotInaccessible;
 import thaumcraft.api.IVisDiscountGear;
 import thaumicenergistics.common.blocks.BlockArcaneAssembler;
 import thaumicenergistics.common.container.slot.SlotArmor;
 import thaumicenergistics.common.container.slot.SlotRestrictive;
 import thaumicenergistics.common.tiles.TileArcaneAssembler;
 import thaumicenergistics.common.utils.EffectiveSide;
-import appeng.api.implementations.items.IUpgradeModule;
-import appeng.container.slot.SlotInaccessible;
 
 /**
  * {@link TileArcaneAssembler} container.

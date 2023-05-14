@@ -14,6 +14,8 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.config.ConfigItems;
 import thaumicenergistics.api.storage.IInventoryUpdateReceiver;
@@ -27,8 +29,6 @@ import thaumicenergistics.common.network.packet.server.Packet_S_DistillationEnco
 import thaumicenergistics.common.registries.ThEStrings;
 import thaumicenergistics.common.tiles.TileDistillationPatternEncoder;
 import thaumicenergistics.common.utils.ThEUtils;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * {@link TileDistillationPatternEncoder} GUI

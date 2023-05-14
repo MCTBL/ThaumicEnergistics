@@ -23,17 +23,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import org.lwjgl.opengl.GL11;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumicenergistics.api.grid.IEssentiaWatcher;
-import thaumicenergistics.api.grid.IEssentiaWatcherHost;
-import thaumicenergistics.api.grid.IMEEssentiaMonitor;
-import thaumicenergistics.api.storage.IAspectStack;
-import thaumicenergistics.client.textures.BlockTextureManager;
-import thaumicenergistics.common.ThaumicEnergistics;
-import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper;
-import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper.AspectItemType;
-import thaumicenergistics.common.storage.AspectStack;
-import thaumicenergistics.common.utils.EffectiveSide;
 import appeng.api.AEApi;
 import appeng.api.implementations.IPowerChannelState;
 import appeng.api.implementations.parts.IPartStorageMonitor;
@@ -51,6 +40,17 @@ import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
+import thaumcraft.api.aspects.Aspect;
+import thaumicenergistics.api.grid.IEssentiaWatcher;
+import thaumicenergistics.api.grid.IEssentiaWatcherHost;
+import thaumicenergistics.api.grid.IMEEssentiaMonitor;
+import thaumicenergistics.api.storage.IAspectStack;
+import thaumicenergistics.client.textures.BlockTextureManager;
+import thaumicenergistics.common.ThaumicEnergistics;
+import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper;
+import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper.AspectItemType;
+import thaumicenergistics.common.storage.AspectStack;
+import thaumicenergistics.common.utils.EffectiveSide;
 
 /**
  * Displays stored essentia levels.

@@ -4,12 +4,12 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import thaumicenergistics.client.render.item.ItemCellMicroscopeRenderer;
 import thaumicenergistics.client.textures.BlockTextureManager;
 import thaumicenergistics.common.CommonProxy;
 import thaumicenergistics.common.items.ItemEnum;
 import thaumicenergistics.common.registries.Renderers;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * Client side proxy.

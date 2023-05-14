@@ -9,12 +9,11 @@ import net.minecraft.util.EnumChatFormatting;
 import org.apache.commons.lang3.text.WordUtils;
 import org.lwjgl.opengl.GL11;
 
-import thaumicenergistics.client.textures.IStateIconTexture;
-
 import com.google.common.base.Splitter;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.client.textures.IStateIconTexture;
 
 /**
  * Base class for ThE state buttons.

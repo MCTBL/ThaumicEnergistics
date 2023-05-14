@@ -6,9 +6,9 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-import thaumcraft.api.IVisDiscountGear;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.api.IVisDiscountGear;
 
 /**
  * Slot that holds armor.

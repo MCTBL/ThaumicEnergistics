@@ -7,6 +7,9 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
+import appeng.core.AEConfig;
+import appeng.core.features.AEFeature;
+import cpw.mods.fml.common.registry.GameRegistry;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -24,9 +27,6 @@ import thaumicenergistics.common.registries.RecipeRegistry;
 import thaumicenergistics.common.registries.ResearchRegistry;
 import thaumicenergistics.common.registries.ResearchRegistry.PseudoResearchTypes;
 import thaumicenergistics.common.registries.ResearchRegistry.ResearchTypes;
-import appeng.core.AEConfig;
-import appeng.core.features.AEFeature;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * {@link ItemEssentiaCell} and {@link ItemStorageComponent} feature.

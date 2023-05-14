@@ -10,6 +10,8 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import appeng.api.AEApi;
+import appeng.container.slot.SlotFake;
 import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -23,8 +25,6 @@ import thaumicenergistics.common.items.ItemCraftingAspect;
 import thaumicenergistics.common.items.ItemEnum;
 import thaumicenergistics.common.tiles.TileDistillationPatternEncoder;
 import thaumicenergistics.common.utils.EffectiveSide;
-import appeng.api.AEApi;
-import appeng.container.slot.SlotFake;
 
 /**
  * {@link TileDistillationPatternEncoder} container.
