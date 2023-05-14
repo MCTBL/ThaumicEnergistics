@@ -15,6 +15,16 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
+import appeng.api.config.*;
+import appeng.api.storage.data.IAEItemStack;
+import appeng.api.storage.data.IItemList;
+import appeng.client.gui.widgets.ISortSource;
+import appeng.client.me.ItemRepo;
+import appeng.client.render.AppEngRenderItem;
+import appeng.core.AEConfig;
+import appeng.util.Platform;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.client.lib.UtilsFX;
 import thaumcraft.common.config.Config;
 import thaumicenergistics.client.gui.abstraction.GuiConstants_ACT;
@@ -32,16 +42,6 @@ import thaumicenergistics.common.parts.PartArcaneCraftingTerminal;
 import thaumicenergistics.common.registries.ThEStrings;
 import thaumicenergistics.common.tiles.TileArcaneAssembler;
 import thaumicenergistics.common.utils.ThEUtils;
-import appeng.api.config.*;
-import appeng.api.storage.data.IAEItemStack;
-import appeng.api.storage.data.IItemList;
-import appeng.client.gui.widgets.ISortSource;
-import appeng.client.me.ItemRepo;
-import appeng.client.render.AppEngRenderItem;
-import appeng.core.AEConfig;
-import appeng.util.Platform;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * {@link TileArcaneAssembler} GUI

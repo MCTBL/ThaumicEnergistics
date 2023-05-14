@@ -8,12 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 
-import thaumicenergistics.common.ThaumicEnergistics;
-import thaumicenergistics.common.registries.ThEStrings;
 import appeng.api.features.INetworkEncodable;
 import appeng.core.localization.GuiText;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.common.ThaumicEnergistics;
+import thaumicenergistics.common.registries.ThEStrings;
 
 /**
  * Gives golems access to the AE network.

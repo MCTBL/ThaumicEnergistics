@@ -15,15 +15,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumicenergistics.common.parts.ThEPartBase;
-import thaumicenergistics.common.utils.ThELog;
+import com.google.common.base.Charsets;
+
 import appeng.api.parts.IPartHost;
 import appeng.api.storage.data.IAEItemStack;
 import appeng.util.item.AEItemStack;
-
-import com.google.common.base.Charsets;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
@@ -31,6 +27,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import thaumcraft.api.aspects.Aspect;
+import thaumicenergistics.common.parts.ThEPartBase;
+import thaumicenergistics.common.utils.ThELog;
 
 /**
  * Base of all ThE Packets. Also includes packet utils.

@@ -2,6 +2,8 @@ package thaumicenergistics.common.features;
 
 import net.minecraft.item.ItemStack;
 
+import appeng.core.AEConfig;
+import appeng.core.features.AEFeature;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -13,8 +15,6 @@ import thaumicenergistics.common.registries.RecipeRegistry;
 import thaumicenergistics.common.registries.ResearchRegistry;
 import thaumicenergistics.common.registries.ResearchRegistry.ResearchTypes;
 import thaumicenergistics.common.tiles.TileEssentiaVibrationChamber;
-import appeng.core.AEConfig;
-import appeng.core.features.AEFeature;
 
 /**
  * {@link TileEssentiaVibrationChamber} feature.

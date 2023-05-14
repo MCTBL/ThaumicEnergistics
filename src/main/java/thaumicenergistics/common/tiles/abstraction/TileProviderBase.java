@@ -9,14 +9,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumicenergistics.api.grid.IEssentiaGrid;
-import thaumicenergistics.api.grid.IMEEssentiaMonitor;
-import thaumicenergistics.common.integration.IWailaSource;
-import thaumicenergistics.common.registries.EnumCache;
-import thaumicenergistics.common.tiles.TileEssentiaProvider;
-import thaumicenergistics.common.tiles.TileInfusionProvider;
-import thaumicenergistics.common.utils.EffectiveSide;
 import appeng.api.config.Actionable;
 import appeng.api.implementations.tiles.IColorableTile;
 import appeng.api.networking.GridFlags;
@@ -37,6 +29,14 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
+import thaumcraft.api.aspects.Aspect;
+import thaumicenergistics.api.grid.IEssentiaGrid;
+import thaumicenergistics.api.grid.IMEEssentiaMonitor;
+import thaumicenergistics.common.integration.IWailaSource;
+import thaumicenergistics.common.registries.EnumCache;
+import thaumicenergistics.common.tiles.TileEssentiaProvider;
+import thaumicenergistics.common.tiles.TileInfusionProvider;
+import thaumicenergistics.common.utils.EffectiveSide;
 
 /**
  * Base class of {@link TileEssentiaProvider} and {@link TileInfusionProvider}.

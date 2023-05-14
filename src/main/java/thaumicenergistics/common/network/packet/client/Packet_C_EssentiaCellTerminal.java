@@ -7,6 +7,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.player.EntityPlayer;
 
+import appeng.api.config.ViewItems;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import io.netty.buffer.ByteBuf;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.storage.IAspectStack;
 import thaumicenergistics.client.gui.GuiEssentiaCellTerminal;
@@ -18,10 +22,6 @@ import thaumicenergistics.common.parts.PartEssentiaTerminal;
 import thaumicenergistics.common.registries.EnumCache;
 import thaumicenergistics.common.storage.AspectStack;
 import thaumicenergistics.common.storage.AspectStackComparator.AspectStackComparatorMode;
-import appeng.api.config.ViewItems;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import io.netty.buffer.ByteBuf;
 
 /**
  * {@link PartEssentiaTerminal}, {@link ItemWirelessEssentiaTerminal}, and {@link ItemEssentiaCell} client-bound packet.

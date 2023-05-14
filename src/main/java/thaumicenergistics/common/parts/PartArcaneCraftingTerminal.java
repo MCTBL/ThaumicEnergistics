@@ -16,21 +16,6 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.AspectList;
-import thaumcraft.common.items.wands.ItemWandCasting;
-import thaumicenergistics.api.grid.ICraftingIssuerHost;
-import thaumicenergistics.api.grid.IDigiVisSource;
-import thaumicenergistics.client.gui.GuiArcaneCraftingTerminal;
-import thaumicenergistics.client.textures.BlockTextureManager;
-import thaumicenergistics.common.ThEGuiHandler;
-import thaumicenergistics.common.ThaumicEnergistics;
-import thaumicenergistics.common.container.ContainerPartArcaneCraftingTerminal;
-import thaumicenergistics.common.integration.tc.DigiVisSourceData;
-import thaumicenergistics.common.network.packet.server.Packet_S_ChangeGui;
-import thaumicenergistics.common.registries.EnumCache;
-import thaumicenergistics.common.utils.EffectiveSide;
-import thaumicenergistics.common.utils.ThEUtils;
 import appeng.api.config.SecurityPermissions;
 import appeng.api.config.SortDir;
 import appeng.api.config.SortOrder;
@@ -53,6 +38,21 @@ import appeng.api.util.IConfigManager;
 import appeng.items.storage.ItemViewCell;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
+import thaumcraft.common.items.wands.ItemWandCasting;
+import thaumicenergistics.api.grid.ICraftingIssuerHost;
+import thaumicenergistics.api.grid.IDigiVisSource;
+import thaumicenergistics.client.gui.GuiArcaneCraftingTerminal;
+import thaumicenergistics.client.textures.BlockTextureManager;
+import thaumicenergistics.common.ThEGuiHandler;
+import thaumicenergistics.common.ThaumicEnergistics;
+import thaumicenergistics.common.container.ContainerPartArcaneCraftingTerminal;
+import thaumicenergistics.common.integration.tc.DigiVisSourceData;
+import thaumicenergistics.common.network.packet.server.Packet_S_ChangeGui;
+import thaumicenergistics.common.registries.EnumCache;
+import thaumicenergistics.common.utils.EffectiveSide;
+import thaumicenergistics.common.utils.ThEUtils;
 
 /**
  * Allows crafting arcane items while viewing the items in the network.

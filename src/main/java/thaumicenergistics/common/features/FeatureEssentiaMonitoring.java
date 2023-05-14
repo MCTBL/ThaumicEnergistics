@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
+import appeng.core.AEConfig;
+import appeng.core.features.AEFeature;
+import cpw.mods.fml.common.registry.GameRegistry;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -21,9 +24,6 @@ import thaumicenergistics.common.registries.FeatureRegistry;
 import thaumicenergistics.common.registries.RecipeRegistry;
 import thaumicenergistics.common.registries.ResearchRegistry;
 import thaumicenergistics.common.registries.ResearchRegistry.ResearchTypes;
-import appeng.core.AEConfig;
-import appeng.core.features.AEFeature;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * {@link PartEssentiaTerminal}, {@link PartEssentiaStorageMonitor}, and {@link PartEssentiaConversionMonitor} feature.

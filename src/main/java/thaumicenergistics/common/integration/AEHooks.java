@@ -1,7 +1,7 @@
 package thaumicenergistics.common.integration;
 
-import thaumicenergistics.common.items.ItemCraftingAspect;
 import appeng.api.storage.data.IAEItemStack;
+import thaumicenergistics.common.items.ItemCraftingAspect;
 
 public class AEHooks {
 

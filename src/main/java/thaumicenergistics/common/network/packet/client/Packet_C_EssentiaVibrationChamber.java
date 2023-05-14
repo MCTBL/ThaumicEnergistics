@@ -5,13 +5,13 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import io.netty.buffer.ByteBuf;
 import thaumicenergistics.client.gui.GuiEssentiaVibrationChamber;
 import thaumicenergistics.common.container.ContainerEssentiaVibrationChamber;
 import thaumicenergistics.common.network.NetworkHandler;
 import thaumicenergistics.common.tiles.TileEssentiaVibrationChamber;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import io.netty.buffer.ByteBuf;
 
 /**
  * {@link TileEssentiaVibrationChamber} client-bound packet.

@@ -13,13 +13,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.visnet.VisNetHandler;
-import thaumcraft.common.tiles.TileVisRelay;
-import thaumicenergistics.api.grid.IDigiVisSource;
-import thaumicenergistics.client.textures.BlockTextureManager;
-import thaumicenergistics.common.integration.tc.DigiVisSourceData;
-import thaumicenergistics.common.integration.tc.VisProviderProxy;
 import appeng.api.config.Actionable;
 import appeng.api.config.PowerMultiplier;
 import appeng.api.implementations.items.IMemoryCard;
@@ -36,6 +29,13 @@ import appeng.api.parts.PartItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.visnet.VisNetHandler;
+import thaumcraft.common.tiles.TileVisRelay;
+import thaumicenergistics.api.grid.IDigiVisSource;
+import thaumicenergistics.client.textures.BlockTextureManager;
+import thaumicenergistics.common.integration.tc.DigiVisSourceData;
+import thaumicenergistics.common.integration.tc.VisProviderProxy;
 
 /**
  * Iterfaces with a {@link TileVisRelay}.

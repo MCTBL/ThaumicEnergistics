@@ -15,21 +15,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.AspectList;
-import thaumcraft.common.Thaumcraft;
-import thaumicenergistics.api.ThEApi;
-import thaumicenergistics.api.grid.IDigiVisSource;
-import thaumicenergistics.client.gui.ThEGuiHelper;
-import thaumicenergistics.common.blocks.BlockArcaneAssembler;
-import thaumicenergistics.common.integration.IWailaSource;
-import thaumicenergistics.common.integration.tc.ArcaneCraftingPattern;
-import thaumicenergistics.common.integration.tc.DigiVisSourceData;
-import thaumicenergistics.common.integration.tc.VisCraftingHelper;
-import thaumicenergistics.common.inventory.HandlerKnowledgeCore;
-import thaumicenergistics.common.inventory.TheInternalInventory;
-import thaumicenergistics.common.items.ItemKnowledgeCore;
-import thaumicenergistics.common.utils.EffectiveSide;
 import appeng.api.AEApi;
 import appeng.api.config.Actionable;
 import appeng.api.config.PowerMultiplier;
@@ -65,6 +50,21 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
+import thaumcraft.common.Thaumcraft;
+import thaumicenergistics.api.ThEApi;
+import thaumicenergistics.api.grid.IDigiVisSource;
+import thaumicenergistics.client.gui.ThEGuiHelper;
+import thaumicenergistics.common.blocks.BlockArcaneAssembler;
+import thaumicenergistics.common.integration.IWailaSource;
+import thaumicenergistics.common.integration.tc.ArcaneCraftingPattern;
+import thaumicenergistics.common.integration.tc.DigiVisSourceData;
+import thaumicenergistics.common.integration.tc.VisCraftingHelper;
+import thaumicenergistics.common.inventory.HandlerKnowledgeCore;
+import thaumicenergistics.common.inventory.TheInternalInventory;
+import thaumicenergistics.common.items.ItemKnowledgeCore;
+import thaumicenergistics.common.utils.EffectiveSide;
 
 /**
  * Allows auto-crafting arcane recipes.

@@ -4,11 +4,11 @@ import java.util.List;
 
 import net.minecraft.util.EnumChatFormatting;
 
-import thaumicenergistics.client.textures.AEStateIconsEnum;
 import appeng.api.config.TerminalStyle;
 import appeng.core.localization.ButtonToolTips;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.client.textures.AEStateIconsEnum;
 
 /**
  * Displays terminal style icons.

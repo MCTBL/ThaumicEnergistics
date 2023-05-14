@@ -4,9 +4,9 @@ import javax.annotation.Nonnull;
 
 import net.minecraftforge.common.util.ForgeDirection;
 
+import appeng.api.config.Actionable;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.IEssentiaTransport;
-import appeng.api.config.Actionable;
 
 /**
  * An essentia transport that supports {@link Actionable#SIMULATE} and {@link Actionable#MODULATE}.

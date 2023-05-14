@@ -6,8 +6,8 @@ import javax.annotation.Nullable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
-import thaumcraft.api.aspects.Aspect;
 import io.netty.buffer.ByteBuf;
+import thaumcraft.api.aspects.Aspect;
 
 /**
  * A stack, or collection, of a single aspect.

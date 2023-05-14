@@ -16,14 +16,14 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import appeng.api.implementations.items.IMemoryCard;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.client.textures.BlockTextureManager;
 import thaumicenergistics.common.ThEGuiHandler;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.tiles.TileArcaneAssembler;
 import thaumicenergistics.common.utils.EffectiveSide;
-import appeng.api.implementations.items.IMemoryCard;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * {@link TileArcaneAssembler} block.

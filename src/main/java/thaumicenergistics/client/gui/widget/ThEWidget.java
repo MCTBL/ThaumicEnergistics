@@ -6,10 +6,10 @@ import net.minecraft.client.gui.Gui;
 
 import org.lwjgl.opengl.GL11;
 
-import thaumicenergistics.api.gui.IWidgetHost;
-import thaumicenergistics.client.gui.ThEGuiHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.api.gui.IWidgetHost;
+import thaumicenergistics.client.gui.ThEGuiHelper;
 
 /**
  * Base class of ThE widgets.

@@ -9,6 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
+import appeng.api.storage.IMEInventory;
+import appeng.api.storage.ISaveProvider;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.container.ContainerEssentiaCellWorkbench;
@@ -16,8 +18,6 @@ import thaumicenergistics.common.inventory.HandlerItemEssentiaCell;
 import thaumicenergistics.common.items.ItemEssentiaCell;
 import thaumicenergistics.common.utils.EffectiveSide;
 import thaumicenergistics.common.utils.ThEUtils;
-import appeng.api.storage.IMEInventory;
-import appeng.api.storage.ISaveProvider;
 
 /**
  * Provides {@link ItemEssentiaCell} partitioning.

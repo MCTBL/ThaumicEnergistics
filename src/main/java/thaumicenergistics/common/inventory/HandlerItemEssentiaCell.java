@@ -7,15 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.Fluid;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumicenergistics.api.storage.IAspectStack;
-import thaumicenergistics.common.fluids.GaseousEssentia;
-import thaumicenergistics.common.integration.tc.EssentiaConversionHelper;
-import thaumicenergistics.common.items.ItemEnum;
-import thaumicenergistics.common.items.ItemEssentiaCell;
-import thaumicenergistics.common.registries.EnumCache;
-import thaumicenergistics.common.storage.AspectStack;
-import thaumicenergistics.common.storage.AspectStackComparator.AspectStackComparatorMode;
 import appeng.api.config.AccessRestriction;
 import appeng.api.config.Actionable;
 import appeng.api.config.ViewItems;
@@ -25,6 +16,15 @@ import appeng.api.storage.ISaveProvider;
 import appeng.api.storage.StorageChannel;
 import appeng.api.storage.data.IAEFluidStack;
 import appeng.api.storage.data.IItemList;
+import thaumcraft.api.aspects.Aspect;
+import thaumicenergistics.api.storage.IAspectStack;
+import thaumicenergistics.common.fluids.GaseousEssentia;
+import thaumicenergistics.common.integration.tc.EssentiaConversionHelper;
+import thaumicenergistics.common.items.ItemEnum;
+import thaumicenergistics.common.items.ItemEssentiaCell;
+import thaumicenergistics.common.registries.EnumCache;
+import thaumicenergistics.common.storage.AspectStack;
+import thaumicenergistics.common.storage.AspectStackComparator.AspectStackComparatorMode;
 
 /**
  * Handles a non creative {@link ItemEssentiaCell}

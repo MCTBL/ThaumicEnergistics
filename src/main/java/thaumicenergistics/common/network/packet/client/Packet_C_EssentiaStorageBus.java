@@ -4,12 +4,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.player.EntityPlayer;
 
-import thaumicenergistics.client.gui.GuiEssentiaStorageBus;
-import thaumicenergistics.common.network.NetworkHandler;
-import thaumicenergistics.common.parts.PartEssentiaStorageBus;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
+import thaumicenergistics.client.gui.GuiEssentiaStorageBus;
+import thaumicenergistics.common.network.NetworkHandler;
+import thaumicenergistics.common.parts.PartEssentiaStorageBus;
 
 /**
  * {@link PartEssentiaStorageBus} client-bound packet.

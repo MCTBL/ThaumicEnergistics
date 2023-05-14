@@ -2,12 +2,12 @@ package thaumicenergistics.common.network.packet.server;
 
 import net.minecraft.entity.player.EntityPlayer;
 
+import io.netty.buffer.ByteBuf;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.common.container.ContainerEssentiaCellWorkbench;
 import thaumicenergistics.common.network.NetworkHandler;
 import thaumicenergistics.common.network.ThEBasePacket;
 import thaumicenergistics.common.tiles.TileEssentiaCellWorkbench;
-import io.netty.buffer.ByteBuf;
 
 /**
  * {@link TileEssentiaCellWorkbench} server-bound packet.

@@ -4,13 +4,13 @@ import java.util.HashMap;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 
-import thaumicenergistics.common.ThaumicEnergistics;
-import thaumicenergistics.common.network.packet.client.*;
-import thaumicenergistics.common.network.packet.server.*;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
+import thaumicenergistics.common.ThaumicEnergistics;
+import thaumicenergistics.common.network.packet.client.*;
+import thaumicenergistics.common.network.packet.server.*;
 
 /**
  * Handles all server<->client network communication for ThE.

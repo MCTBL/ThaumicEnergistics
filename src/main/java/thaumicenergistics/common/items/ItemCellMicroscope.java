@@ -10,6 +10,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
+import appeng.api.AEApi;
+import appeng.api.storage.*;
+import appeng.api.storage.data.IAEItemStack;
+import appeng.api.storage.data.IItemList;
+import appeng.items.storage.ItemBasicStorageCell;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.research.ScanResult;
 import thaumcraft.common.Thaumcraft;
 import thaumcraft.common.items.relics.ItemThaumometer;
@@ -18,13 +25,6 @@ import thaumcraft.common.lib.network.playerdata.PacketScannedToServer;
 import thaumcraft.common.lib.research.ScanManager;
 import thaumcraft.common.lib.utils.EntityUtils;
 import thaumicenergistics.common.registries.ThEStrings;
-import appeng.api.AEApi;
-import appeng.api.storage.*;
-import appeng.api.storage.data.IAEItemStack;
-import appeng.api.storage.data.IItemList;
-import appeng.items.storage.ItemBasicStorageCell;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemCellMicroscope extends ItemThaumometer {
 

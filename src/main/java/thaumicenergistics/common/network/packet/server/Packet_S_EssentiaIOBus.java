@@ -2,12 +2,12 @@ package thaumicenergistics.common.network.packet.server;
 
 import net.minecraft.entity.player.EntityPlayer;
 
+import io.netty.buffer.ByteBuf;
 import thaumicenergistics.common.network.NetworkHandler;
 import thaumicenergistics.common.network.ThEBasePacket;
 import thaumicenergistics.common.parts.PartEssentiaExportBus;
 import thaumicenergistics.common.parts.PartEssentiaImportBus;
 import thaumicenergistics.common.parts.ThEPartEssentiaIOBus_Base;
-import io.netty.buffer.ByteBuf;
 
 /**
  * {@link PartEssentiaImportBus} and {@link PartEssentiaExportBus} server-bound packet.

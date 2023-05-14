@@ -7,6 +7,7 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import appeng.api.config.Actionable;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.IEssentiaTransport;
 import thaumcraft.common.entities.golems.EntityGolemBase;
@@ -15,7 +16,6 @@ import thaumcraft.common.tiles.TileAlembic;
 import thaumcraft.common.tiles.TileJarFillable;
 import thaumcraft.common.tiles.TileJarFillableVoid;
 import thaumicenergistics.common.entities.WirelessGolemHandler.WirelessServerData;
-import appeng.api.config.Actionable;
 
 /**
  * Allows a golem to interact with networked essentia.

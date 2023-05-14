@@ -9,11 +9,11 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.common.config.ConfigBlocks;
 import thaumicenergistics.client.textures.AEStateIconsEnum;
 import thaumicenergistics.common.registries.ThEStrings;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Displays void status.

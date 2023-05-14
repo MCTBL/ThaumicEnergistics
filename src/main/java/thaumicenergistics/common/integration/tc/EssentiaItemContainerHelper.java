@@ -6,6 +6,10 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
+import com.djgiannuzz.thaumcraftneiplugin.items.ItemAspect;
+
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.Optional;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.IEssentiaContainerItem;
@@ -25,11 +29,6 @@ import thaumicenergistics.api.storage.IAspectStack;
 import thaumicenergistics.common.items.ItemBlockEssentiaVibrationChamber;
 import thaumicenergistics.common.storage.AspectStack;
 import thaumicenergistics.common.tiles.abstraction.TileEVCBase;
-
-import com.djgiannuzz.thaumcraftneiplugin.items.ItemAspect;
-
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.Optional;
 
 /**
  * Helper class for working with Thaumcraft item essentia containers.

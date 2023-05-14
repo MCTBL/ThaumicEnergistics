@@ -5,8 +5,6 @@ import java.util.concurrent.Future;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumicenergistics.common.ThEGuiHandler;
-import thaumicenergistics.common.network.NetworkHandler;
 import appeng.api.networking.IGrid;
 import appeng.api.networking.IGridHost;
 import appeng.api.networking.IGridNode;
@@ -17,6 +15,8 @@ import appeng.container.implementations.ContainerCraftAmount;
 import appeng.container.implementations.ContainerCraftConfirm;
 import appeng.core.AELog;
 import io.netty.buffer.ByteBuf;
+import thaumicenergistics.common.ThEGuiHandler;
+import thaumicenergistics.common.network.NetworkHandler;
 
 /**
  * Server-bound confirm crafting packet.

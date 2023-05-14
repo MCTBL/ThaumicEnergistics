@@ -7,10 +7,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.fluids.FluidStack;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumicenergistics.api.ThEApi;
-import thaumicenergistics.common.fluids.GaseousEssentia;
-import thaumicenergistics.common.parts.PartEssentiaStorageBus;
 import appeng.api.config.AccessRestriction;
 import appeng.api.config.Actionable;
 import appeng.api.networking.IGridNode;
@@ -22,6 +18,10 @@ import appeng.api.storage.IMEInventoryHandler;
 import appeng.api.storage.StorageChannel;
 import appeng.api.storage.data.IAEFluidStack;
 import appeng.api.storage.data.IItemList;
+import thaumcraft.api.aspects.Aspect;
+import thaumicenergistics.api.ThEApi;
+import thaumicenergistics.common.fluids.GaseousEssentia;
+import thaumicenergistics.common.parts.PartEssentiaStorageBus;
 
 /**
  * Defines a {@link PartEssentiaStorageBus} handler.

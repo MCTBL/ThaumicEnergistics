@@ -7,15 +7,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.IAspectContainer;
-import thaumcraft.common.tiles.TileJarFillableVoid;
-import thaumicenergistics.api.grid.IMEEssentiaMonitor;
-import thaumicenergistics.client.textures.BlockTextureManager;
-import thaumicenergistics.common.integration.tc.EssentiaTileContainerHelper;
-import thaumicenergistics.common.items.ItemCraftingAspect;
-import thaumicenergistics.common.items.ItemEnum;
-import thaumicenergistics.implementaion.ThEMultiCraftingTracker;
+import com.google.common.collect.ImmutableSet;
+
 import appeng.api.AEApi;
 import appeng.api.config.Actionable;
 import appeng.api.config.SecurityPermissions;
@@ -29,11 +22,17 @@ import appeng.api.parts.IPartCollisionHelper;
 import appeng.api.parts.IPartRenderHelper;
 import appeng.api.parts.PartItemStack;
 import appeng.api.storage.data.IAEItemStack;
-
-import com.google.common.collect.ImmutableSet;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.IAspectContainer;
+import thaumcraft.common.tiles.TileJarFillableVoid;
+import thaumicenergistics.api.grid.IMEEssentiaMonitor;
+import thaumicenergistics.client.textures.BlockTextureManager;
+import thaumicenergistics.common.integration.tc.EssentiaTileContainerHelper;
+import thaumicenergistics.common.items.ItemCraftingAspect;
+import thaumicenergistics.common.items.ItemEnum;
+import thaumicenergistics.implementaion.ThEMultiCraftingTracker;
 
 /**
  * Exports essentia into {@link IAspectContainer}

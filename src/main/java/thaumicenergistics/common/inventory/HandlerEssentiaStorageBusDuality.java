@@ -2,8 +2,6 @@ package thaumicenergistics.common.inventory;
 
 import net.minecraft.tileentity.TileEntity;
 
-import thaumcraft.api.aspects.IAspectContainer;
-import thaumicenergistics.common.parts.PartEssentiaStorageBus;
 import appeng.api.config.Actionable;
 import appeng.api.networking.IGridNode;
 import appeng.api.networking.security.BaseActionSource;
@@ -14,6 +12,8 @@ import appeng.api.storage.data.IItemList;
 import appeng.parts.misc.PartInterface;
 import appeng.tile.misc.TileCondenser;
 import appeng.tile.misc.TileInterface;
+import thaumcraft.api.aspects.IAspectContainer;
+import thaumicenergistics.common.parts.PartEssentiaStorageBus;
 
 /**
  * Pass-though handler for other handlers.

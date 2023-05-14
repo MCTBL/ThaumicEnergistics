@@ -4,15 +4,8 @@ import java.lang.ref.WeakReference;
 import java.util.*;
 import java.util.Map.Entry;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumicenergistics.api.grid.IMEEssentiaMonitor;
-import thaumicenergistics.api.grid.IMEEssentiaMonitorReceiver;
-import thaumicenergistics.api.storage.IAspectStack;
-import thaumicenergistics.api.storage.IEssentiaRepo;
-import thaumicenergistics.common.fluids.GaseousEssentia;
-import thaumicenergistics.common.integration.tc.EssentiaConversionHelper;
-import thaumicenergistics.common.storage.AspectStack;
-import thaumicenergistics.common.storage.EssentiaRepo;
+import com.google.common.collect.ImmutableList;
+
 import appeng.api.config.Actionable;
 import appeng.api.config.PowerMultiplier;
 import appeng.api.networking.energy.IEnergyGrid;
@@ -22,8 +15,15 @@ import appeng.api.storage.IMEMonitor;
 import appeng.api.storage.IMEMonitorHandlerReceiver;
 import appeng.api.storage.data.IAEFluidStack;
 import appeng.api.storage.data.IItemList;
-
-import com.google.common.collect.ImmutableList;
+import thaumcraft.api.aspects.Aspect;
+import thaumicenergistics.api.grid.IMEEssentiaMonitor;
+import thaumicenergistics.api.grid.IMEEssentiaMonitorReceiver;
+import thaumicenergistics.api.storage.IAspectStack;
+import thaumicenergistics.api.storage.IEssentiaRepo;
+import thaumicenergistics.common.fluids.GaseousEssentia;
+import thaumicenergistics.common.integration.tc.EssentiaConversionHelper;
+import thaumicenergistics.common.storage.AspectStack;
+import thaumicenergistics.common.storage.EssentiaRepo;
 
 /**
  * Wraps a fluid & power grid for easy essentia conversion and usage.

@@ -4,12 +4,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumicenergistics.api.grid.ICraftingIssuerHost;
-import thaumicenergistics.api.gui.ICraftingIssuerContainer;
-import thaumicenergistics.client.gui.*;
-import thaumicenergistics.common.container.*;
-import thaumicenergistics.common.inventory.HandlerWirelessEssentiaTerminal;
-import thaumicenergistics.common.parts.ThEPartBase;
 import appeng.api.parts.IPart;
 import appeng.api.parts.IPartHost;
 import appeng.container.AEBaseContainer;
@@ -17,6 +11,12 @@ import appeng.container.implementations.ContainerCraftAmount;
 import appeng.container.implementations.ContainerCraftConfirm;
 import appeng.helpers.IPriorityHost;
 import cpw.mods.fml.common.network.IGuiHandler;
+import thaumicenergistics.api.grid.ICraftingIssuerHost;
+import thaumicenergistics.api.gui.ICraftingIssuerContainer;
+import thaumicenergistics.client.gui.*;
+import thaumicenergistics.common.container.*;
+import thaumicenergistics.common.inventory.HandlerWirelessEssentiaTerminal;
+import thaumicenergistics.common.parts.ThEPartBase;
 
 /**
  * Handles ThE GUI launching.

@@ -11,6 +11,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.gui.IAspectSlotGui;
 import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
@@ -27,8 +29,6 @@ import thaumicenergistics.common.network.packet.server.Packet_S_ChangeGui;
 import thaumicenergistics.common.network.packet.server.Packet_S_EssentiaStorageBus;
 import thaumicenergistics.common.parts.AEPartsEnum;
 import thaumicenergistics.common.parts.PartEssentiaStorageBus;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * {@link PartEssentiaStorageBus} GUI

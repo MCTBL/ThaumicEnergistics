@@ -2,6 +2,7 @@ package thaumicenergistics.common.network.packet.server;
 
 import net.minecraft.entity.player.EntityPlayer;
 
+import io.netty.buffer.ByteBuf;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.common.container.ContainerEssentiaCellTerminalBase;
 import thaumicenergistics.common.items.ItemEssentiaCell;
@@ -9,7 +10,6 @@ import thaumicenergistics.common.items.ItemWirelessEssentiaTerminal;
 import thaumicenergistics.common.network.NetworkHandler;
 import thaumicenergistics.common.network.ThEBasePacket;
 import thaumicenergistics.common.parts.PartEssentiaTerminal;
-import io.netty.buffer.ByteBuf;
 
 /**
  * {@link PartEssentiaTerminal}, {@link ItemWirelessEssentiaTerminal}, and {@link ItemEssentiaCell} server-bound packet.

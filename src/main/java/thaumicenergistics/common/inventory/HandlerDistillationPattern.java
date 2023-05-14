@@ -5,8 +5,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.util.Constants.NBT;
 
-import thaumicenergistics.common.items.ItemCraftingAspect;
 import appeng.items.misc.ItemEncodedPattern;
+import thaumicenergistics.common.items.ItemCraftingAspect;
 
 /**
  * Handles {@link ItemEncodedPattern} items with a distillation encodeing.

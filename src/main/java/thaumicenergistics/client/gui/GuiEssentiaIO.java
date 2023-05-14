@@ -9,6 +9,9 @@ import net.minecraft.entity.player.EntityPlayer;
 
 import org.lwjgl.opengl.GL11;
 
+import appeng.api.config.RedstoneMode;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.gui.IAspectSlotGui;
 import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
@@ -25,9 +28,6 @@ import thaumicenergistics.common.parts.AEPartsEnum;
 import thaumicenergistics.common.parts.PartEssentiaExportBus;
 import thaumicenergistics.common.parts.PartEssentiaImportBus;
 import thaumicenergistics.common.parts.ThEPartEssentiaIOBus_Base;
-import appeng.api.config.RedstoneMode;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * {@link PartEssentiaExportBus} and {@link PartEssentiaImportBus} GUI

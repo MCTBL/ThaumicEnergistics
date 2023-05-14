@@ -11,13 +11,13 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import thaumcraft.client.lib.ClientTickEventsFML;
-import thaumicenergistics.common.inventory.TheInternalInventory;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.eventhandler.EventBus;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.client.lib.ClientTickEventsFML;
+import thaumicenergistics.common.inventory.TheInternalInventory;
 
 /**
  * Allows the Thaumcraft item aspect renderer (the aspects you see while holding down shift and mousing over and item)

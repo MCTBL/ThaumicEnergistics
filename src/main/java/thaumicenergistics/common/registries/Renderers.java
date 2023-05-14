@@ -2,15 +2,15 @@ package thaumicenergistics.common.registries;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 
+import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.api.ThEApi;
 import thaumicenergistics.client.render.*;
 import thaumicenergistics.common.items.ItemEnum;
 import thaumicenergistics.common.tiles.TileArcaneAssembler;
 import thaumicenergistics.common.tiles.TileGearBox;
-import cpw.mods.fml.client.registry.ClientRegistry;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Manages ThE renderers.

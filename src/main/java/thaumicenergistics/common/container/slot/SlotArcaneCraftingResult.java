@@ -7,11 +7,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerDestroyItemEvent;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.common.items.wands.ItemWandCasting;
 import thaumicenergistics.common.container.ContainerPartArcaneCraftingTerminal;
 import thaumicenergistics.common.utils.EffectiveSide;
-import cpw.mods.fml.common.FMLCommonHandler;
 
 /**
  * Slot that holds the result of an arcane crafting recipe.

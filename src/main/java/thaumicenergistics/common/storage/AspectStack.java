@@ -7,12 +7,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 
+import io.netty.buffer.ByteBuf;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.Thaumcraft;
 import thaumicenergistics.api.storage.IAspectStack;
 import thaumicenergistics.client.gui.ThEGuiHelper;
 import thaumicenergistics.common.network.ThEBasePacket;
-import io.netty.buffer.ByteBuf;
 
 /**
  * Stores an aspect and an amount.

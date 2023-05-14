@@ -8,6 +8,8 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
 import thaumicenergistics.client.gui.buttons.GuiButtonClearCraftingGrid;
 import thaumicenergistics.client.gui.buttons.GuiButtonSaveDelete;
@@ -18,8 +20,6 @@ import thaumicenergistics.common.container.ContainerKnowledgeInscriber.CoreSaveS
 import thaumicenergistics.common.network.packet.server.Packet_S_KnowledgeInscriber;
 import thaumicenergistics.common.registries.ThEStrings;
 import thaumicenergistics.common.tiles.TileKnowledgeInscriber;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * {@link TileKnowledgeInscriber} GUI

@@ -7,11 +7,11 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumicenergistics.common.blocks.BlockGolemGearBox;
-import thaumicenergistics.common.utils.EffectiveSide;
 import appeng.api.implementations.tiles.ICrankable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.common.blocks.BlockGolemGearBox;
+import thaumicenergistics.common.utils.EffectiveSide;
 
 /**
  * Unbreakable crank.

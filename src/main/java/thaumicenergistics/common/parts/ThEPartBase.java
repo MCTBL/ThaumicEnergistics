@@ -18,12 +18,6 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumicenergistics.client.textures.BlockTextureManager;
-import thaumicenergistics.common.ThEGuiHandler;
-import thaumicenergistics.common.grid.AEPartGridBlock;
-import thaumicenergistics.common.utils.EffectiveSide;
-import thaumicenergistics.common.utils.ThELog;
-import thaumicenergistics.common.utils.ThEUtils;
 import appeng.api.AEApi;
 import appeng.api.config.SecurityPermissions;
 import appeng.api.implementations.IPowerChannelState;
@@ -42,6 +36,12 @@ import appeng.api.util.DimensionalCoord;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
+import thaumicenergistics.client.textures.BlockTextureManager;
+import thaumicenergistics.common.ThEGuiHandler;
+import thaumicenergistics.common.grid.AEPartGridBlock;
+import thaumicenergistics.common.utils.EffectiveSide;
+import thaumicenergistics.common.utils.ThELog;
+import thaumicenergistics.common.utils.ThEUtils;
 
 /**
  * Base class for all ThE cable parts.

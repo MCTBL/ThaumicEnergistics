@@ -4,10 +4,10 @@ import java.util.Collection;
 
 import javax.annotation.Nonnull;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumicenergistics.api.storage.IAspectStack;
 import appeng.api.config.Actionable;
 import appeng.api.networking.security.BaseActionSource;
+import thaumcraft.api.aspects.Aspect;
+import thaumicenergistics.api.storage.IAspectStack;
 
 /**
  * Provides access to essentia storage.

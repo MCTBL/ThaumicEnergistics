@@ -6,11 +6,11 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.client.textures.BlockTextureManager;
 import thaumicenergistics.common.registries.Renderers;
 import thaumicenergistics.common.tiles.TileEssentiaProvider;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * {@link TileEssentiaProvider} block.

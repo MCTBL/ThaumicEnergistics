@@ -2,9 +2,9 @@ package thaumicenergistics.common.network.packet.server;
 
 import net.minecraft.entity.player.EntityPlayer;
 
+import io.netty.buffer.ByteBuf;
 import thaumicenergistics.common.container.ContainerPriority;
 import thaumicenergistics.common.network.NetworkHandler;
-import io.netty.buffer.ByteBuf;
 
 /**
  * Priority GUI client-bound packet.

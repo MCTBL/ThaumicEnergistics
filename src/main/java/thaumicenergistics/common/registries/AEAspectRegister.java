@@ -10,14 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 
-import thaumcraft.api.ThaumcraftApi;
-import thaumcraft.api.ThaumcraftApiHelper;
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.AspectList;
-import thaumicenergistics.api.IThEItems;
-import thaumicenergistics.api.ThEApi;
-import thaumicenergistics.common.utils.ThELog;
-import thaumicenergistics.common.utils.ThEUtils;
 import appeng.api.AEApi;
 import appeng.api.definitions.*;
 import appeng.api.features.IGrinderEntry;
@@ -27,6 +19,14 @@ import appeng.api.util.AEColoredItemDefinition;
 import appeng.core.features.registries.entries.InscriberRecipe;
 import appeng.recipes.GroupIngredient;
 import appeng.recipes.Ingredient;
+import thaumcraft.api.ThaumcraftApi;
+import thaumcraft.api.ThaumcraftApiHelper;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
+import thaumicenergistics.api.IThEItems;
+import thaumicenergistics.api.ThEApi;
+import thaumicenergistics.common.utils.ThELog;
+import thaumicenergistics.common.utils.ThEUtils;
 
 /**
  * Gives items from AE2 aspects when scanned.

@@ -14,6 +14,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
+import appeng.api.storage.data.IAEItemStack;
+import appeng.container.slot.SlotFake;
+import appeng.container.slot.SlotFakeCraftingMatrix;
+import appeng.container.slot.SlotInaccessible;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.IArcaneRecipe;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
@@ -27,10 +31,6 @@ import thaumicenergistics.common.items.ItemKnowledgeCore;
 import thaumicenergistics.common.network.packet.client.Packet_C_KnowledgeInscriber;
 import thaumicenergistics.common.tiles.TileKnowledgeInscriber;
 import thaumicenergistics.common.utils.EffectiveSide;
-import appeng.api.storage.data.IAEItemStack;
-import appeng.container.slot.SlotFake;
-import appeng.container.slot.SlotFakeCraftingMatrix;
-import appeng.container.slot.SlotInaccessible;
 
 /**
  * {@link TileKnowledgeInscriber} container.
