@@ -6,15 +6,15 @@ import net.minecraft.entity.player.EntityPlayer;
 
 import org.lwjgl.opengl.GL11;
 
+import appeng.core.AEConfig;
+import appeng.util.ReadableNumberConverter;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.gui.IAspectSelectorGui;
 import thaumicenergistics.api.storage.IAspectStack;
 import thaumicenergistics.client.gui.ThEGuiHelper;
 import thaumicenergistics.common.utils.ThEUtils;
-import appeng.core.AEConfig;
-import appeng.util.ReadableNumberConverter;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Widget displaying an aspect and if it is selected.

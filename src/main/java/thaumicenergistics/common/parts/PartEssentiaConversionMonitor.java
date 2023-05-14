@@ -12,6 +12,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
+import appeng.api.AEApi;
+import appeng.api.config.Actionable;
+import appeng.api.config.SecurityPermissions;
+import appeng.api.networking.security.PlayerSource;
+import appeng.client.texture.CableBusTextures;
+import appeng.util.InventoryAdaptor;
+import appeng.util.Platform;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.IEssentiaContainerItem;
 import thaumicenergistics.api.grid.IMEEssentiaMonitor;
@@ -20,13 +27,6 @@ import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper;
 import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper.AspectItemType;
 import thaumicenergistics.common.storage.AspectStack;
 import thaumicenergistics.common.utils.EffectiveSide;
-import appeng.api.AEApi;
-import appeng.api.config.Actionable;
-import appeng.api.config.SecurityPermissions;
-import appeng.api.networking.security.PlayerSource;
-import appeng.client.texture.CableBusTextures;
-import appeng.util.InventoryAdaptor;
-import appeng.util.Platform;
 
 /**
  * Displays essentia levels, and allows extraction/insertion from {@link IEssentiaContainerItem}.

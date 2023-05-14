@@ -2,14 +2,14 @@ package thaumicenergistics.common.grid;
 
 import java.util.Collection;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumicenergistics.api.grid.IMEEssentiaMonitor;
-import thaumicenergistics.api.grid.IMEEssentiaMonitorReceiver;
-import thaumicenergistics.api.storage.IAspectStack;
 import appeng.api.config.Actionable;
 import appeng.api.config.PowerMultiplier;
 import appeng.api.networking.energy.IEnergyGrid;
 import appeng.api.networking.security.BaseActionSource;
+import thaumcraft.api.aspects.Aspect;
+import thaumicenergistics.api.grid.IMEEssentiaMonitor;
+import thaumicenergistics.api.grid.IMEEssentiaMonitorReceiver;
+import thaumicenergistics.api.storage.IAspectStack;
 
 /**
  * Decouples the essentia grid from it's power grid.

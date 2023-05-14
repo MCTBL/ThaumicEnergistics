@@ -4,6 +4,16 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import appeng.api.AEApi;
+import cpw.mods.fml.common.LoaderState;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import thaumicenergistics.Tags;
 import thaumicenergistics.api.IThEConfig;
 import thaumicenergistics.api.ThEApi;
@@ -16,16 +26,6 @@ import thaumicenergistics.common.integration.tc.EssentiaTileContainerHelper;
 import thaumicenergistics.common.network.NetworkHandler;
 import thaumicenergistics.common.registries.AEAspectRegister;
 import thaumicenergistics.common.utils.ThELog;
-import appeng.api.AEApi;
-import cpw.mods.fml.common.LoaderState;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
 
 /**
  * <strong>Thaumic Energistics</strong>

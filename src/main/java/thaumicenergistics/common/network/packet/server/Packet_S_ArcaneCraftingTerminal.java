@@ -2,16 +2,16 @@ package thaumicenergistics.common.network.packet.server;
 
 import net.minecraft.entity.player.EntityPlayer;
 
-import thaumicenergistics.common.container.ContainerPartArcaneCraftingTerminal;
-import thaumicenergistics.common.network.NetworkHandler;
-import thaumicenergistics.common.network.ThEBasePacket;
-import thaumicenergistics.common.parts.PartArcaneCraftingTerminal;
-import thaumicenergistics.common.registries.EnumCache;
 import appeng.api.config.SortDir;
 import appeng.api.config.SortOrder;
 import appeng.api.config.ViewItems;
 import appeng.api.storage.data.IAEItemStack;
 import io.netty.buffer.ByteBuf;
+import thaumicenergistics.common.container.ContainerPartArcaneCraftingTerminal;
+import thaumicenergistics.common.network.NetworkHandler;
+import thaumicenergistics.common.network.ThEBasePacket;
+import thaumicenergistics.common.parts.PartArcaneCraftingTerminal;
+import thaumicenergistics.common.registries.EnumCache;
 
 /**
  * {@link PartArcaneCraftingTerminal} server-bound packet.

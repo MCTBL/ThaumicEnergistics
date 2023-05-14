@@ -14,12 +14,6 @@ import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
-import thaumicenergistics.client.gui.GuiArcaneCraftingTerminal;
-import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
-import thaumicenergistics.common.container.ContainerPartArcaneCraftingTerminal;
-import thaumicenergistics.common.items.ItemEnum;
-import thaumicenergistics.common.network.NetworkHandler;
-import thaumicenergistics.common.network.packet.server.Packet_S_NEIRecipe;
 import appeng.util.Platform;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
@@ -27,6 +21,12 @@ import codechicken.nei.api.INEIGuiAdapter;
 import codechicken.nei.api.IOverlayHandler;
 import codechicken.nei.api.IStackPositioner;
 import codechicken.nei.recipe.IRecipeHandler;
+import thaumicenergistics.client.gui.GuiArcaneCraftingTerminal;
+import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
+import thaumicenergistics.common.container.ContainerPartArcaneCraftingTerminal;
+import thaumicenergistics.common.items.ItemEnum;
+import thaumicenergistics.common.network.NetworkHandler;
+import thaumicenergistics.common.network.packet.server.Packet_S_NEIRecipe;
 
 /**
  * Contains all code required to integrate with Not Enough Items.

@@ -7,9 +7,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.util.Constants;
 
+import appeng.api.storage.data.IAEItemStack;
 import thaumicenergistics.common.integration.tc.ArcaneCraftingPattern;
 import thaumicenergistics.common.items.ItemKnowledgeCore;
-import appeng.api.storage.data.IAEItemStack;
 
 /**
  * Handles an {@link ItemKnowledgeCore}

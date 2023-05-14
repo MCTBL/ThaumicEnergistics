@@ -8,12 +8,6 @@ import net.minecraft.world.World;
 
 import org.apache.commons.lang3.StringUtils;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumicenergistics.api.grid.IEssentiaGrid;
-import thaumicenergistics.api.grid.IMEEssentiaMonitor;
-import thaumicenergistics.api.grid.IMEEssentiaMonitorReceiver;
-import thaumicenergistics.api.storage.IAspectStack;
-import thaumicenergistics.common.tiles.TileEssentiaProvider;
 import appeng.api.networking.IGrid;
 import appeng.me.GridAccessException;
 import dan200.computercraft.api.lua.ILuaContext;
@@ -21,6 +15,12 @@ import dan200.computercraft.api.lua.ILuaObject;
 import dan200.computercraft.api.lua.LuaException;
 import dan200.computercraft.api.peripheral.IComputerAccess;
 import dan200.computercraft.api.peripheral.IPeripheral;
+import thaumcraft.api.aspects.Aspect;
+import thaumicenergistics.api.grid.IEssentiaGrid;
+import thaumicenergistics.api.grid.IMEEssentiaMonitor;
+import thaumicenergistics.api.grid.IMEEssentiaMonitorReceiver;
+import thaumicenergistics.api.storage.IAspectStack;
+import thaumicenergistics.common.tiles.TileEssentiaProvider;
 
 /**
  * Treats an Essentia Provider as a ComputerCraft peripheral.

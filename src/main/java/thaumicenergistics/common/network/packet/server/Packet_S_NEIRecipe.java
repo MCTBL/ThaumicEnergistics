@@ -13,12 +13,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.oredict.OreDictionary;
 
-import thaumcraft.api.crafting.IArcaneRecipe;
-import thaumcraft.common.tiles.TileMagicWorkbench;
-import thaumicenergistics.common.container.ContainerInternalCrafting;
-import thaumicenergistics.common.container.ContainerPartArcaneCraftingTerminal;
-import thaumicenergistics.common.integration.tc.ArcaneRecipeHelper;
-import thaumicenergistics.common.parts.PartArcaneCraftingTerminal;
 import appeng.api.config.Actionable;
 import appeng.api.config.FuzzyMode;
 import appeng.api.config.PowerMultiplier;
@@ -40,6 +34,12 @@ import appeng.util.item.AEItemStack;
 import appeng.util.prioitylist.IPartitionList;
 import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
+import thaumcraft.api.crafting.IArcaneRecipe;
+import thaumcraft.common.tiles.TileMagicWorkbench;
+import thaumicenergistics.common.container.ContainerInternalCrafting;
+import thaumicenergistics.common.container.ContainerPartArcaneCraftingTerminal;
+import thaumicenergistics.common.integration.tc.ArcaneRecipeHelper;
+import thaumicenergistics.common.parts.PartArcaneCraftingTerminal;
 
 public class Packet_S_NEIRecipe extends ThEServerPacket {
 

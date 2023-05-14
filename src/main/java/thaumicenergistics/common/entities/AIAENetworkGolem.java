@@ -5,12 +5,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.common.entities.golems.EntityGolemBase;
-import thaumicenergistics.api.grid.IMEEssentiaMonitor;
-import thaumicenergistics.common.grid.WirelessAELink;
-import thaumicenergistics.common.integration.tc.GolemUpgradeTypes;
-import thaumicenergistics.common.items.ItemGolemWirelessBackpack;
 import appeng.api.AEApi;
 import appeng.api.config.Actionable;
 import appeng.api.config.PowerMultiplier;
@@ -18,6 +12,12 @@ import appeng.api.networking.energy.IEnergyGrid;
 import appeng.api.storage.IMEMonitor;
 import appeng.api.storage.data.IAEFluidStack;
 import appeng.api.storage.data.IAEItemStack;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.common.entities.golems.EntityGolemBase;
+import thaumicenergistics.api.grid.IMEEssentiaMonitor;
+import thaumicenergistics.common.grid.WirelessAELink;
+import thaumicenergistics.common.integration.tc.GolemUpgradeTypes;
+import thaumicenergistics.common.items.ItemGolemWirelessBackpack;
 
 /**
  * Base AI script for golems wearing the {@link ItemGolemWirelessBackpack}.

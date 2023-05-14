@@ -4,15 +4,15 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.player.EntityPlayer;
 
+import appeng.api.config.RedstoneMode;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import io.netty.buffer.ByteBuf;
 import thaumicenergistics.client.gui.GuiEssentiaIO;
 import thaumicenergistics.common.network.NetworkHandler;
 import thaumicenergistics.common.parts.PartEssentiaExportBus;
 import thaumicenergistics.common.parts.PartEssentiaImportBus;
 import thaumicenergistics.common.registries.EnumCache;
-import appeng.api.config.RedstoneMode;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import io.netty.buffer.ByteBuf;
 
 /**
  * {@link PartEssentiaImportBus}, {@link PartEssentiaExportBus} client-bound packet.

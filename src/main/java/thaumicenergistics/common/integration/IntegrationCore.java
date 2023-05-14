@@ -2,16 +2,16 @@ package thaumicenergistics.common.integration;
 
 import net.minecraft.nbt.NBTTagCompound;
 
+import appeng.api.config.Upgrades;
+import cpw.mods.fml.common.event.FMLInterModComms;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.api.ThEApi;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.blocks.BlockArcaneAssembler;
 import thaumicenergistics.common.tiles.TileEssentiaProvider;
 import thaumicenergistics.common.utils.EffectiveSide;
 import thaumicenergistics.common.utils.ThELog;
-import appeng.api.config.Upgrades;
-import cpw.mods.fml.common.event.FMLInterModComms;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Integrates ThE with other mods.

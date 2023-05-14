@@ -5,9 +5,9 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumicenergistics.common.tiles.TileGearBox;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.common.tiles.TileGearBox;
 
 /**
  * {@link TileGearBox} model.

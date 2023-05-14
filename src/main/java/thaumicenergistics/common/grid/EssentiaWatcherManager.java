@@ -3,13 +3,13 @@ package thaumicenergistics.common.grid;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import appeng.api.networking.IGridNode;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.grid.IEssentiaWatcher;
 import thaumicenergistics.api.grid.IEssentiaWatcherHost;
 import thaumicenergistics.api.grid.IMEEssentiaMonitor;
 import thaumicenergistics.api.grid.IMEEssentiaMonitorReceiver;
 import thaumicenergistics.api.storage.IAspectStack;
-import appeng.api.networking.IGridNode;
 
 class EssentiaWatcherManager implements IMEEssentiaMonitorReceiver {
 

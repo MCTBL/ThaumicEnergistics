@@ -6,6 +6,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.tileentity.TileEntity;
 
+import appeng.api.AEApi;
+import appeng.api.config.ViewItems;
+import appeng.api.networking.IGrid;
+import appeng.api.networking.security.BaseActionSource;
+import appeng.api.networking.security.PlayerSource;
+import appeng.api.storage.data.IAEItemStack;
+import appeng.container.ContainerOpenContext;
+import appeng.container.implementations.ContainerCraftAmount;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.grid.ICraftingIssuerHost;
 import thaumicenergistics.api.grid.IMEEssentiaMonitor;
@@ -16,14 +24,6 @@ import thaumicenergistics.common.network.packet.server.Packet_S_EssentiaCellTerm
 import thaumicenergistics.common.parts.PartEssentiaTerminal;
 import thaumicenergistics.common.storage.AspectStackComparator.AspectStackComparatorMode;
 import thaumicenergistics.common.utils.EffectiveSide;
-import appeng.api.AEApi;
-import appeng.api.config.ViewItems;
-import appeng.api.networking.IGrid;
-import appeng.api.networking.security.BaseActionSource;
-import appeng.api.networking.security.PlayerSource;
-import appeng.api.storage.data.IAEItemStack;
-import appeng.container.ContainerOpenContext;
-import appeng.container.implementations.ContainerCraftAmount;
 
 /**
  * Inventory container for the essentia terminal.

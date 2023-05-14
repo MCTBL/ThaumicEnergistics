@@ -9,6 +9,10 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import org.lwjgl.opengl.GL11;
 
+import appeng.api.AEApi;
+import appeng.items.parts.ItemFacade;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.common.config.ConfigBlocks;
 import thaumcraft.common.entities.golems.EntityGolemBase;
 import thaumicenergistics.api.entities.IGolemHookHandler;
@@ -19,10 +23,6 @@ import thaumicenergistics.common.items.ItemEnum;
 import thaumicenergistics.common.items.ItemGolemWirelessBackpack;
 import thaumicenergistics.common.items.ItemGolemWirelessBackpack.BackpackSkins;
 import thaumicenergistics.common.utils.EffectiveSide;
-import appeng.api.AEApi;
-import appeng.items.parts.ItemFacade;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Handles golems wearing the {@link ItemGolemWirelessBackpack}

@@ -9,14 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityFurnace;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumicenergistics.common.container.ContainerEssentiaVibrationChamber;
-import thaumicenergistics.common.integration.IWailaSource;
-import thaumicenergistics.common.integration.tc.EssentiaTransportHelper;
-import thaumicenergistics.common.network.ThEBasePacket;
-import thaumicenergistics.common.registries.ThEStrings;
-import thaumicenergistics.common.storage.AspectStack;
-import thaumicenergistics.common.tiles.abstraction.TileEVCBase;
 import appeng.api.config.Actionable;
 import appeng.api.networking.IGridNode;
 import appeng.api.networking.energy.IEnergyGrid;
@@ -25,6 +17,14 @@ import appeng.api.networking.ticking.TickRateModulation;
 import appeng.api.networking.ticking.TickingRequest;
 import appeng.me.GridAccessException;
 import io.netty.buffer.ByteBuf;
+import thaumcraft.api.aspects.Aspect;
+import thaumicenergistics.common.container.ContainerEssentiaVibrationChamber;
+import thaumicenergistics.common.integration.IWailaSource;
+import thaumicenergistics.common.integration.tc.EssentiaTransportHelper;
+import thaumicenergistics.common.network.ThEBasePacket;
+import thaumicenergistics.common.registries.ThEStrings;
+import thaumicenergistics.common.storage.AspectStack;
+import thaumicenergistics.common.tiles.abstraction.TileEVCBase;
 
 /**
  * Implements the logical functionality of the E.V.C.

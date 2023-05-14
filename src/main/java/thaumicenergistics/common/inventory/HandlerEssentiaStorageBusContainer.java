@@ -8,6 +8,12 @@ import java.util.List;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fluids.FluidStack;
 
+import appeng.api.config.Actionable;
+import appeng.api.networking.IGrid;
+import appeng.api.networking.IGridNode;
+import appeng.api.networking.security.BaseActionSource;
+import appeng.api.storage.data.IAEFluidStack;
+import appeng.api.storage.data.IItemList;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.IAspectContainer;
 import thaumcraft.common.tiles.TileEssentiaReservoir;
@@ -19,12 +25,6 @@ import thaumicenergistics.common.grid.GridEssentiaCache;
 import thaumicenergistics.common.integration.tc.EssentiaConversionHelper;
 import thaumicenergistics.common.integration.tc.EssentiaTileContainerHelper;
 import thaumicenergistics.common.parts.PartEssentiaStorageBus;
-import appeng.api.config.Actionable;
-import appeng.api.networking.IGrid;
-import appeng.api.networking.IGridNode;
-import appeng.api.networking.security.BaseActionSource;
-import appeng.api.storage.data.IAEFluidStack;
-import appeng.api.storage.data.IItemList;
 
 /**
  * Handles interaction between {@link PartEssentiaStorageBus} and {@link IAspectContainer}.

@@ -10,12 +10,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumicenergistics.api.grid.IDigiVisSource;
-import thaumicenergistics.common.registries.ThEStrings;
 import appeng.api.networking.IGrid;
 import appeng.api.parts.IPart;
 import appeng.api.parts.IPartHost;
 import appeng.api.util.DimensionalCoord;
+import thaumicenergistics.api.grid.IDigiVisSource;
+import thaumicenergistics.common.registries.ThEStrings;
 
 public class DigiVisSourceData {
 

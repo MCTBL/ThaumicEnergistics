@@ -8,6 +8,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import appeng.api.config.Actionable;
+import appeng.tile.TileEvent;
+import appeng.tile.events.TileEventType;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.IEssentiaTransport;
 import thaumicenergistics.api.ThEApi;
@@ -15,9 +18,6 @@ import thaumicenergistics.api.tiles.IEssentiaTransportWithSimulate;
 import thaumicenergistics.common.integration.IEssentiaProviderWatcher;
 import thaumicenergistics.common.integration.tc.EssentiaTransportHelper;
 import thaumicenergistics.common.tiles.abstraction.TileProviderBase;
-import appeng.api.config.Actionable;
-import appeng.tile.TileEvent;
-import appeng.tile.events.TileEventType;
 
 /**
  * Provides essentia to {@link IEssentiaTransport} devices via suction.

@@ -4,10 +4,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 
-import thaumicenergistics.common.items.ItemFocusAEWrench;
-import thaumicenergistics.common.network.NetworkHandler;
 import appeng.util.Platform;
 import io.netty.buffer.ByteBuf;
+import thaumicenergistics.common.items.ItemFocusAEWrench;
+import thaumicenergistics.common.network.NetworkHandler;
 
 /**
  * {@link ItemFocusAEWrench} server-bound packet.

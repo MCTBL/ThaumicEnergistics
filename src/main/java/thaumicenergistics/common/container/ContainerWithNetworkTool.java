@@ -5,14 +5,14 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import thaumicenergistics.common.container.slot.SlotNetworkTool;
-import thaumicenergistics.common.container.slot.SlotRestrictive;
 import appeng.api.AEApi;
 import appeng.api.implementations.guiobjects.IGuiItem;
 import appeng.api.implementations.guiobjects.INetworkTool;
 import appeng.api.implementations.items.IUpgradeModule;
 import appeng.api.util.DimensionalCoord;
 import appeng.parts.automation.UpgradeInventory;
+import thaumicenergistics.common.container.slot.SlotNetworkTool;
+import thaumicenergistics.common.container.slot.SlotRestrictive;
 
 /**
  * Container that shows the network tool, player inventory, and any specified upgrade slots.

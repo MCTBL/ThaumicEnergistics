@@ -12,6 +12,19 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import appeng.api.config.Settings;
+import appeng.api.config.ViewItems;
+import appeng.api.parts.IPartCollisionHelper;
+import appeng.api.parts.IPartRenderHelper;
+import appeng.api.parts.PartItemStack;
+import appeng.api.storage.IMEMonitor;
+import appeng.api.storage.data.IAEFluidStack;
+import appeng.api.storage.data.IAEItemStack;
+import appeng.api.util.AEColor;
+import appeng.api.util.IConfigManager;
+import appeng.util.Platform;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.grid.ICraftingIssuerHost;
 import thaumicenergistics.client.gui.GuiEssentiaCellTerminal;
@@ -27,19 +40,6 @@ import thaumicenergistics.common.network.packet.server.Packet_S_ChangeGui;
 import thaumicenergistics.common.registries.EnumCache;
 import thaumicenergistics.common.storage.AspectStackComparator.AspectStackComparatorMode;
 import thaumicenergistics.common.utils.EffectiveSide;
-import appeng.api.config.Settings;
-import appeng.api.config.ViewItems;
-import appeng.api.parts.IPartCollisionHelper;
-import appeng.api.parts.IPartRenderHelper;
-import appeng.api.parts.PartItemStack;
-import appeng.api.storage.IMEMonitor;
-import appeng.api.storage.data.IAEFluidStack;
-import appeng.api.storage.data.IAEItemStack;
-import appeng.api.util.AEColor;
-import appeng.api.util.IConfigManager;
-import appeng.util.Platform;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Allows a player to extract/deposit essentia from the network.

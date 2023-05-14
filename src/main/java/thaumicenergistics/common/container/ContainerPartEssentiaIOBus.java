@@ -9,11 +9,11 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
+import appeng.api.config.RedstoneMode;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.common.network.packet.client.Packet_C_AspectSlot;
 import thaumicenergistics.common.network.packet.client.Packet_C_EssentiaIOBus;
 import thaumicenergistics.common.parts.ThEPartEssentiaIOBus_Base;
-import appeng.api.config.RedstoneMode;
 
 /**
  * Inventory container for the import and export busses.

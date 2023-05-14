@@ -20,6 +20,15 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import org.lwjgl.input.Keyboard;
 
+import appeng.api.AEApi;
+import appeng.api.implementations.tiles.IChestOrDrive;
+import appeng.api.implementations.tiles.IMEChest;
+import appeng.api.networking.security.PlayerSource;
+import appeng.api.storage.*;
+import appeng.api.storage.data.IAEFluidStack;
+import appeng.core.localization.GuiText;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.api.storage.IAspectStack;
 import thaumicenergistics.client.textures.BlockTextureManager;
 import thaumicenergistics.common.ThEGuiHandler;
@@ -30,15 +39,6 @@ import thaumicenergistics.common.registries.ThEStrings;
 import thaumicenergistics.common.storage.AspectStack;
 import thaumicenergistics.common.storage.AspectStackComparator;
 import thaumicenergistics.common.storage.EnumEssentiaStorageTypes;
-import appeng.api.AEApi;
-import appeng.api.implementations.tiles.IChestOrDrive;
-import appeng.api.implementations.tiles.IMEChest;
-import appeng.api.networking.security.PlayerSource;
-import appeng.api.storage.*;
-import appeng.api.storage.data.IAEFluidStack;
-import appeng.core.localization.GuiText;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Stores essentia.

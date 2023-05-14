@@ -5,14 +5,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
+import com.google.common.collect.ImmutableList;
+
+import cpw.mods.fml.common.LoaderState;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.*;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.fluids.GaseousEssentia;
 import thaumicenergistics.common.utils.ThELog;
-
-import com.google.common.collect.ImmutableList;
-import cpw.mods.fml.common.LoaderState;
 
 /**
  * Implements {@link ThEApi}.

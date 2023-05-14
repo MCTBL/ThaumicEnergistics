@@ -12,10 +12,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 
-import thaumcraft.common.items.wands.ItemWandCasting;
-import thaumicenergistics.common.network.packet.client.Packet_C_Sync;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.common.items.wands.ItemWandCasting;
+import thaumicenergistics.common.network.packet.client.Packet_C_Sync;
 
 /**
  * Houses commonly used methods.

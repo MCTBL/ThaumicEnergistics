@@ -15,6 +15,15 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import appeng.api.config.RedstoneMode;
+import appeng.api.config.SecurityPermissions;
+import appeng.api.parts.IPartCollisionHelper;
+import appeng.api.parts.IPartRenderHelper;
+import appeng.api.parts.PartItemStack;
+import appeng.util.Platform;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import io.netty.buffer.ByteBuf;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.grid.IEssentiaWatcher;
 import thaumicenergistics.api.grid.IEssentiaWatcherHost;
@@ -26,15 +35,6 @@ import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper;
 import thaumicenergistics.common.network.IAspectSlotPart;
 import thaumicenergistics.common.registries.EnumCache;
 import thaumicenergistics.common.utils.EffectiveSide;
-import appeng.api.config.RedstoneMode;
-import appeng.api.config.SecurityPermissions;
-import appeng.api.parts.IPartCollisionHelper;
-import appeng.api.parts.IPartRenderHelper;
-import appeng.api.parts.PartItemStack;
-import appeng.util.Platform;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import io.netty.buffer.ByteBuf;
 
 /**
  * Emits redstone signals based on networked essentia levels.

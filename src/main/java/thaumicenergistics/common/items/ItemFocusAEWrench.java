@@ -14,6 +14,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 
+import appeng.api.AEApi;
+import appeng.api.parts.IPartHost;
+import appeng.core.CommonHelper;
+import appeng.parts.PartPlacement;
+import appeng.parts.PartPlacement.PlaceType;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.wands.FocusUpgradeType;
@@ -26,11 +31,6 @@ import thaumicenergistics.common.network.packet.server.Packet_S_WrenchFocus;
 import thaumicenergistics.common.registries.FeatureRegistry;
 import thaumicenergistics.common.registries.ThEStrings;
 import thaumicenergistics.common.utils.ThEUtils;
-import appeng.api.AEApi;
-import appeng.api.parts.IPartHost;
-import appeng.core.CommonHelper;
-import appeng.parts.PartPlacement;
-import appeng.parts.PartPlacement.PlaceType;
 
 /**
  * Focus that behaves like an AE2 wrench.

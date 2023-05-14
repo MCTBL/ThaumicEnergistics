@@ -7,13 +7,13 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
-import thaumicenergistics.api.grid.ICraftingIssuerHost;
-import thaumicenergistics.common.network.packet.server.Packet_S_ConfirmCraftingJob;
 import appeng.client.gui.implementations.GuiCraftAmount;
 import appeng.client.gui.widgets.GuiTabButton;
 import appeng.core.localization.GuiText;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.api.grid.ICraftingIssuerHost;
+import thaumicenergistics.common.network.packet.server.Packet_S_ConfirmCraftingJob;
 
 /**
  * Bridges the AE2 CraftAmount GUI and the ThE API

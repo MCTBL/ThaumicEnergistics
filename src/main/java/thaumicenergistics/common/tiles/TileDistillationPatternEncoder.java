@@ -6,8 +6,8 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-import thaumicenergistics.common.tiles.abstraction.ThETileInventory;
 import appeng.api.AEApi;
+import thaumicenergistics.common.tiles.abstraction.ThETileInventory;
 
 /**
  * Encodes recipes whose result is essentia.

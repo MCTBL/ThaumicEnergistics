@@ -9,6 +9,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
+import appeng.api.config.RedstoneMode;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.api.gui.IAspectSlotGui;
 import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
@@ -21,9 +24,6 @@ import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper;
 import thaumicenergistics.common.network.packet.server.Packet_S_EssentiaEmitter;
 import thaumicenergistics.common.parts.AEPartsEnum;
 import thaumicenergistics.common.parts.PartEssentiaLevelEmitter;
-import appeng.api.config.RedstoneMode;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * {@link PartEssentiaLevelEmitter} GUI

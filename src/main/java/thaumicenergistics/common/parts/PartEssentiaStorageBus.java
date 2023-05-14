@@ -14,17 +14,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.api.aspects.IAspectContainer;
-import thaumicenergistics.client.gui.GuiEssentiaStorageBus;
-import thaumicenergistics.client.textures.BlockTextureManager;
-import thaumicenergistics.common.container.ContainerPartEssentiaStorageBus;
-import thaumicenergistics.common.grid.EssentiaMonitor;
-import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper;
-import thaumicenergistics.common.inventory.HandlerEssentiaStorageBusBase;
-import thaumicenergistics.common.inventory.HandlerEssentiaStorageBusDuality;
-import thaumicenergistics.common.network.IAspectSlotPart;
-import thaumicenergistics.common.utils.EffectiveSide;
 import appeng.api.AEApi;
 import appeng.api.config.Actionable;
 import appeng.api.config.PowerMultiplier;
@@ -50,6 +39,17 @@ import appeng.tile.inventory.IAEAppEngInventory;
 import appeng.tile.inventory.InvOperation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.IAspectContainer;
+import thaumicenergistics.client.gui.GuiEssentiaStorageBus;
+import thaumicenergistics.client.textures.BlockTextureManager;
+import thaumicenergistics.common.container.ContainerPartEssentiaStorageBus;
+import thaumicenergistics.common.grid.EssentiaMonitor;
+import thaumicenergistics.common.integration.tc.EssentiaItemContainerHelper;
+import thaumicenergistics.common.inventory.HandlerEssentiaStorageBusBase;
+import thaumicenergistics.common.inventory.HandlerEssentiaStorageBusDuality;
+import thaumicenergistics.common.network.IAspectSlotPart;
+import thaumicenergistics.common.utils.EffectiveSide;
 
 /**
  * Allows an {@link IAspectContainer} to be used as network essentia storage.

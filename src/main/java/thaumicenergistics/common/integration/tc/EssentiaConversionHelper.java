@@ -2,12 +2,12 @@ package thaumicenergistics.common.integration.tc;
 
 import net.minecraftforge.fluids.FluidStack;
 
+import appeng.api.AEApi;
+import appeng.api.storage.data.IAEFluidStack;
 import thaumcraft.api.aspects.Aspect;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.fluids.GaseousEssentia;
 import thaumicenergistics.common.storage.AspectStack;
-import appeng.api.AEApi;
-import appeng.api.storage.data.IAEFluidStack;
 
 /**
  * Aids in converting essentia to and from a fluid.

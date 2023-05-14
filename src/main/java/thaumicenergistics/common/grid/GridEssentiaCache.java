@@ -4,11 +4,8 @@ import java.util.HashSet;
 
 import net.minecraft.item.ItemStack;
 
-import thaumcraft.api.aspects.Aspect;
-import thaumicenergistics.api.grid.IEssentiaGrid;
-import thaumicenergistics.api.grid.IEssentiaWatcherHost;
-import thaumicenergistics.common.items.ItemCraftingAspect;
-import thaumicenergistics.common.items.ItemEnum;
+import com.google.common.collect.ImmutableSet;
+
 import appeng.api.AEApi;
 import appeng.api.config.Actionable;
 import appeng.api.networking.IGrid;
@@ -26,8 +23,11 @@ import appeng.api.storage.IMEMonitor;
 import appeng.api.storage.data.IAEItemStack;
 import appeng.api.storage.data.IItemList;
 import appeng.me.cluster.implementations.CraftingCPUCluster;
-
-import com.google.common.collect.ImmutableSet;
+import thaumcraft.api.aspects.Aspect;
+import thaumicenergistics.api.grid.IEssentiaGrid;
+import thaumicenergistics.api.grid.IEssentiaWatcherHost;
+import thaumicenergistics.common.items.ItemCraftingAspect;
+import thaumicenergistics.common.items.ItemEnum;
 
 /**
  * Creates an essentia monitor for the attached grid.

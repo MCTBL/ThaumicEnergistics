@@ -12,12 +12,12 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.registries.EnumCache;
 import thaumicenergistics.common.registries.Renderers;
 import thaumicenergistics.common.tiles.abstraction.TileProviderBase;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public abstract class AbstractBlockProviderBase extends AbstractBlockAEWrenchable {
 

@@ -9,10 +9,10 @@ import net.minecraft.entity.Entity;
 
 import org.lwjgl.opengl.GL11;
 
-import thaumicenergistics.common.items.ItemGolemWirelessBackpack;
-import thaumicenergistics.common.items.ItemGolemWirelessBackpack.BackpackSkins;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumicenergistics.common.items.ItemGolemWirelessBackpack;
+import thaumicenergistics.common.items.ItemGolemWirelessBackpack.BackpackSkins;
 
 /**
  * {@link ItemGolemWirelessBackpack} model.

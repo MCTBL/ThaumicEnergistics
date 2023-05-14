@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
 
+import com.google.common.base.Charsets;
+
 import thaumicenergistics.api.entities.IGolemHookHandler;
 import thaumicenergistics.api.entities.IGolemHookSyncRegistry;
 import thaumicenergistics.common.utils.ThELog;
-
-import com.google.common.base.Charsets;
 
 class GolemSyncRegistry implements IGolemHookSyncRegistry {
 

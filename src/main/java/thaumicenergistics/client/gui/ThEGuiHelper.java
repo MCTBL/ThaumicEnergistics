@@ -7,9 +7,9 @@ import net.minecraft.util.EnumChatFormatting;
 
 import org.lwjgl.opengl.GL11;
 
-import thaumcraft.api.aspects.Aspect;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.api.aspects.Aspect;
 
 /**
  * Helper methods for GUI's.

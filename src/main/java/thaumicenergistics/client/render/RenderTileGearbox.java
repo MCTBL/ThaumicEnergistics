@@ -11,12 +11,12 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.api.ThEApi;
 import thaumicenergistics.client.render.model.ModelGearbox;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.tiles.TileGearBox;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Renders the {@link TileGearBox}

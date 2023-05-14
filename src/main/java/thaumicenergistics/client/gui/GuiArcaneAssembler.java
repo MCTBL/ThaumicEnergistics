@@ -11,6 +11,8 @@ import net.minecraft.world.World;
 import org.apache.commons.lang3.StringUtils;
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
@@ -18,8 +20,6 @@ import thaumicenergistics.client.textures.GuiTextureManager;
 import thaumicenergistics.common.container.ContainerArcaneAssembler;
 import thaumicenergistics.common.registries.ThEStrings;
 import thaumicenergistics.common.tiles.TileArcaneAssembler;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * {@link TileArcaneAssembler} GUI

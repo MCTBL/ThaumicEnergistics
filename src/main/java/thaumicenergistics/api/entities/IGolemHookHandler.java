@@ -7,9 +7,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-import thaumcraft.common.entities.golems.EntityGolemBase;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.common.entities.golems.EntityGolemBase;
 
 /**
  * Defines the methods required to interact with the golem hook system.</br>

@@ -9,6 +9,9 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.client.lib.UtilsFX;
 import thaumicenergistics.api.gui.IWidgetHost;
@@ -16,9 +19,6 @@ import thaumicenergistics.api.storage.IAspectStack;
 import thaumicenergistics.client.gui.ThEGuiHelper;
 import thaumicenergistics.common.integration.tc.AspectHooks;
 import thaumicenergistics.common.storage.AspectStack;
-import cpw.mods.fml.common.ModContainer;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Base class of Aspect Widgets.
