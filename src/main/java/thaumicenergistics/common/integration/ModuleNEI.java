@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import cpw.mods.fml.common.Optional;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
@@ -244,12 +245,13 @@ public class ModuleNEI {
      */
     static final int NEI_REGULAR_SLOT_OFFSET_Y = 6;
 
+    private ModuleNEI() {}
+
     /**
      * Integrates with Not Enough Items
-     *
-     * @throws Exception
      */
-    public ModuleNEI() throws Exception {
+    @Optional.Method(modid = "NotEnoughItems")
+    static void init() {
         // Register the ACT overlays
         API.registerGuiOverlay(
                 thaumicenergistics.client.gui.GuiArcaneCraftingTerminal.class,

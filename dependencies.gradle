@@ -8,6 +8,7 @@ dependencies {
 
     implementation("thaumcraft:Thaumcraft:1.7.10-4.2.3.5:dev")
 
+    compileOnly('com.github.GTNewHorizons:ExtraCells2:2.5.34:dev') { transitive = false }
     compileOnly("com.github.GTNewHorizons:waila:1.6.0:dev") {
         transitive = false
     }

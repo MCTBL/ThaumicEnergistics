@@ -15,7 +15,6 @@ import thaumicenergistics.common.tiles.TileEssentiaProvider;
  *
  */
 public class ModuleCC {
-
     public static class ThEPeripherals implements IPeripheralProvider {
 
         @Override
@@ -37,10 +36,12 @@ public class ModuleCC {
         }
     }
 
+    private ModuleCC() {}
+
     /**
      * Integrates with CC
      */
-    public ModuleCC() {
+    static void init() {
         // Create and register the handler
         ComputerCraftAPI.registerPeripheralProvider(new ThEPeripherals());
     }

@@ -2,6 +2,7 @@ package thaumicenergistics.common.integration;
 
 import java.util.List;
 
+import cpw.mods.fml.common.Optional;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -33,9 +34,12 @@ public class ModuleWaila implements IWailaDataProvider {
     /**
      * Attempts to integrate with Waila
      */
-    public ModuleWaila() {
+    private ModuleWaila() {}
+
+    @Optional.Method(modid = "Waila")
+    static void init() {
         // Set the singleton
-        ModuleWaila.INSTANCE = this;
+        ModuleWaila.INSTANCE = new ModuleWaila();
 
         // Register with Waila
         FMLInterModComms.sendMessage("Waila", "register", ModuleWaila.class.getCanonicalName() + ".callbackRegister");
@@ -46,6 +50,7 @@ public class ModuleWaila implements IWailaDataProvider {
      *
      * @param registrar
      */
+    @SuppressWarnings("unused")
     public static void callbackRegister(final IWailaRegistrar registrar) {
         // Register the providers
         registrar.registerBodyProvider(ModuleWaila.INSTANCE, AbstractBlockProviderBase.class);
