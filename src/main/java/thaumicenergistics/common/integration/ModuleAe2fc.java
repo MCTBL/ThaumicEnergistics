@@ -14,8 +14,8 @@ public class ModuleAe2fc {
     @Optional.Method(modid = "ae2fc")
     static void init() {
         if (ThEApi.instance().config().blacklistEssentiaFluidInExtraCells()) {
-            FluidcraftAPI.instance().blacklistFluidInStorage(GaseousEssentia.class);
-            FluidcraftAPI.instance().blacklistFluidInDisplay(GaseousEssentia.class);
+            FluidCraftAPI.instance().blacklistFluidInStorage(GaseousEssentia.class);
+            FluidCraftAPI.instance().blacklistFluidInDisplay(GaseousEssentia.class);
         }
     }
 }
