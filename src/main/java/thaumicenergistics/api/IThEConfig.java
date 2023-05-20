@@ -9,7 +9,7 @@ package thaumicenergistics.api;
 public interface IThEConfig {
 
     /**
-     * If true essentia gas will be blacklisted from ExtraCells.
+     * If true essentia gas will be blacklisted from ExtraCells or AE2FC.
      *
      * @return
      */

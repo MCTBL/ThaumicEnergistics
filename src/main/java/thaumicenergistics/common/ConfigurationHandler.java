@@ -187,7 +187,7 @@ class ConfigurationHandler implements IThEConfig {
                 "ExtraCells Blacklist",
                 CATEGORY_INTEGRATION,
                 DFT_EXTRACELLS_BLIST,
-                "Prevents extra cells from interacting with essentia gas");
+                "Prevents extra cells/ae2fc from interacting with essentia gas");
 
         // Has the config file changed?
         if (this.configSettings.hasChanged()) {

@@ -21,6 +21,7 @@ import codechicken.nei.api.INEIGuiAdapter;
 import codechicken.nei.api.IOverlayHandler;
 import codechicken.nei.api.IStackPositioner;
 import codechicken.nei.recipe.IRecipeHandler;
+import cpw.mods.fml.common.Optional;
 import thaumicenergistics.client.gui.GuiArcaneCraftingTerminal;
 import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
 import thaumicenergistics.common.container.ContainerPartArcaneCraftingTerminal;
@@ -244,12 +245,13 @@ public class ModuleNEI {
      */
     static final int NEI_REGULAR_SLOT_OFFSET_Y = 6;
 
+    private ModuleNEI() {}
+
     /**
      * Integrates with Not Enough Items
-     *
-     * @throws Exception
      */
-    public ModuleNEI() throws Exception {
+    @Optional.Method(modid = "NotEnoughItems")
+    static void init() {
         // Register the ACT overlays
         API.registerGuiOverlay(
                 thaumicenergistics.client.gui.GuiArcaneCraftingTerminal.class,
