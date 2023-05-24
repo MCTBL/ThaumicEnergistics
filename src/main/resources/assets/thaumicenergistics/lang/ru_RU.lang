@@ -3,7 +3,7 @@ itemGroup.ThaumicEnergistics=Thaumic Energistics
 thaumicenergistics.group.essentia.transport=МЭ шина импорта/экспорта эссенции
 
 #Fluids
-thaumicenergistics.fluid.gaseous=Газ
+thaumicenergistics.fluid.gaseous=Газ - Marked For Deprecation
 
 #Blocks
 thaumicenergistics.block.essentia.provider.name=Поставщик эссенции
