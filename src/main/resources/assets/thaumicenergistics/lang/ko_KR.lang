@@ -3,7 +3,7 @@ itemGroup.ThaumicEnergistics=사우믹 에너지스틱즈[Thaumic Energistics]
 thaumicenergistics.group.essentia.transport=ME 에센시아 입출력 버스
 
 #Fluids
-thaumicenergistics.fluid.gaseous=기체
+thaumicenergistics.fluid.gaseous=기체 - Marked For Deprecation
 
 #Blocks
 thaumicenergistics.block.essentia.provider.name=에센시아 공급기
