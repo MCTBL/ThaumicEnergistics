@@ -3,7 +3,7 @@ itemGroup.ThaumicEnergistics=Thaumic Energistics
 thaumicenergistics.group.essentia.transport=ME-Essentia-Import-/Exportbus
 
 #Fluids
-thaumicenergistics.fluid.gaseous=Gas - Marked For Deprecation
+thaumicenergistics.fluid.gaseous=Gas
 
 #Blocks
 thaumicenergistics.block.essentia.provider.name=Essentia-Versorger
