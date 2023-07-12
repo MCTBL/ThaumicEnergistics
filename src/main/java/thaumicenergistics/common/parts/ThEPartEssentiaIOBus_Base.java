@@ -340,7 +340,7 @@ public abstract class ThEPartEssentiaIOBus_Base extends ThEPartBase
      */
     @Override
     public double getIdlePowerUsage() {
-        return ThEPartEssentiaIOBus_Base.IDLE_POWER_DRAIN;
+        return ThEPartEssentiaIOBus_Base.IDLE_POWER_DRAIN * (1 << upgradeSpeedCount);
     }
 
     /**
