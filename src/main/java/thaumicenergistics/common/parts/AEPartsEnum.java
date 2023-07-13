@@ -26,7 +26,7 @@ public enum AEPartsEnum {
     @SuppressWarnings("unchecked")
     EssentiaImportBus(ThEStrings.Part_EssentiaImportBus, PartEssentiaImportBus.class,
             ThaumicEnergistics.MOD_ID + ".group.essentia.transport", generatePair(Upgrades.CAPACITY, 2),
-            generatePair(Upgrades.REDSTONE, 1), generatePair(Upgrades.SPEED, 2)),
+            generatePair(Upgrades.REDSTONE, 1), generatePair(Upgrades.SPEED, 4)),
 
     EssentiaLevelEmitter(ThEStrings.Part_EssentiaLevelEmitter, PartEssentiaLevelEmitter.class),
 
@@ -37,7 +37,7 @@ public enum AEPartsEnum {
     @SuppressWarnings("unchecked")
     EssentiaExportBus(ThEStrings.Part_EssentiaExportBus, PartEssentiaExportBus.class,
             ThaumicEnergistics.MOD_ID + ".group.essentia.transport", generatePair(Upgrades.CAPACITY, 2),
-            generatePair(Upgrades.REDSTONE, 1), generatePair(Upgrades.SPEED, 2), generatePair(Upgrades.CRAFTING, 1)),
+            generatePair(Upgrades.REDSTONE, 1), generatePair(Upgrades.SPEED, 4), generatePair(Upgrades.CRAFTING, 1)),
 
     EssentiaTerminal(ThEStrings.Part_EssentiaTerminal, PartEssentiaTerminal.class),
 
