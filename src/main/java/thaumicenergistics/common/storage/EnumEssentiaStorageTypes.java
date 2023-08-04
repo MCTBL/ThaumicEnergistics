@@ -14,13 +14,13 @@ import thaumicenergistics.common.registries.ThEStrings;
  */
 public enum EnumEssentiaStorageTypes {
 
-    Type_1K(0, 1024, 12, "1k", EnumRarity.common, 0.5, ThEStrings.Item_EssentiaCell_1k,
+    Type_1K(0, 1 << 10, 12, "1k", EnumRarity.common, 0.5, ThEStrings.Item_EssentiaCell_1k,
             ThEStrings.Item_StorageComponent_1k),
-    Type_4K(1, 4096, 12, "4k", EnumRarity.uncommon, 1.0, ThEStrings.Item_EssentiaCell_4k,
+    Type_4K(1, 1 << 12, 12, "4k", EnumRarity.uncommon, 1.0, ThEStrings.Item_EssentiaCell_4k,
             ThEStrings.Item_StorageComponent_4k),
-    Type_16K(2, 16348, 12, "16k", EnumRarity.uncommon, 1.5, ThEStrings.Item_EssentiaCell_16k,
+    Type_16K(2, 1 << 14, 12, "16k", EnumRarity.uncommon, 1.5, ThEStrings.Item_EssentiaCell_16k,
             ThEStrings.Item_StorageComponent_16k),
-    Type_64K(3, 65536, 12, "64k", EnumRarity.rare, 2.0, ThEStrings.Item_EssentiaCell_64k,
+    Type_64K(3, 1 << 16, 12, "64k", EnumRarity.rare, 2.0, ThEStrings.Item_EssentiaCell_64k,
             ThEStrings.Item_StorageComponent_64k),
     Type_Creative(4, 0, 63, "creative", EnumRarity.epic, 0.0, ThEStrings.Item_EssentiaCell_Creative, null);
 
