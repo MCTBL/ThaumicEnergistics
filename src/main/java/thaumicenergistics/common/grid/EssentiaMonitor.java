@@ -640,4 +640,22 @@ public class EssentiaMonitor implements IMEEssentiaMonitor, IMEMonitorHandlerRec
         // Mark that the cache needs to be updated
         this.cacheNeedsUpdate = true;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EssentiaMonitor that = (EssentiaMonitor) o;
+        return cacheNeedsUpdate == that.cacheNeedsUpdate && Objects.equals(listeners, that.listeners)
+                && Objects.equals(fluidMonitor, that.fluidMonitor)
+                && Objects.equals(energyGrid, that.energyGrid)
+                && Objects.equals(cacheView, that.cacheView)
+                && Objects.equals(token, that.token)
+                && Objects.equals(cache, that.cache);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(listeners, fluidMonitor, energyGrid, cacheView, token, cache, cacheNeedsUpdate);
+    }
 }
