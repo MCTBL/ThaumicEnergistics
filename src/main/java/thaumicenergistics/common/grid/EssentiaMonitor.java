@@ -646,7 +646,12 @@ public class EssentiaMonitor implements IMEEssentiaMonitor, IMEMonitorHandlerRec
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EssentiaMonitor that = (EssentiaMonitor) o;
-        return cacheNeedsUpdate == that.cacheNeedsUpdate && Objects.equals(listeners, that.listeners) && Objects.equals(fluidMonitor, that.fluidMonitor) && Objects.equals(energyGrid, that.energyGrid) && Objects.equals(cacheView, that.cacheView) && Objects.equals(token, that.token) && Objects.equals(cache, that.cache);
+        return cacheNeedsUpdate == that.cacheNeedsUpdate && Objects.equals(listeners, that.listeners)
+                && Objects.equals(fluidMonitor, that.fluidMonitor)
+                && Objects.equals(energyGrid, that.energyGrid)
+                && Objects.equals(cacheView, that.cacheView)
+                && Objects.equals(token, that.token)
+                && Objects.equals(cache, that.cache);
     }
 
     @Override
