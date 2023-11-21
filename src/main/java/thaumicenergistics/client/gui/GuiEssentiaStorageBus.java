@@ -121,6 +121,11 @@ public class GuiEssentiaStorageBus extends ThEBaseGui implements IAspectSlotGui 
     private boolean hasNetworkTool;
 
     /**
+     * True if network tool is advanced.
+     */
+    private boolean isAdvancedNetworkTool = false;
+
+    /**
      * Storage bus associated with this gui
      */
     private PartEssentiaStorageBus storageBus;
@@ -154,11 +159,22 @@ public class GuiEssentiaStorageBus extends ThEBaseGui implements IAspectSlotGui 
 
         // Set the network tool
         this.hasNetworkTool = ((ContainerPartEssentiaStorageBus) this.inventorySlots).hasNetworkTool();
+        if (this.hasNetworkTool) this.isAdvancedNetworkTool = ((ContainerPartEssentiaStorageBus) this.inventorySlots)
+                .isAdvancedNetworkTool();
 
-        // Set the width and height
-        this.xSize = (this.hasNetworkTool ? GuiEssentiaStorageBus.GUI_WIDTH_NETWORK_TOOL
-                : GuiEssentiaStorageBus.GUI_WIDTH_NO_TOOL);
-        this.ySize = GuiEssentiaStorageBus.GUI_HEIGHT;
+        // Set the GUI size
+        if (this.hasNetworkTool) {
+            if (this.isAdvancedNetworkTool) {
+                this.xSize = GuiEssentiaStorageBus.GUI_WIDTH_NETWORK_TOOL + 36;
+            } else {
+                this.xSize = GuiEssentiaStorageBus.GUI_WIDTH_NETWORK_TOOL;
+            }
+        } else {
+            this.xSize = GuiEssentiaStorageBus.GUI_WIDTH_NO_TOOL;
+        }
+
+        this.ySize = this.isAdvancedNetworkTool ? GuiEssentiaStorageBus.GUI_HEIGHT + 36
+                : GuiEssentiaStorageBus.GUI_HEIGHT;
     }
 
     /**
@@ -179,7 +195,14 @@ public class GuiEssentiaStorageBus extends ThEBaseGui implements IAspectSlotGui 
         this.drawTexturedModalRect(this.guiLeft + 179, this.guiTop, 179, 0, 32, 32);
 
         if (this.hasNetworkTool) {
-            this.drawTexturedModalRect(this.guiLeft + 179, this.guiTop + 93, 178, 93, 68, 68);
+            if (this.isAdvancedNetworkTool) {
+                // Draw advanced toolbox
+                Minecraft.getMinecraft().renderEngine.bindTexture(GuiTextureManager.ADVANCED_TOOLBOX.getTexture());
+                this.drawTexturedModalRect(this.guiLeft + 179, this.guiTop + 93, 0, 0, 104, 104);
+                Minecraft.getMinecraft().renderEngine.bindTexture(GuiTextureManager.ESSENTIA_STORAGE_BUS.getTexture());
+            } else {
+                this.drawTexturedModalRect(this.guiLeft + 179, this.guiTop + 93, 178, 93, 68, 68);
+            }
         }
 
         // Call super

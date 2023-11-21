@@ -60,12 +60,12 @@ public class GuiArcaneAssembler extends ThEBaseGui {
      * True if the player is holding a network tool.
      */
     private boolean hasNetworkTool = false;
-    
+
     /**
      * True if network tool is advanced.
      */
     private boolean isAdvancedNetworkTool = false;
-    
+
     /**
      * Fake aspect used to simplify progress bar draw calls
      */
@@ -76,24 +76,20 @@ public class GuiArcaneAssembler extends ThEBaseGui {
         super(new ContainerArcaneAssembler(player, world, X, Y, Z));
 
         this.hasNetworkTool = ((ContainerArcaneAssembler) this.inventorySlots).hasNetworkTool();
-        if(this.hasNetworkTool) 
-        	this.isAdvancedNetworkTool = ((ContainerArcaneAssembler) this.inventorySlots).isAdvancedNetworkTool();
-        
+        if (this.hasNetworkTool)
+            this.isAdvancedNetworkTool = ((ContainerArcaneAssembler) this.inventorySlots).isAdvancedNetworkTool();
+
         // Set the GUI size
-//        this.xSize = (this.hasNetworkTool ? GuiArcaneAssembler.FULL_GUI_WIDTH
-//                : GuiArcaneAssembler.MAIN_GUI_WIDTH + GuiArcaneAssembler.UPGRADE_GUI_WIDTH);
-        if(this.hasNetworkTool) {
-        	if(this.isAdvancedNetworkTool) {
-        		this.xSize = GuiArcaneAssembler.FULL_GUI_WIDTH + 36;
-        	}else {
-        		this.xSize = GuiArcaneAssembler.FULL_GUI_WIDTH;
-        	}
-        }else {
-        	this.xSize = GuiArcaneAssembler.MAIN_GUI_WIDTH + GuiArcaneAssembler.UPGRADE_GUI_WIDTH;
+        if (this.hasNetworkTool) {
+            if (this.isAdvancedNetworkTool) {
+                this.xSize = GuiArcaneAssembler.FULL_GUI_WIDTH + 36;
+            } else {
+                this.xSize = GuiArcaneAssembler.FULL_GUI_WIDTH;
+            }
+        } else {
+            this.xSize = GuiArcaneAssembler.MAIN_GUI_WIDTH + GuiArcaneAssembler.UPGRADE_GUI_WIDTH;
         }
-        
-        
-//        this.ySize = GuiArcaneAssembler.GUI_HEIGHT;
+
         this.ySize = this.isAdvancedNetworkTool ? GuiArcaneAssembler.GUI_HEIGHT + 36 : GuiArcaneAssembler.GUI_HEIGHT;
 
         // Set the title
@@ -110,7 +106,7 @@ public class GuiArcaneAssembler extends ThEBaseGui {
     }
 
     private void drawVisBar(final Aspect aspect, final float percent) {
-    	Minecraft.getMinecraft().renderEngine.bindTexture(GuiTextureManager.ARCANE_ASSEMBLER_VISBAR.getTexture());
+        Minecraft.getMinecraft().renderEngine.bindTexture(GuiTextureManager.ARCANE_ASSEMBLER_VISBAR.getTexture());
         // Calculate the height
         int height = (int) Math.floor(percent * GuiArcaneAssembler.VIS_BAR_HEIGHT);
 
@@ -149,9 +145,15 @@ public class GuiArcaneAssembler extends ThEBaseGui {
 
         // Draw the gui texture
         if (this.hasNetworkTool) {
-        	if(this.isAdvancedNetworkTool) {
-        		// Draw main body
-                this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, GuiArcaneAssembler.MAIN_GUI_WIDTH, this.ySize);
+            if (this.isAdvancedNetworkTool) {
+                // Draw main body
+                this.drawTexturedModalRect(
+                        this.guiLeft,
+                        this.guiTop,
+                        0,
+                        0,
+                        GuiArcaneAssembler.MAIN_GUI_WIDTH,
+                        this.ySize);
 
                 // Draw upgrades
                 this.drawTexturedModalRect(
@@ -161,16 +163,16 @@ public class GuiArcaneAssembler extends ThEBaseGui {
                         0,
                         GuiArcaneAssembler.UPGRADE_GUI_WIDTH,
                         GuiArcaneAssembler.UPGRADE_GUI_HEIGHT);
-                
+
                 // Draw advanced toolbox
-        		Minecraft.getMinecraft().renderEngine.bindTexture(GuiTextureManager.ADVANCED_TOOLBOX.getTexture());
-        		this.drawTexturedModalRect(this.guiLeft + 179, this.guiTop + 129, 0, 0, 104, 104);
-        		Minecraft.getMinecraft().renderEngine.bindTexture(GuiTextureManager.ARCANE_ASSEMBLER.getTexture());
-        		
-        	}else {
+                Minecraft.getMinecraft().renderEngine.bindTexture(GuiTextureManager.ADVANCED_TOOLBOX.getTexture());
+                this.drawTexturedModalRect(this.guiLeft + 179, this.guiTop + 129, 0, 0, 104, 104);
+                Minecraft.getMinecraft().renderEngine.bindTexture(GuiTextureManager.ARCANE_ASSEMBLER.getTexture());
+
+            } else {
                 // Draw the full gui
                 this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
-        	}
+            }
         } else {
             // Draw main body
             this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, GuiArcaneAssembler.MAIN_GUI_WIDTH, this.ySize);

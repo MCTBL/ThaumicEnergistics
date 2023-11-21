@@ -71,7 +71,7 @@ public abstract class ContainerWithNetworkTool extends ContainerWithPlayerInvent
      * True if there is a network tool
      */
     protected boolean hasNetworkTool = false;
-    
+
     /**
      * True if the network tool is advanced version
      */
@@ -121,8 +121,8 @@ public abstract class ContainerWithNetworkTool extends ContainerWithPlayerInvent
             final int slotOffsetX, final int slotOffsetY) {
         // Get the networkTool or null if absent (e.g. disabled in AE's config-file)
         ItemStack nwTool = AEApi.instance().definitions().items().networkTool().maybeStack(1).orNull();
-        if(nwTool == null) {
-        	nwTool = AEApi.instance().definitions().items().advancedNetworkTool().maybeStack(1).orNull();
+        if (nwTool == null) {
+            nwTool = AEApi.instance().definitions().items().advancedNetworkTool().maybeStack(1).orNull();
         }
 
         // First of all is there a networkTool?
@@ -133,18 +133,19 @@ public abstract class ContainerWithNetworkTool extends ContainerWithPlayerInvent
                 ItemStack stack = playerInventory.getStackInSlot(slotIndex);
 
                 // Is it the network tool?
-                if (stack != null){
-                    if(stack.isItemEqual(AEApi.instance().definitions().items().networkTool().maybeStack(1).get())) {
-                    	this.toolRows = 3;
-                    	this.toolColumns = 3;
-                    }else if(stack.isItemEqual(AEApi.instance().definitions().items().advancedNetworkTool().maybeStack(1).get())) {
-                    	this.toolRows = 5;
-                    	this.toolColumns = 5;
-                    	this.isAdvancedNetworkTool = true;
-                    }else {
-                    	break;
-                    }
-                	// Get the gui item for the tool
+                if (stack != null) {
+                    if (stack.isItemEqual(AEApi.instance().definitions().items().networkTool().maybeStack(1).get())) {
+                        this.toolRows = 3;
+                        this.toolColumns = 3;
+                    } else if (stack.isItemEqual(
+                            AEApi.instance().definitions().items().advancedNetworkTool().maybeStack(1).get())) {
+                                this.toolRows = 5;
+                                this.toolColumns = 5;
+                                this.isAdvancedNetworkTool = true;
+                            } else {
+                                break;
+                            }
+                    // Get the gui item for the tool
                     IGuiItem guiItem = (IGuiItem) stack.getItem();
 
                     // Get the gui for the tool
@@ -285,7 +286,7 @@ public abstract class ContainerWithNetworkTool extends ContainerWithPlayerInvent
     public boolean hasNetworkTool() {
         return this.hasNetworkTool;
     }
-    
+
     public boolean isAdvancedNetworkTool() {
         return this.isAdvancedNetworkTool;
     }
