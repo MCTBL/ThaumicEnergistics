@@ -373,7 +373,7 @@ public class FeatureCells extends ThEThaumcraftResearchFeature {
 
         // 16384K Storage recipe
         Object[] recipe16384KStorage = new Object[] { "SPS", "6G6", "S6S", 'S', cdi.PrimalCharm, '6',
-                EssentiaStorageComponent_4096k, 'P', cdi.VoidIngot, 'G', cdi.WardedGlass };
+                EssentiaStorageComponent_4096k, 'P', cdi.VoidIngot, 'G', cdi.EssentiaReservoir };
 
         // 16384K Cell recipe
         Object[] recipe16384KCell = new Object[] { "WRW", "RCR", "TTT", 'W', cdi.WardedGlass, 'R', cdi.RedstoneDust,

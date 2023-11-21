@@ -57,6 +57,7 @@ public class CommonDependantItems {
     public ItemStack VoidSeed;
     public ItemStack VoidIngot;
     public ItemStack PrimalCharm;
+    public ItemStack EssentiaReservoir;
 
     // AE Items =========================
     public Object VibrantGlass;
@@ -223,6 +224,7 @@ public class CommonDependantItems {
                 this.VanillaGlass);
         this.EssentiaMirror = (ItemStack) this
                 .getItemOrAlt(Config.allowMirrors, new ItemStack(ConfigBlocks.blockMirror, 1, 6), this.WardedJar);
+        this.EssentiaReservoir = new ItemStack(ConfigBlocks.blockEssentiaReservoir, 1, 0);
 
         // Items
         this.Thaumometer = new ItemStack(ConfigItems.itemThaumometer);
