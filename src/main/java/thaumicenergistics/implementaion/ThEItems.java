@@ -36,9 +36,12 @@ class ThEItems extends IThEItems {
         this.EssentiaStorageComponent_16k = new ThEItemDescription(EnumEssentiaStorageTypes.Type_16K.getComponent(1));
         this.EssentiaStorageComponent_64k = new ThEItemDescription(EnumEssentiaStorageTypes.Type_64K.getComponent(1));
         this.EssentiaStorageComponent_256k = new ThEItemDescription(EnumEssentiaStorageTypes.Type_256K.getComponent(1));
-        this.EssentiaStorageComponent_1024k = new ThEItemDescription(EnumEssentiaStorageTypes.Type_1024K.getComponent(1));
-        this.EssentiaStorageComponent_4096k = new ThEItemDescription(EnumEssentiaStorageTypes.Type_4096K.getComponent(1));
-        this.EssentiaStorageComponent_16384k = new ThEItemDescription(EnumEssentiaStorageTypes.Type_16384K.getComponent(1));
+        this.EssentiaStorageComponent_1024k = new ThEItemDescription(
+                EnumEssentiaStorageTypes.Type_1024K.getComponent(1));
+        this.EssentiaStorageComponent_4096k = new ThEItemDescription(
+                EnumEssentiaStorageTypes.Type_4096K.getComponent(1));
+        this.EssentiaStorageComponent_16384k = new ThEItemDescription(
+                EnumEssentiaStorageTypes.Type_16384K.getComponent(1));
 
         // Misc
         this.IronGear = new ThEItemDescription(MaterialTypes.IRON_GEAR.getStack());

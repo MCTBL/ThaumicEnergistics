@@ -45,25 +45,25 @@ public abstract class IThEItems {
      */
     @Nonnull
     public IThEItemDescription EssentiaCell_64k;
-    
+
     /**
      * 256 KiloByte essentia storage cell.
      */
     @Nonnull
     public IThEItemDescription EssentiaCell_256k;
-    
+
     /**
      * 1024 KiloByte essentia storage cell.
      */
     @Nonnull
     public IThEItemDescription EssentiaCell_1024k;
-    
+
     /**
      * 4096 KiloByte essentia storage cell.
      */
     @Nonnull
     public IThEItemDescription EssentiaCell_4096k;
-    
+
     /**
      * 16384 KiloByte essentia storage cell.
      */
@@ -105,25 +105,25 @@ public abstract class IThEItems {
      */
     @Nonnull
     public IThEItemDescription EssentiaStorageComponent_64k;
-    
+
     /**
      * 256 KiloByte essentia storage cell component.
      */
     @Nonnull
     public IThEItemDescription EssentiaStorageComponent_256k;
-    
+
     /**
      * 1024 KiloByte essentia storage cell component.
      */
     @Nonnull
     public IThEItemDescription EssentiaStorageComponent_1024k;
-    
+
     /**
      * 4096 KiloByte essentia storage cell component.
      */
     @Nonnull
     public IThEItemDescription EssentiaStorageComponent_4096k;
-    
+
     /**
      * 16384 KiloByte essentia storage cell component.
      */

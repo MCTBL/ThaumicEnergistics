@@ -212,7 +212,7 @@ public class CommonDependantItems {
         this.PrimalCharm = new ItemStack(ConfigItems.itemResource, 1, 15);
         this.VoidIngot = new ItemStack(ConfigItems.itemResource, 1, 16);
         this.VoidSeed = new ItemStack(ConfigItems.itemResource, 1, 17);
-        
+
         // Blocks
         this.WardedJar = new ItemStack(ConfigBlocks.blockJar, 1, 0);
         this.ArcaneWorkTable = new ItemStack(ConfigBlocks.blockTable, 1, 15);
