@@ -30,7 +30,11 @@ public enum EnumEssentiaStorageTypes {
             ThEStrings.Item_StorageComponent_4096k),
     Type_16384K(7, 1 << 24, 60, "16384k", EnumRarity.epic, 4.0, ThEStrings.Item_EssentiaCell_16384k,
             ThEStrings.Item_StorageComponent_16384k),
-    Type_Creative(8, 0, 63, "creative", EnumRarity.epic, 0.0, ThEStrings.Item_EssentiaCell_Creative, null);
+    Type_QUANTUM(8, 1 << 27, 63, "quantum", EnumRarity.epic, 8.0, ThEStrings.Item_EssentiaCell_Quantum,
+    		null),
+    Type_SINGULARITY(9, (int) (Long.MAX_VALUE / 16), 1, "singularity", EnumRarity.epic, 16.0, ThEStrings.Item_EssentiaCell_Singularity,
+    		null),
+    Type_Creative(10, 0, 63, "creative", EnumRarity.epic, 0.0, ThEStrings.Item_EssentiaCell_Creative, null);
 
     /**
      * Array of values whose index matches the types index.
@@ -43,7 +47,7 @@ public enum EnumEssentiaStorageTypes {
      */
     static {
         // Setup the array
-        fromIndex = new EnumEssentiaStorageTypes[9];
+        fromIndex = new EnumEssentiaStorageTypes[11];
         fromIndex[Type_1K.index] = Type_1K;
         fromIndex[Type_4K.index] = Type_4K;
         fromIndex[Type_16K.index] = Type_16K;
@@ -53,6 +57,8 @@ public enum EnumEssentiaStorageTypes {
         fromIndex[Type_1024K.index] = Type_1024K;
         fromIndex[Type_4096K.index] = Type_4096K;
         fromIndex[Type_16384K.index] = Type_16384K;
+        fromIndex[Type_QUANTUM.index] = Type_QUANTUM;
+        fromIndex[Type_SINGULARITY.index] = Type_SINGULARITY;
     }
 
     /**

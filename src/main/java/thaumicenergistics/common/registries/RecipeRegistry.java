@@ -52,6 +52,8 @@ public class RecipeRegistry {
     public static IRecipe ITEM_STORAGE_CELL_1024K_SHAPED;
     public static IRecipe ITEM_STORAGE_CELL_4096K_SHAPED;
     public static IRecipe ITEM_STORAGE_CELL_16384K_SHAPED;
+    public static IRecipe ITEM_STORAGE_CELL_QUANTUM_SHAPED;
+    public static IRecipe ITEM_STORAGE_CELL_SINGULARITY_SHAPED;
     public static IRecipe ITEM_STORAGE_CELL_1K_SHAPELESS;
     public static IRecipe ITEM_STORAGE_CELL_4K_SHAPELESS;
     public static IRecipe ITEM_STORAGE_CELL_16K_SHAPELESS;

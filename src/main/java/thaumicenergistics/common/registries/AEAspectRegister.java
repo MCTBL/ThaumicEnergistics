@@ -1029,6 +1029,8 @@ public class AEAspectRegister {
                 ThaumcraftApi.registerObjectTag(teItems.EssentiaCell_1024k.getStack(), cellAspects);
                 ThaumcraftApi.registerObjectTag(teItems.EssentiaCell_4096k.getStack(), cellAspects);
                 ThaumcraftApi.registerObjectTag(teItems.EssentiaCell_16384k.getStack(), cellAspects);
+                ThaumcraftApi.registerObjectTag(teItems.EssentiaCell_Quantum.getStack(), cellAspects);
+                ThaumcraftApi.registerObjectTag(teItems.EssentiaCell_Singularity.getStack(), cellAspects);
             }
         }
 

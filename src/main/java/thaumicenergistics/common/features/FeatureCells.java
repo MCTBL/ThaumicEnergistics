@@ -109,6 +109,8 @@ public class FeatureCells extends ThEThaumcraftResearchFeature {
         ItemStack EssentiaCell_1024k = theItems.EssentiaCell_1024k.getStack();
         ItemStack EssentiaCell_4096k = theItems.EssentiaCell_4096k.getStack();
         ItemStack EssentiaCell_16384k = theItems.EssentiaCell_16384k.getStack();
+        ItemStack EssentiaCell_Quantum = theItems.EssentiaCell_Quantum.getStack();
+        ItemStack EssentiaCell_Singularity = theItems.EssentiaCell_Singularity.getStack();
         ItemStack EssentiaCellWorkbench = ThEApi.instance().blocks().EssentiaCellWorkbench.getStack();
 
         // Item Groups
@@ -397,7 +399,27 @@ public class FeatureCells extends ThEThaumcraftResearchFeature {
                         EssentiaCell_16384k,
                         EssentiaStorageComponent_16384k,
                         EssentiaCell_Housing));
-
+        
+        // Quantum ===================================================
+        Object[] recipeQuantumCell = new Object[] 
+        		{ "QCQ", "CEC", "QCQ", 'Q', cdi.QuantumRing, 'C', EssentiaStorageComponent_16384k,
+                'E', cdi.DenseCell};
+        GameRegistry.addRecipe(
+                RecipeRegistry.ITEM_STORAGE_CELL_QUANTUM_SHAPED = new ShapedOreRecipe(
+                        EssentiaCell_Quantum,
+                        false,
+                        recipeQuantumCell));
+        
+        // Singularity ===================================================
+        Object[] recipeSingularityCell = new Object[] 
+        		{ "CCC", "CDC", "CCC", 'C', EssentiaCell_Quantum, 'D', cdi.Condenser};
+        GameRegistry.addRecipe(
+                RecipeRegistry.ITEM_STORAGE_CELL_SINGULARITY_SHAPED = new ShapedOreRecipe(
+                        EssentiaCell_Singularity,
+                        false,
+                        recipeSingularityCell));
+        
+        
         // Workbench
         GameRegistry.addRecipe(
                 RecipeRegistry.BLOCK_CELL_WORKBENCH = new ShapelessOreRecipe(

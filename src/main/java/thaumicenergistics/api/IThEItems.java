@@ -69,6 +69,18 @@ public abstract class IThEItems {
      */
     @Nonnull
     public IThEItemDescription EssentiaCell_16384k;
+    
+    /**
+     * Quantum essentia storage cell.
+     */
+    @Nonnull
+    public IThEItemDescription EssentiaCell_Quantum;
+    
+    /**
+     * Singularity essentia storage cell.
+     */
+    @Nonnull
+    public IThEItemDescription EssentiaCell_Singularity;
 
     /**
      * Creative essentia storage cell.
