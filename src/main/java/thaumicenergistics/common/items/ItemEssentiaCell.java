@@ -1,5 +1,6 @@
 package thaumicenergistics.common.items;
 
+import java.text.NumberFormat;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -149,14 +150,14 @@ public class ItemEssentiaCell extends Item implements ICellHandler {
         // Create the bytes tooltip
         String bytesTip = String.format(
                 ThEStrings.Tooltip_CellBytes.getLocalized(),
-                cellHandler.getUsedBytes(),
-                cellHandler.getTotalBytes());
+                NumberFormat.getInstance().format(cellHandler.getUsedBytes()),
+                NumberFormat.getInstance().format(cellHandler.getTotalBytes()));
 
         // Create the types tooltip
         String typesTip = String.format(
                 ThEStrings.Tooltip_CellTypes.getLocalized(),
-                cellHandler.getUsedTypes(),
-                cellHandler.getTotalTypes());
+                NumberFormat.getInstance().format(cellHandler.getUsedTypes()),
+                NumberFormat.getInstance().format(cellHandler.getTotalTypes()));
 
         // Add the tooltips
         displayList.add(bytesTip);
@@ -340,7 +341,7 @@ public class ItemEssentiaCell extends Item implements ICellHandler {
      * @param essentiaCell
      * @return
      */
-    public int maxStorage(final ItemStack essentiaCell) {
+    public long maxStorage(final ItemStack essentiaCell) {
         return EnumEssentiaStorageTypes.fromIndex[essentiaCell.getItemDamage()].capacity;
     }
 

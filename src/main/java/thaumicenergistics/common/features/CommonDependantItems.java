@@ -86,6 +86,8 @@ public class CommonDependantItems {
     public ItemStack QuantumLink;
     public ItemStack Singularity;
     public ItemStack ItemP2P;
+    public ItemStack QuantumRing;
+    public ItemStack Condenser;
 
     /**
      * Populates the common items
@@ -182,6 +184,8 @@ public class CommonDependantItems {
                 .getItemOrAlt(aeBlocks.energyCellDense(), this.getAEItem(aeBlocks.energyCell()));
         this.VibrationChamber = this.getAEItem(aeBlocks.vibrationChamber());
         this.QuantumLink = this.getAEItem(aeBlocks.quantumLink());
+        this.QuantumRing = this.getAEItem(aeBlocks.quantumRing());
+        this.Condenser = this.getAEItem(aeBlocks.condenser());
 
         // Parts
         IParts aeParts = AEApi.instance().definitions().parts();

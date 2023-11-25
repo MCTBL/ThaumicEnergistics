@@ -48,6 +48,8 @@ public enum ThEStrings {
     Item_EssentiaCell_4096k("item.essentia.cell.4096k", true),
     Item_EssentiaCell_16384k("item.essentia.cell.16384k", true),
     Item_EssentiaCell_Creative("item.essentia.cell.creative", true),
+    Item_EssentiaCell_Quantum("item.essentia.cell.quantum", true),
+    Item_EssentiaCell_Singularity("item.essentia.cell.singularity", true),
     Item_EssentiaCellHousing("item.storage.casing", true),
     Item_StorageComponent_1k("item.storage.component.1k", true),
     Item_StorageComponent_4k("item.storage.component.4k", true),

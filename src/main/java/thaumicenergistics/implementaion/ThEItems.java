@@ -27,6 +27,8 @@ class ThEItems extends IThEItems {
         this.EssentiaCell_1024k = new ThEItemDescription(EnumEssentiaStorageTypes.Type_1024K.getCell());
         this.EssentiaCell_4096k = new ThEItemDescription(EnumEssentiaStorageTypes.Type_4096K.getCell());
         this.EssentiaCell_16384k = new ThEItemDescription(EnumEssentiaStorageTypes.Type_16384K.getCell());
+        this.EssentiaCell_Quantum = new ThEItemDescription(EnumEssentiaStorageTypes.Type_QUANTUM.getCell());
+        this.EssentiaCell_Singularity = new ThEItemDescription(EnumEssentiaStorageTypes.Type_SINGULARITY.getCell());
         this.EssentiaCell_Creative = new ThEItemDescription(EnumEssentiaStorageTypes.Type_Creative.getCell());
         this.EssentiaCell_Casing = new ThEItemDescription(ItemEnum.STORAGE_CASING.getStack());
 
