@@ -30,10 +30,10 @@ public enum EnumEssentiaStorageTypes {
             ThEStrings.Item_StorageComponent_4096k),
     Type_16384K(7, 1 << 24, 60, "16384k", EnumRarity.epic, 4.0, ThEStrings.Item_EssentiaCell_16384k,
             ThEStrings.Item_StorageComponent_16384k),
-    Type_QUANTUM(8, 1 << 27, 63, "quantum", EnumRarity.epic, 8.0, ThEStrings.Item_EssentiaCell_Quantum,
-    		null),
-    Type_SINGULARITY(9, (int) (Long.MAX_VALUE / 16), 1, "singularity", EnumRarity.epic, 16.0, ThEStrings.Item_EssentiaCell_Singularity,
-    		null),
+    Type_QUANTUM(8, Integer.MAX_VALUE / 16, 1, "quantum", EnumRarity.epic, 8.0, ThEStrings.Item_EssentiaCell_Quantum,
+            null),
+    Type_SINGULARITY(9, Long.MAX_VALUE / 4, 1, "singularity", EnumRarity.epic, 16.0,
+            ThEStrings.Item_EssentiaCell_Singularity, null),
     Type_Creative(10, 0, 63, "creative", EnumRarity.epic, 0.0, ThEStrings.Item_EssentiaCell_Creative, null);
 
     /**
@@ -74,7 +74,7 @@ public enum EnumEssentiaStorageTypes {
     /**
      * Capacity of the type, in bytes.
      */
-    public final int capacity;
+    public final long capacity;
 
     /**
      * Rarity class of the type.
@@ -101,8 +101,9 @@ public enum EnumEssentiaStorageTypes {
      */
     public final ThEStrings componentName;
 
-    private EnumEssentiaStorageTypes(final int index, final int capacity, final int maxStoredTypes, final String suffix,
-            final EnumRarity rarity, final double aeDrain, final ThEStrings cellName, final ThEStrings componentName) {
+    private EnumEssentiaStorageTypes(final int index, final long capacity, final int maxStoredTypes,
+            final String suffix, final EnumRarity rarity, final double aeDrain, final ThEStrings cellName,
+            final ThEStrings componentName) {
         this.index = index;
         this.capacity = capacity;
         this.suffix = suffix;

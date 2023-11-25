@@ -399,27 +399,25 @@ public class FeatureCells extends ThEThaumcraftResearchFeature {
                         EssentiaCell_16384k,
                         EssentiaStorageComponent_16384k,
                         EssentiaCell_Housing));
-        
+
         // Quantum ===================================================
-        Object[] recipeQuantumCell = new Object[] 
-        		{ "QCQ", "CEC", "QCQ", 'Q', cdi.QuantumRing, 'C', EssentiaStorageComponent_16384k,
-                'E', cdi.DenseCell};
+        Object[] recipeQuantumCell = new Object[] { "QCQ", "CEC", "QCQ", 'Q', cdi.QuantumRing, 'C',
+                EssentiaStorageComponent_16384k, 'E', cdi.DenseCell };
         GameRegistry.addRecipe(
                 RecipeRegistry.ITEM_STORAGE_CELL_QUANTUM_SHAPED = new ShapedOreRecipe(
                         EssentiaCell_Quantum,
                         false,
                         recipeQuantumCell));
-        
+
         // Singularity ===================================================
-        Object[] recipeSingularityCell = new Object[] 
-        		{ "CCC", "CDC", "CCC", 'C', EssentiaCell_Quantum, 'D', cdi.Condenser};
+        Object[] recipeSingularityCell = new Object[] { "CCC", "CDC", "CCC", 'C', EssentiaCell_Quantum, 'D',
+                cdi.Condenser };
         GameRegistry.addRecipe(
                 RecipeRegistry.ITEM_STORAGE_CELL_SINGULARITY_SHAPED = new ShapedOreRecipe(
                         EssentiaCell_Singularity,
                         false,
                         recipeSingularityCell));
-        
-        
+
         // Workbench
         GameRegistry.addRecipe(
                 RecipeRegistry.BLOCK_CELL_WORKBENCH = new ShapelessOreRecipe(
