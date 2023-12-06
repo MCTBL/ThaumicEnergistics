@@ -22,19 +22,19 @@ public enum EnumEssentiaStorageTypes {
             ThEStrings.Item_StorageComponent_16k),
     Type_64K(3, 1 << 16, 12, "64k", EnumRarity.rare, 2.0, ThEStrings.Item_EssentiaCell_64k,
             ThEStrings.Item_StorageComponent_64k),
-    Type_256K(4, 1 << 18, 24, "256k", EnumRarity.rare, 2.5, ThEStrings.Item_EssentiaCell_256k,
+    Type_Creative(4, 0, 63, "creative", EnumRarity.epic, 0.0, ThEStrings.Item_EssentiaCell_Creative, null),
+    Type_256K(5, 1 << 18, 24, "256k", EnumRarity.rare, 2.5, ThEStrings.Item_EssentiaCell_256k,
             ThEStrings.Item_StorageComponent_256k),
-    Type_1024K(5, 1 << 20, 36, "1024k", EnumRarity.rare, 3.0, ThEStrings.Item_EssentiaCell_1024k,
+    Type_1024K(6, 1 << 20, 36, "1024k", EnumRarity.rare, 3.0, ThEStrings.Item_EssentiaCell_1024k,
             ThEStrings.Item_StorageComponent_1024k),
-    Type_4096K(6, 1 << 22, 48, "4096k", EnumRarity.epic, 3.5, ThEStrings.Item_EssentiaCell_4096k,
+    Type_4096K(7, 1 << 22, 48, "4096k", EnumRarity.epic, 3.5, ThEStrings.Item_EssentiaCell_4096k,
             ThEStrings.Item_StorageComponent_4096k),
-    Type_16384K(7, 1 << 24, 60, "16384k", EnumRarity.epic, 4.0, ThEStrings.Item_EssentiaCell_16384k,
+    Type_16384K(8, 1 << 24, 60, "16384k", EnumRarity.epic, 4.0, ThEStrings.Item_EssentiaCell_16384k,
             ThEStrings.Item_StorageComponent_16384k),
-    Type_QUANTUM(8, Integer.MAX_VALUE / 16, 1, "quantum", EnumRarity.epic, 8.0, ThEStrings.Item_EssentiaCell_Quantum,
+    Type_QUANTUM(9, Integer.MAX_VALUE / 16, 1, "quantum", EnumRarity.epic, 8.0, ThEStrings.Item_EssentiaCell_Quantum,
             null),
-    Type_SINGULARITY(9, Long.MAX_VALUE / 4, 1, "singularity", EnumRarity.epic, 16.0,
-            ThEStrings.Item_EssentiaCell_Singularity, null),
-    Type_Creative(10, 0, 63, "creative", EnumRarity.epic, 0.0, ThEStrings.Item_EssentiaCell_Creative, null);
+    Type_SINGULARITY(10, Long.MAX_VALUE / 4, 1, "singularity", EnumRarity.epic, 16.0,
+            ThEStrings.Item_EssentiaCell_Singularity, null);
 
     /**
      * Array of values whose index matches the types index.

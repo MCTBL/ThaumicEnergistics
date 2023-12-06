@@ -60,7 +60,7 @@ public class ItemStorageComponent extends Item implements IStorageComponent {
             @SuppressWarnings("rawtypes") final List itemList) {
         for (EnumEssentiaStorageTypes type : EnumEssentiaStorageTypes.fromIndex) {
             // Skip the creative cell, it has no component
-            if (type.index >= 8) {
+            if (type.index == 4 || type.index > 8) {
                 continue;
             }
             itemList.add(type.getComponent(1));
