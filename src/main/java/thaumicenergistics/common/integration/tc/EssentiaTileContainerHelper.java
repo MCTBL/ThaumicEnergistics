@@ -22,6 +22,7 @@ import thaumcraft.common.tiles.TileTubeBuffer;
 import thaumicenergistics.api.IThETransportPermissions;
 import thaumicenergistics.api.ThEApi;
 import thaumicenergistics.api.storage.IAspectStack;
+import thaumicenergistics.api.storage.IMultiAspectContainer;
 import thaumicenergistics.common.fluids.GaseousEssentia;
 import thaumicenergistics.common.storage.AspectStack;
 import thaumicenergistics.common.tiles.TileEssentiaVibrationChamber;
@@ -271,7 +272,20 @@ public final class EssentiaTileContainerHelper {
         }
 
         // Get how much the container can hold
-        int containerCurrentCapacity = this.getContainerCapacity(container) - this.getContainerStoredAmount(container);
+        int containerCurrentCapacity;
+        if (container instanceof IMultiAspectContainer multiAspectContainer) {
+            // Get total capacity of multi-aspect container
+            containerCurrentCapacity = multiAspectContainer.getContainerCapacity(aspectToFill);
+            AspectList storedAspects = multiAspectContainer.getAspects();
+
+            // Does multi-aspect container store any aspects?
+            if (storedAspects != null) {
+                // Calculate free space for particular aspect
+                containerCurrentCapacity -= storedAspects.getAmount(aspectToFill);
+            }
+        } else {
+            containerCurrentCapacity = this.getContainerCapacity(container) - this.getContainerStoredAmount(container);
+        }
 
         // Is there more to fill than the container will hold?
         if (amountToFill > containerCurrentCapacity) {
