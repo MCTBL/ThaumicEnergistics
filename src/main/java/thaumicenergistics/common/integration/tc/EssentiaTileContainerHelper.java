@@ -22,7 +22,6 @@ import thaumcraft.common.tiles.TileTubeBuffer;
 import thaumicenergistics.api.IThETransportPermissions;
 import thaumicenergistics.api.ThEApi;
 import thaumicenergistics.api.storage.IAspectStack;
-import thaumicenergistics.api.storage.IMultiAspectContainer;
 import thaumicenergistics.common.fluids.GaseousEssentia;
 import thaumicenergistics.common.storage.AspectStack;
 import thaumicenergistics.common.tiles.TileEssentiaVibrationChamber;
@@ -226,7 +225,12 @@ public final class EssentiaTileContainerHelper {
         return this.perms.getAspectContainerTileCapacity(container);
     }
 
-    public int getContainerStoredAmount(final IAspectContainer container) {
+    public int getContainerStoredAmount(final IAspectContainer container, final Aspect aspect) {
+        if (!this.perms.doesAspectContainerTileShareCapacity(container)) {
+            AspectList storedAspects = container.getAspects();
+            return storedAspects != null ? storedAspects.getAmount(aspect) : 0;
+        }
+
         int stored = 0;
 
         // Get the essentia list
@@ -272,20 +276,8 @@ public final class EssentiaTileContainerHelper {
         }
 
         // Get how much the container can hold
-        int containerCurrentCapacity;
-        if (container instanceof IMultiAspectContainer multiAspectContainer) {
-            // Get total capacity of multi-aspect container
-            containerCurrentCapacity = multiAspectContainer.getContainerCapacity(aspectToFill);
-            AspectList storedAspects = multiAspectContainer.getAspects();
-
-            // Does multi-aspect container store any aspects?
-            if (storedAspects != null) {
-                // Calculate free space for particular aspect
-                containerCurrentCapacity -= storedAspects.getAmount(aspectToFill);
-            }
-        } else {
-            containerCurrentCapacity = this.getContainerCapacity(container) - this.getContainerStoredAmount(container);
-        }
+        int containerCurrentCapacity = this.getContainerCapacity(container)
+                - this.getContainerStoredAmount(container, aspectToFill);
 
         // Is there more to fill than the container will hold?
         if (amountToFill > containerCurrentCapacity) {
@@ -391,9 +383,8 @@ public final class EssentiaTileContainerHelper {
             this.perms.addAspectContainerTileToBothPermissions(c, 64);
         } catch (Exception ignored) {}
         try {
-            // Essentia condenser does not directly implement IAspectContainer, so this may fail if used w/o Automagy
             Class c = Class.forName("makeo.gadomancy.common.blocks.tiles.TileEssentiaCompressor");
-            this.perms.addAspectContainerTileToBothPermissions(c, 64);
+            this.perms.addAspectStorageTileToBothPermissions(c);
         } catch (Exception ignored) {}
         try {
             // I hope some day Kekztech jars will have a namespace
