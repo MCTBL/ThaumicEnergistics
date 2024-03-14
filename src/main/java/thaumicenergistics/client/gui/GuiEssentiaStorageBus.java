@@ -92,7 +92,7 @@ public class GuiEssentiaStorageBus extends ThEBaseGui implements IAspectSlotGui 
     /**
      * X offset position of the priority button
      */
-    private static final int BUTTON_PRIORITY_X_POSITION = 154;
+    private static final int BUTTON_PRIORITY_X_POSITION = 150;
 
     private static final int BUTTON_ALLOW_VOID_ID = 1;
 
@@ -332,7 +332,7 @@ public class GuiEssentiaStorageBus extends ThEBaseGui implements IAspectSlotGui 
                 new GuiButtonAETab(
                         GuiEssentiaStorageBus.BUTTON_PRIORITY_ID,
                         this.guiLeft + GuiEssentiaStorageBus.BUTTON_PRIORITY_X_POSITION,
-                        this.guiTop,
+                        this.guiTop - 3,
                         AEStateIconsEnum.WRENCH,
                         "gui.appliedenergistics2.Priority"));
 
