@@ -143,7 +143,7 @@ public abstract class ContainerWithNetworkTool extends ContainerWithPlayerInvent
                                 this.toolColumns = 5;
                                 this.isAdvancedNetworkTool = true;
                             } else {
-                                break;
+                                continue;
                             }
                     // Get the gui item for the tool
                     IGuiItem guiItem = (IGuiItem) stack.getItem();
