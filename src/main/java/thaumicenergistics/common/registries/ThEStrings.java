@@ -1,7 +1,6 @@
 package thaumicenergistics.common.registries;
 
 import net.minecraft.util.StatCollector;
-
 import thaumicenergistics.common.ThaumicEnergistics;
 
 /**
@@ -26,6 +25,7 @@ public enum ThEStrings {
     Block_EssentiaVibrationChamber("block.essentia.vibration.chamber", true),
     Block_DistillationEncoder("block.distillation.encoder", true),
     Block_InfusionEncoder("block.infusion.encoder", true),
+    Block_EssentiaInterface("block.essentia.interface", true),
 
     // Parts
     Part_EssentiaImportBus("aeparts.essentia.ImportBus", true),

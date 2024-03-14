@@ -16,6 +16,7 @@ thaumicenergistics.block.knowledge.inscriber.name=Knowledge Inscriber
 thaumicenergistics.block.essentia.vibration.chamber.name=Essentia Vibration Chamber
 thaumicenergistics.block.distillation.encoder.name=Distillation Pattern Encoder
 thaumicenergistics.block.infusion.encoder.name=Infusion Pattern Encoder
+thaumicenergistics.block.essentia.interface.name=ME Essentia Dual Interface
 
 #Cable parts
 thaumicenergistics.aeparts.essentia.ImportBus.name=Essentia Import Bus

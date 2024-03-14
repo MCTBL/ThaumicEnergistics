@@ -2,7 +2,6 @@ package thaumicenergistics.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
-
 import thaumicenergistics.common.items.ItemBlockArcaneAssembler;
 import thaumicenergistics.common.items.ItemBlockEssentiaVibrationChamber;
 import thaumicenergistics.common.registries.ThEStrings;
@@ -25,7 +24,8 @@ public enum BlockEnum {
     ESSENTIA_VIBRATION_CHAMBER(ThEStrings.Block_EssentiaVibrationChamber, new BlockEssentiaVibrationChamber(),
             ItemBlockEssentiaVibrationChamber.class),
     DISTILLATION_ENCODER(ThEStrings.Block_DistillationEncoder, new BlockDistillationEncoder()),
-    INFUSION_ENCODER(ThEStrings.Block_InfusionEncoder, new BlockInfusionEncoder());
+    INFUSION_ENCODER(ThEStrings.Block_InfusionEncoder, new BlockInfusionEncoder()),
+    ESSENTIA_INTERFACE(ThEStrings.Block_EssentiaInterface, new BlockEssentiaInterface());
 
     /**
      * Cache of the enum values

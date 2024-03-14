@@ -16,6 +16,7 @@ thaumicenergistics.block.knowledge.inscriber.name=知识记录仪
 thaumicenergistics.block.essentia.vibration.chamber.name=源质谐振仓
 thaumicenergistics.block.distillation.encoder.name=蒸馏编码台
 thaumicenergistics.block.infusion.encoder.name=注魔编码台
+thaumicenergistics.block.essentia.interface.name=ME源质二合一接口
 
 #Cable parts
 thaumicenergistics.aeparts.essentia.ImportBus.name=源质输入总线
@@ -211,3 +212,5 @@ thaumicenergistics.research_page.TEGOLEMWIFIBACKPACK.ADVANCEDGOLEM=§n高级傀�
 
 # Research Cell Microscope
 tc.research_name.thaumicenergistics.TECELLMICROSCOPE=元件显微镜
+tc.research_text.thaumicenergistics.TECELLMICROSCOPE=Aer Quarks and Terra Quarks
+thaumicenergistics.research_page.TECELLMICROSCOPE.1=Through careful study and experimentation, you have developed a microscopic scanning device that can produce a detailed image of energy contained within a storage cell. This is an intricate task, requiring the cell to be on the ground during the process.<LINE>All contents contained within the cell will be scanned as if looked at through a §lThaumometer§r.
