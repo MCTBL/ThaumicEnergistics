@@ -212,5 +212,5 @@ thaumicenergistics.research_page.TEGOLEMWIFIBACKPACK.ADVANCEDGOLEM=§n高级傀�
 
 # Research Cell Microscope
 tc.research_name.thaumicenergistics.TECELLMICROSCOPE=元件显微镜
-tc.research_text.thaumicenergistics.TECELLMICROSCOPE=Aer Quarks and Terra Quarks
-thaumicenergistics.research_page.TECELLMICROSCOPE.1=Through careful study and experimentation, you have developed a microscopic scanning device that can produce a detailed image of energy contained within a storage cell. This is an intricate task, requiring the cell to be on the ground during the process.<LINE>All contents contained within the cell will be scanned as if looked at through a §lThaumometer§r.
+tc.research_text.thaumicenergistics.TECELLMICROSCOPE=风夸克与地夸克
+thaumicenergistics.research_page.TECELLMICROSCOPE.1=经过仔细的研究与实验,你发明了一种显微扫描设备,可以生成存储元件中所包含能量的详细图像. 这个过程十分复杂,在此过程中元件需要处于地面上.<LINE>元件中包含的所有物品都将被扫描,就像使用§l魔导透镜§r扫描一样.
