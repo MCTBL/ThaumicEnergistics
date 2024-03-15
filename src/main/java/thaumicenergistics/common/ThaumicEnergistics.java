@@ -4,7 +4,13 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import java.lang.reflect.Field;
+
+import com.glodblock.github.loader.ItemAndBlockHolder;
+import com.glodblock.github.util.ModAndClassUtil;
+
 import appeng.api.AEApi;
+import appeng.api.config.Upgrades;
 import cpw.mods.fml.common.LoaderState;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -15,6 +21,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import thaumicenergistics.Tags;
+import thaumicenergistics.api.IThEBlocks;
 import thaumicenergistics.api.IThEConfig;
 import thaumicenergistics.api.ThEApi;
 import thaumicenergistics.api.grid.IEssentiaGrid;
@@ -169,7 +176,7 @@ public class ThaumicEnergistics {
         } catch (Exception e) {
             ThELog.warning("Unable to finish aspect registration due to exception:%n%s%n", e.getMessage());
         }
-
+        
         // Mark that ThE has finished PostInit
         ThELog.endSection("PostInit", startTime);
         ThaumicEnergistics.ThEState = LoaderState.POSTINITIALIZATION;

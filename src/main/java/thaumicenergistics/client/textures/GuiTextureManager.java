@@ -1,9 +1,8 @@
 package thaumicenergistics.client.textures;
 
-import net.minecraft.util.ResourceLocation;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.util.ResourceLocation;
 import thaumicenergistics.common.ThaumicEnergistics;
 
 /**
@@ -28,7 +27,12 @@ public enum GuiTextureManager {
     ESSENTIA_VIBRATION_CHAMBER("essentia.vibration.chamber"),
     DISTILLATION_ENCODER("distillation.encoder"),
     INFUSION_ENCODER("infusion.encoder"),
-    ADVANCED_TOOLBOX("advanced.toolbox");
+    ADVANCED_TOOLBOX("advanced.toolbox"),
+    ESSENTIA_INTERFACE1("interface"),
+    ESSENTIA_INTERFACE2("interface2"),
+    ESSENTIA_INTERFACE3("interface3"),
+    ESSENTIA_INTERFACE4("interface4"),
+    ESSENTIA_INTERFACE_ONE("interfaceone");
 
     private ResourceLocation texture;
 

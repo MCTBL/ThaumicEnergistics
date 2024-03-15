@@ -9,7 +9,9 @@ import appeng.api.parts.IPartHost;
 import appeng.container.AEBaseContainer;
 import appeng.container.implementations.ContainerCraftAmount;
 import appeng.container.implementations.ContainerCraftConfirm;
+import appeng.helpers.IInterfaceHost;
 import appeng.helpers.IPriorityHost;
+import appeng.tile.misc.TileInterface;
 import cpw.mods.fml.common.network.IGuiHandler;
 import thaumicenergistics.api.grid.ICraftingIssuerHost;
 import thaumicenergistics.api.gui.ICraftingIssuerContainer;
@@ -19,6 +21,7 @@ import thaumicenergistics.client.gui.GuiCraftConfirmBridge;
 import thaumicenergistics.client.gui.GuiDistillationPatternEncoder;
 import thaumicenergistics.client.gui.GuiEssentiaCellTerminal;
 import thaumicenergistics.client.gui.GuiEssentiaCellWorkbench;
+import thaumicenergistics.client.gui.GuiEssentiaInterface;
 import thaumicenergistics.client.gui.GuiEssentiaVibrationChamber;
 import thaumicenergistics.client.gui.GuiInfusionEncoder;
 import thaumicenergistics.client.gui.GuiKnowledgeInscriber;
@@ -27,6 +30,7 @@ import thaumicenergistics.common.container.ContainerArcaneAssembler;
 import thaumicenergistics.common.container.ContainerDistillationPatternEncoder;
 import thaumicenergistics.common.container.ContainerEssentiaCell;
 import thaumicenergistics.common.container.ContainerEssentiaCellWorkbench;
+import thaumicenergistics.common.container.ContainerEssentiaInterface;
 import thaumicenergistics.common.container.ContainerEssentiaVibrationChamber;
 import thaumicenergistics.common.container.ContainerInfusionEncoder;
 import thaumicenergistics.common.container.ContainerKnowledgeInscriber;
@@ -100,6 +104,11 @@ public class ThEGuiHandler implements IGuiHandler {
      * ID of the distillation encoder.
      */
     public static final int DISTILLATION_ENCODER = ThEGuiHandler.ID_STEP_VALUE * 10;
+    
+    /**
+     * ID of the essentia interface.
+     */
+    public static final int ESSENTIA_INTERFACE = ThEGuiHandler.ID_STEP_VALUE * 11;
 
     /**
      * ΙD of the infusion endoder.
@@ -326,6 +335,9 @@ public class ThEGuiHandler implements IGuiHandler {
             // Distillation encoder?
             case ThEGuiHandler.DISTILLATION_ENCODER:
                 return new GuiDistillationPatternEncoder(player, world, x, y, z);
+                
+            case ThEGuiHandler.ESSENTIA_INTERFACE:
+            	return new GuiEssentiaInterface(player, world, x, y, z);
 
             // Infusion encoder
             case ThEGuiHandler.INFUSION_ENCODER:
@@ -410,6 +422,9 @@ public class ThEGuiHandler implements IGuiHandler {
             // Distillation encoder?
             case ThEGuiHandler.DISTILLATION_ENCODER:
                 return new ContainerDistillationPatternEncoder(player, world, x, y, z);
+                
+            case ThEGuiHandler.ESSENTIA_INTERFACE:
+            	return new ContainerEssentiaInterface(player, world, x, y, z);
 
             // Infusion encoder
             case ThEGuiHandler.INFUSION_ENCODER:

@@ -69,4 +69,10 @@ public abstract class IThEBlocks {
      */
     @Nonnull
     public IThEItemDescription InfusionEncoder;
+
+    /**
+     * Essentia Interface.
+     */
+    @Nonnull
+    public IThEItemDescription EssentiaInterface;
 }

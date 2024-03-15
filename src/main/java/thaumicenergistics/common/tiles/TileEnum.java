@@ -1,7 +1,6 @@
 package thaumicenergistics.common.tiles;
 
 import net.minecraft.tileentity.TileEntity;
-
 import thaumicenergistics.common.ThaumicEnergistics;
 
 /**
@@ -20,7 +19,8 @@ public enum TileEnum {
     KnowledgeInscriber("TileKnowledgeInscriber", TileKnowledgeInscriber.class),
     EssentiaVibrationChamber("TileEssentiaVibrationChamber", TileEssentiaVibrationChamber.class),
     DistillationInscriber("TileDistillationInscriber", TileDistillationPatternEncoder.class),
-    InfusionEncoder("TileInfusionPatternEncoder", TileInfusionPatternEncoder.class);
+    InfusionEncoder("TileInfusionPatternEncoder", TileInfusionPatternEncoder.class),
+    TileEssemtiaInterface("TileEssemtiaInterface", TileEssentiaInterface.class);
 
     /**
      * Unique ID of the tile entity

@@ -1,5 +1,7 @@
 package thaumicenergistics.common.integration;
 
+import java.lang.reflect.Field;
+
 import appeng.api.config.Upgrades;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.event.FMLInterModComms;
@@ -59,6 +61,21 @@ public final class IntegrationCore {
                 ThEApi.instance().blocks().ArcaneAssembler.getStack(),
                 BlockArcaneAssembler.MAX_SPEED_UPGRADES);
 
+        // check if have ae's pattern capcity card
+        boolean isBigInterface;
+        try {
+            Field d = Upgrades.class.getDeclaredField("PATTERN_CAPACITY");
+            if (d == null) isBigInterface = false;
+            isBigInterface = true;
+        } catch (NoSuchFieldException e) {
+            isBigInterface = false;
+        }
+        
+        if (isBigInterface) {
+            Upgrades.PATTERN_CAPACITY.registerItem(ThEApi.instance().blocks().EssentiaInterface.getStack(), 3);
+        }
+        
+        
         ThELog.endSection("Integration", startTime);
     }
 }
