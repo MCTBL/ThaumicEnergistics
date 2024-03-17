@@ -407,6 +407,11 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
         ItemStack pattern = null;
         boolean takeBlank = false;
 
+        // No item in source item slot
+        if (this.slotSourceItem.getDisplayStack() == null) {
+            return;
+        }
+
         // Is there anything in the encoded pattern slot?
         if (this.slotPatternEncoded.getHasStack()) {
             // Set the pattern to it
