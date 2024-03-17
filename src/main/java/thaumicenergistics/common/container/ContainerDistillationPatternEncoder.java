@@ -1,7 +1,6 @@
 package thaumicenergistics.common.container;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -104,11 +103,6 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
     public final SlotFake[] slotSourceAspects = new SlotFake[ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_COUNT];
 
     /**
-     * An array for unselected aspects.
-     */
-    public final boolean[] mask = new boolean[ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_COUNT];
-
-    /**
      * The aspect types of the input item.
      */
     private int numOfAspects;
@@ -193,9 +187,6 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
 
         // Create the helper
         this.patternHelper = new HandlerDistillationPattern();
-
-        // Reset the mask
-        this.resetMask();
     }
 
     /**
@@ -264,12 +255,17 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
         // Read the pattern
         this.cachedPattern = this.slotPatternEncoded.getStack();
         this.patternHelper.readPattern(this.cachedPattern);
-
         // Is the pattern valid?
         if (this.patternHelper.isValid()) {
             // Set the source item
             this.slotSourceItem.putStack(this.patternHelper.getInput());
-            this.scanSourceItem(false);
+            this.cachedSource = this.patternHelper.getInput();
+            // Clear aspect slots
+            this.clearAspectSlots();
+            ItemStack[] output = this.patternHelper.getOutput();
+            for (int index = 0; index < output.length; index++) {
+                this.slotSourceAspects[index].putStack(output[index]);
+            }
         }
     }
 
@@ -284,9 +280,6 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
 
         // Clear aspect slots
         this.clearAspectSlots();
-
-        // Reset the mask
-        this.resetMask();
 
         // Null?
         if (this.cachedSource == null) {
@@ -355,11 +348,14 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
             return true;
         }
         // Does the source item need to be sync'd?
-        else if (this.slotSourceItem.getStack() != this.cachedSource) {
-            // Scan the source item
-            this.scanSourceItem(true);
-            return true;
-        }
+        else if (this.cachedSource == null || this.slotSourceItem == null
+                || (this.cachedSource != null && this.slotSourceItem != null
+                        && !this.slotSourceItem.getStack().getDisplayName()
+                                .equals(this.cachedSource.getDisplayName()))) {
+                                    // Scan the source item
+                                    this.scanSourceItem(true);
+                                    return true;
+                                }
 
         return false;
     }
@@ -369,7 +365,7 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
      *
      * @param aspectStack
      */
-    protected void setSelectedMask(final ItemStack aspectStack, final int index) {
+    protected void selectSlot(final ItemStack aspectStack, final int index) {
 
         // Is there anything to put?
         if (aspectStack == null) {
@@ -386,7 +382,8 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
         if (!ItemCraftingAspect.canPlayerSeeAspect(this.player, aspect)) {
             return;
         }
-        this.mask[index] = !this.mask[index];
+
+        this.slotSourceAspects[index].clearStack();
 
     }
 
@@ -434,10 +431,10 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
             return;
         }
 
-        // // Set the pattern items
+        // Set the pattern items
         ArrayList<ItemStack> outputStack = new ArrayList<>();
-        for (int index = 0; index < this.numOfAspects; index++) {
-            if (this.mask[index]) {
+        for (int index = 0; index < ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_COUNT; index++) {
+            if (ItemCraftingAspect.getAspect(this.slotSourceAspects[index].getDisplayStack()) != null) {
                 outputStack.add(this.slotSourceAspects[index].getDisplayStack());
             }
         }
@@ -499,7 +496,7 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
                 if (this.slotSourceAspects[index].slotNumber == slotNumber) {
                     if (this.slotSourceAspects[index].getHasStack()) {
                         // Place it into the selected
-                        this.setSelectedMask(this.slotSourceAspects[index].getStack(), index);
+                        this.selectSlot(this.slotSourceAspects[index].getStack(), index);
                     }
 
                     // Done
@@ -556,10 +553,4 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
         return null;
     }
 
-    /**
-     * Default set all aspect are selected.
-     */
-    private void resetMask() {
-        Arrays.fill(this.mask, true);
-    }
 }

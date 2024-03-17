@@ -152,11 +152,7 @@ public class GuiDistillationPatternEncoder extends ThEBaseGui implements IInvent
 
                     // Set the color
                     float[] argb = ThEGuiHelper.INSTANCE.convertPackedColorToARGBf(aspect.getColor());
-                    if (this.deContainer.mask[slot.getSlotIndex()]) {
-                        gpa.setColor(argb[1], argb[2], argb[3]);
-                    } else {
-                        gpa.setColor(0f, 0f, 0f);
-                    }
+                    gpa.setColor(argb[1], argb[2], argb[3]);
 
                     // Add to the list
                     this.particles.add(gpa);
