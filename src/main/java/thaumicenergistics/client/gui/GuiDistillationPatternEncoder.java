@@ -52,7 +52,7 @@ public class GuiDistillationPatternEncoder extends ThEBaseGui implements IInvent
     /**
      * Position of the encode button
      */
-    private static final int BUTTON_ENCODE_POS_X = 146, BUTTON_ENCODE_POS_Y = 94;
+    private static final int BUTTON_ENCODE_POS_X = 146, BUTTON_ENCODE_POS_Y = 70;
 
     /**
      * Half of the size of a standard item
@@ -96,7 +96,7 @@ public class GuiDistillationPatternEncoder extends ThEBaseGui implements IInvent
 
     public GuiDistillationPatternEncoder(final EntityPlayer player, final World world, final int x, final int y,
             final int z) {
-        // Call super
+    	// Call super
         super(new ContainerDistillationPatternEncoder(player, world, x, y, z));
 
         // Set the title

@@ -1,5 +1,7 @@
 package thaumicenergistics.common.container;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Nonnull;
@@ -48,23 +50,23 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
     /**
      * Starting position of the source aspect slots
      */
-    private static final int SLOT_SOURCE_ASPECTS_POS_X = 65, SLOT_SOURCE_ASPECTS_POS_Y = 24,
-            SLOT_SOURCE_ASPECTS_COUNT = 6;
+    private static final int SLOT_SOURCE_ASPECTS_POS_X = 65, SLOT_SOURCE_ASPECTS_POS_Y = 42,
+            SLOT_SOURCE_ASPECTS_COUNT = 16;
 
     /**
      * Position of the save aspect.
      */
-    private static final int SLOT_SELECTED_ASPECT_POS_X = 116, SLOT_SELECTED_ASPECT_POS_Y = 69;
+//    private static final int SLOT_SELECTED_ASPECT_POS_X = 116, SLOT_SELECTED_ASPECT_POS_Y = 69;
 
     /**
      * Position of the blank patterns.
      */
-    private static final int SLOT_PATTERNS_BLANK_POS_X = 146, SLOT_PATTERNS_BLANK_POS_Y = 75;
+    private static final int SLOT_PATTERNS_BLANK_POS_X = 146, SLOT_PATTERNS_BLANK_POS_Y = 51;
 
     /**
      * Position of the encoded pattern.
      */
-    private static final int SLOT_PATTERN_ENCODED_POS_X = 146, SLOT_PATTERN_ENCODED_POS_Y = 113;
+    private static final int SLOT_PATTERN_ENCODED_POS_X = 146, SLOT_PATTERN_ENCODED_POS_Y = 89;
 
     /**
      * Host encoder.
@@ -74,7 +76,7 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
     /**
      * Slot holding the selected aspect.
      */
-    private final SlotFake slotSelectedAspect;
+//    private final SlotFake slotSelectedAspect;
 
     /**
      * Blank patterns slot.
@@ -112,6 +114,13 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
     public final SlotFake[] slotSourceAspects = new SlotFake[ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_COUNT];
 
     /**
+     * An array for unselected aspects.
+     */
+    public final boolean[] mask = new boolean[ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_COUNT];
+    
+    private int numOfAspects;
+    
+    /**
      * Gui to send updates to when slots change.
      */
     public IInventoryUpdateReceiver slotUpdateReceiver;
@@ -134,7 +143,7 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
         this.encoder = (TileDistillationPatternEncoder) world.getTileEntity(x, y, z);
 
         // Create the internal inventory
-        this.internalInventory = new TheInternalInventory("dpeAspects", 7, 64) {
+        this.internalInventory = new TheInternalInventory("dpeAspects", 17, 64) {
 
             @Override
             public boolean isItemValidForSlot(final int slotIndex, final ItemStack itemStack) {
@@ -143,26 +152,21 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
         };
 
         // Add the source aspect slots
-        for (int index = 0; index < ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_COUNT; ++index) {
-            // Calculate Y
-            int posY = ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_POS_Y + (index * 18);
-
-            // Create the slot
-            this.slotSourceAspects[index] = new SlotFake(
-                    this.internalInventory,
-                    index,
-                    ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_POS_X,
-                    posY);
-            this.addSlotToContainer(this.slotSourceAspects[index]);
+        // Row
+        for (int index = 0; index < 4; ++index) {
+        	// Calculate Y
+        	int posY = ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_POS_Y + (index * 18);
+        	// Line
+        	for(int line = 0; line < 4; line ++) {
+        		// Create the slot
+                this.slotSourceAspects[index * 4 + line] = new SlotFake(
+                        this.internalInventory,
+                        index * 4 + line,
+                        ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_POS_X + 18 * line,
+                        posY);
+                this.addSlotToContainer(this.slotSourceAspects[index * 4 + line]);
+        	}
         }
-
-        // Add the selected aspect slot
-        this.slotSelectedAspect = new SlotFake(
-                this.internalInventory,
-                ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_COUNT,
-                ContainerDistillationPatternEncoder.SLOT_SELECTED_ASPECT_POS_X,
-                ContainerDistillationPatternEncoder.SLOT_SELECTED_ASPECT_POS_Y);
-        this.addSlotToContainer(this.slotSelectedAspect);
 
         // Add the source item slot
         this.slotSourceItem = new SlotFake(
@@ -196,13 +200,15 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
 
         // Create the helper
         this.patternHelper = new HandlerDistillationPattern();
+        
+        // Reset the mask
+        this.resetMask();
     }
 
     /**
      * Clears all aspect slots.
      */
     private void clearAspectSlots() {
-        this.slotSelectedAspect.clearStack();
         for (int index = 0; index < this.slotSourceAspects.length; ++index) {
             this.slotSourceAspects[index].clearStack();
         }
@@ -271,9 +277,6 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
             // Set the source item
             this.slotSourceItem.putStack(this.patternHelper.getInput());
             this.scanSourceItem(false);
-
-            // Set the selected aspect
-            this.setSelectedAspect(this.patternHelper.getOutput());
         }
     }
 
@@ -288,6 +291,9 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
 
         // Clear aspect slots
         this.clearAspectSlots();
+        
+        // Reset the mask
+        this.resetMask();
 
         // Null?
         if (this.cachedSource == null) {
@@ -313,7 +319,7 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
         List<String> list = Thaumcraft.proxy.getScannedObjects().get(this.player.getCommandSenderName());
 
         // Assume all slot will have an aspect
-        int numOfAspects = this.slotSourceAspects.length;
+        this.numOfAspects = this.slotSourceAspects.length;
 
         // Has the player scanned the item?
         boolean playerScanned = ((list != null) && ((list.contains("@" + hash)) || (list.contains("#" + hash))));
@@ -322,7 +328,7 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
             sortedAspects = itemAspects.getAspectsSortedAmount();
 
             // Set number to display
-            numOfAspects = Math.min(numOfAspects, sortedAspects.length);
+            this.numOfAspects = Math.min(numOfAspects, sortedAspects.length);
         }
 
         // Add each aspect
@@ -344,12 +350,6 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
 
             // Put into slot
             this.slotSourceAspects[i].putStack(aspectItem);
-
-            // Selected aspect empty?
-            if (setSelectedAspect && playerScanned && !this.slotSelectedAspect.getHasStack()) {
-                // Set selected
-                this.setSelectedAspect(aspectItem);
-            }
         }
     }
 
@@ -376,10 +376,8 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
      *
      * @param aspectStack
      */
-    protected void setSelectedAspect(final ItemStack aspectStack) {
-        // Clear the stack
-        this.slotSelectedAspect.clearStack();
-
+    protected void setSelectedMask(final ItemStack aspectStack, final int index) {
+    	
         // Is there anything to put?
         if (aspectStack == null) {
             return;
@@ -393,13 +391,9 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
 
         // Has the player discovered this aspect?
         if (!ItemCraftingAspect.canPlayerSeeAspect(this.player, aspect)) {
-            // Set the selected aspect to unknown
-            this.slotSelectedAspect.putStack(ItemEnum.CRAFTING_ASPECT.getStack());
+        	this.mask[index] = !this.mask[index];
             return;
         }
-
-        // Set the aspect
-        this.slotSelectedAspect.putStack(aspectStack.copy());
     }
 
     @Override
@@ -446,12 +440,16 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
             return;
         }
 
-        // Set the pattern items
-        if (!this.patternHelper
-                .setPatternItems(this.slotSourceItem.getDisplayStack(), this.slotSelectedAspect.getDisplayStack())) {
-            // Nothing to save
-            return;
+//        // Set the pattern items
+        ArrayList<ItemStack> outputStack = new ArrayList<>();
+        for(int index = 0; index < this.numOfAspects; index ++) {
+        	if(this.mask[index]) {
+        		outputStack.add(this.slotSourceAspects[index].getDisplayStack());
+        	}
         }
+        
+        // Set the pattern items
+        this.patternHelper.setPatternItems(this.slotSourceItem.getDisplayStack(), outputStack.toArray(new ItemStack[0]));
 
         // Encode!
         this.patternHelper.encodePattern(pattern);
@@ -479,11 +477,6 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
     @Override
     public ItemStack slotClick(final int slotNumber, final int buttonPressed, final int flag,
             final EntityPlayer player) {
-        // Selected aspect?
-        if (this.slotSelectedAspect.slotNumber == slotNumber) {
-            // No interaction
-            return null;
-        }
 
         // If true detect will be called, and null returned.
         boolean handled = false;
@@ -511,7 +504,7 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
                 if (this.slotSourceAspects[index].slotNumber == slotNumber) {
                     if (this.slotSourceAspects[index].getHasStack()) {
                         // Place it into the selected
-                        this.setSelectedAspect(this.slotSourceAspects[index].getStack());
+                        this.setSelectedMask(this.slotSourceAspects[index].getStack(), index);
                     }
 
                     // Done
@@ -566,5 +559,12 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
         }
 
         return null;
+    }
+    
+    /**
+     * Default set all aspect are selected.
+     */
+    private void resetMask() {
+    	Arrays.fill(this.mask, true);
     }
 }
