@@ -53,12 +53,12 @@ public class GuiDistillationPatternEncoder extends ThEBaseGui implements IInvent
     /**
      * Position of the encode button
      */
-    private static final int BUTTON_ENCODE_POS_X = 146, BUTTON_ENCODE_POS_Y = 70;
+    private static final int BUTTON_ENCODE_POS_X = 146, BUTTON_ENCODE_POS_Y = 78;
 
     /**
      * Position of the reset button
      */
-    private static final int BUTTON_RESET_POS_X = 146, BUTTON_RESET_POS_Y = 31;
+    private static final int BUTTON_RESET_POS_X = 146, BUTTON_RESET_POS_Y = 42;
 
     /**
      * Half of the size of a standard item

@@ -55,12 +55,12 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
     /**
      * Position of the blank patterns.
      */
-    private static final int SLOT_PATTERNS_BLANK_POS_X = 146, SLOT_PATTERNS_BLANK_POS_Y = 51;
+    private static final int SLOT_PATTERNS_BLANK_POS_X = 146, SLOT_PATTERNS_BLANK_POS_Y = 60;
 
     /**
      * Position of the encoded pattern.
      */
-    private static final int SLOT_PATTERN_ENCODED_POS_X = 146, SLOT_PATTERN_ENCODED_POS_Y = 89;
+    private static final int SLOT_PATTERN_ENCODED_POS_X = 146, SLOT_PATTERN_ENCODED_POS_Y = 96;
 
     /**
      * Host encoder.
