@@ -77,7 +77,7 @@ thaumicenergistics.tooltip.button.swap.armor=将你目前装备的护甲与终�
 thaumicenergistics.tooltip.button.swap.armor.title=交换护甲
 thaumicenergistics.tooltip.arcane.assembler.hasVis=已存储Vis
 thaumicenergistics.tooltip.button.reset.aspect=重置源质
-thaumicenergistics.tooltip.button.reset.aspect.description=重置右侧源质表格为初始状态
+thaumicenergistics.tooltip.button.reset.aspect.description=重置左侧源质表格为初始状态
 
 
 #GUI

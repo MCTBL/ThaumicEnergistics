@@ -103,11 +103,6 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
     public final SlotFake[] slotSourceAspects = new SlotFake[ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_COUNT];
 
     /**
-     * The aspect types of the input item.
-     */
-    private int numOfAspects;
-
-    /**
      * Gui to send updates to when slots change.
      */
     public IInventoryUpdateReceiver slotUpdateReceiver;
@@ -305,7 +300,7 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
         List<String> list = Thaumcraft.proxy.getScannedObjects().get(this.player.getCommandSenderName());
 
         // Assume all slot will have an aspect
-        this.numOfAspects = this.slotSourceAspects.length;
+        int numOfAspects = this.slotSourceAspects.length;
 
         // Has the player scanned the item?
         boolean playerScanned = ((list != null) && ((list.contains("@" + hash)) || (list.contains("#" + hash))));
@@ -314,7 +309,7 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
             sortedAspects = itemAspects.getAspectsSortedAmount();
 
             // Set number to display
-            this.numOfAspects = Math.min(numOfAspects, sortedAspects.length);
+            numOfAspects = Math.min(numOfAspects, sortedAspects.length);
         }
 
         // Add each aspect
@@ -383,6 +378,7 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
             return;
         }
 
+        // Remove the selected aspect.
         this.slotSourceAspects[index].clearStack();
 
     }
@@ -438,8 +434,6 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
                 outputStack.add(this.slotSourceAspects[index].getDisplayStack());
             }
         }
-
-        // Set the pattern items
         this.patternHelper
                 .setPatternItems(this.slotSourceItem.getDisplayStack(), outputStack.toArray(new ItemStack[0]));
 

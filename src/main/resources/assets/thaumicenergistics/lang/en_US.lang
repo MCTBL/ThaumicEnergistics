@@ -77,7 +77,7 @@ thaumicenergistics.tooltip.button.swap.armor=Swaps your currently equipped armor
 thaumicenergistics.tooltip.button.swap.armor.title=Swap Armor
 thaumicenergistics.tooltip.arcane.assembler.hasVis=Contains Stored Vis
 thaumicenergistics.tooltip.button.reset.aspect=Reset the aspects
-thaumicenergistics.tooltip.button.reset.aspect.description=Reset the right-hand aspects table to its original state
+thaumicenergistics.tooltip.button.reset.aspect.description=Reset the left-hand aspects table to its original state
 
 
 #GUI

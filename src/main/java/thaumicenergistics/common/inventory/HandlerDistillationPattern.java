@@ -104,18 +104,18 @@ public class HandlerDistillationPattern {
      *
      * @param pattern
      */
-    public byte[] readPattern(final ItemStack pattern) {
+    public void readPattern(final ItemStack pattern) {
         // Reset
         this.reset();
 
         // Valid pattern?
         if (pattern == null) {
-            return null;
+            return;
         }
 
         if (!pattern.hasTagCompound()) {
             // Nothing to load
-            return null;
+            return;
         }
 
         // Get the NBT tag
@@ -128,24 +128,24 @@ public class HandlerDistillationPattern {
         // Empty check
         if ((outTags.tagCount() < 1) || (inTags.tagCount() < 1)) {
             // Nothing to load.
-            return null;
+            return;
         }
 
+        // Read the input and output
         ArrayList<ItemStack> outputArray = new ArrayList<>();
         for (int index = 0; index < outTags.tagCount(); index++) {
             outputArray.add(ItemStack.loadItemStackFromNBT(outTags.getCompoundTagAt(index)));
         }
-        // Read the input and output
         this.setOutputItems(outputArray.toArray(new ItemStack[0]));
         this.setInputItem(ItemStack.loadItemStackFromNBT(inTags.getCompoundTagAt(0)));
 
         // Null check
         if ((this.input == null) || (this.output == null)) {
             this.reset();
-            return null;
+            return;
         }
 
-        return null;
+        return;
     }
 
     /**
