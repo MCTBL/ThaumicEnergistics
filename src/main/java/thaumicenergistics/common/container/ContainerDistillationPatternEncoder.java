@@ -54,11 +54,6 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
             SLOT_SOURCE_ASPECTS_COUNT = 16;
 
     /**
-     * Position of the save aspect.
-     */
-    // private static final int SLOT_SELECTED_ASPECT_POS_X = 116, SLOT_SELECTED_ASPECT_POS_Y = 69;
-
-    /**
      * Position of the blank patterns.
      */
     private static final int SLOT_PATTERNS_BLANK_POS_X = 146, SLOT_PATTERNS_BLANK_POS_Y = 51;
@@ -72,11 +67,6 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
      * Host encoder.
      */
     private final TileDistillationPatternEncoder encoder;
-
-    /**
-     * Slot holding the selected aspect.
-     */
-    // private final SlotFake slotSelectedAspect;
 
     /**
      * Blank patterns slot.
@@ -118,6 +108,9 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
      */
     public final boolean[] mask = new boolean[ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_COUNT];
 
+    /**
+     * The aspect types of the input item.
+     */
     private int numOfAspects;
 
     /**
