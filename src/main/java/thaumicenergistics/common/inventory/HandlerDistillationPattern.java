@@ -1,12 +1,12 @@
 package thaumicenergistics.common.inventory;
 
+import java.util.ArrayList;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.util.Constants.NBT;
-
-import java.util.ArrayList;
 
 import appeng.items.misc.ItemEncodedPattern;
 import thaumicenergistics.common.items.ItemCraftingAspect;
@@ -56,10 +56,10 @@ public class HandlerDistillationPattern {
 
         // Write the outputs
         NBTTagList outTags = new NBTTagList();
-        for(ItemStack is : this.output) {
-        	outTags.appendTag(createItemTag(is));
+        for (ItemStack is : this.output) {
+            outTags.appendTag(createItemTag(is));
         }
-        
+
         // Write the basics
         data.setBoolean(NBTKEY_AE_CAN_SUB, false);
         data.setBoolean(NBTKEY_AE_ISCRAFTING, false);
@@ -130,10 +130,10 @@ public class HandlerDistillationPattern {
             // Nothing to load.
             return;
         }
-        
+
         ArrayList<ItemStack> outputArray = new ArrayList<>();
-        for(int index = 0; index < outTags.tagCount(); index ++) {
-        	outputArray.add(ItemStack.loadItemStackFromNBT(outTags.getCompoundTagAt(index)));
+        for (int index = 0; index < outTags.tagCount(); index++) {
+            outputArray.add(ItemStack.loadItemStackFromNBT(outTags.getCompoundTagAt(index)));
         }
         // Read the input and output
         this.setOutputItems(outputArray.toArray(new ItemStack[0]));
@@ -173,18 +173,18 @@ public class HandlerDistillationPattern {
      */
     public boolean setPatternItems(final ItemStack inputItem, final ItemStack outputItem) {
         this.setInputItem(inputItem);
-        this.setOutputItems(new ItemStack[] {outputItem});
+        this.setOutputItems(new ItemStack[] { outputItem });
         return this.isValid();
     }
-    
+
     /**
      * Sets the output. Must be a crafting aspect.
      *
      * @param outputItem
      */
     public void setOutputItems(final ItemStack[] outputItems) {
-    	ArrayList<ItemStack> outputArray = new ArrayList<>();
-    	for(ItemStack is : outputItems) {
+        ArrayList<ItemStack> outputArray = new ArrayList<>();
+        for (ItemStack is : outputItems) {
             // Not valid crafting aspect?
             if ((is != null) && !(is.getItem() instanceof ItemCraftingAspect)) {
                 this.output = null;
@@ -197,8 +197,8 @@ public class HandlerDistillationPattern {
             } else {
                 outputArray.add(is);
             }
-    	}
-    	this.output = outputArray.toArray(new ItemStack[0]);
+        }
+        this.output = outputArray.toArray(new ItemStack[0]);
     }
 
     /**
@@ -213,10 +213,10 @@ public class HandlerDistillationPattern {
         this.setOutputItems(outputItems);
         return this.isValid();
     }
-    
-    
+
     /**
      * From itemstack to NBT Compound
+     * 
      * @param ItemStack
      * @return NBTTagCompound
      */

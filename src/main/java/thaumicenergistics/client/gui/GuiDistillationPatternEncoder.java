@@ -96,7 +96,7 @@ public class GuiDistillationPatternEncoder extends ThEBaseGui implements IInvent
 
     public GuiDistillationPatternEncoder(final EntityPlayer player, final World world, final int x, final int y,
             final int z) {
-    	// Call super
+        // Call super
         super(new ContainerDistillationPatternEncoder(player, world, x, y, z));
 
         // Set the title
@@ -152,7 +152,11 @@ public class GuiDistillationPatternEncoder extends ThEBaseGui implements IInvent
 
                     // Set the color
                     float[] argb = ThEGuiHelper.INSTANCE.convertPackedColorToARGBf(aspect.getColor());
-                    gpa.setColor(argb[1], argb[2], argb[3]);
+                    if (this.deContainer.mask[slot.getSlotIndex()]) {
+                        gpa.setColor(argb[1], argb[2], argb[3]);
+                    } else {
+                        gpa.setColor(0f, 0f, 0f);
+                    }
 
                     // Add to the list
                     this.particles.add(gpa);

@@ -165,6 +165,8 @@ public class GuiParticleAnimator {
         int posX = this.startingX + (int) (this.distanceX * this.percentComplete);
         int posY = this.startingY + (int) (this.distanceY * this.percentComplete);
 
+        ThELog.info("%f, %f, %f", this.red, this.green, this.blue);
+
         // Draw the particle
         this.theParticle.drawParticle(gui, posX, posY, particleFrame, this.red, this.green, this.blue, needsPrepare);
 
