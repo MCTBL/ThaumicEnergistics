@@ -31,7 +31,7 @@ public class Packet_S_DistillationEncoder extends ThEServerPacket {
         // Send it
         NetworkHandler.sendPacketToServer(packet);
     }
-    
+
     public static void sendResetAspect(final EntityPlayer player) {
         // Create a new packet
         Packet_S_DistillationEncoder packet = new Packet_S_DistillationEncoder();
@@ -44,7 +44,7 @@ public class Packet_S_DistillationEncoder extends ThEServerPacket {
 
         // Send it
         NetworkHandler.sendPacketToServer(packet);
-    } 
+    }
 
     @Override
     protected void readData(final ByteBuf stream) {}
@@ -56,19 +56,18 @@ public class Packet_S_DistillationEncoder extends ThEServerPacket {
     public void execute() {
         // Sanity check
         if (this.mode == MODE_ENCODE) {
-        	// Get the players open container
+            // Get the players open container
             if (this.player.openContainer instanceof ContainerDistillationPatternEncoder) {
                 // Send the encode
                 ((ContainerDistillationPatternEncoder) this.player.openContainer).onEncodePattern();
             }
-        }else if(this.mode == MODE_RESETASPECT) {
-        	// Get the players open container
+        } else if (this.mode == MODE_RESETASPECT) {
+            // Get the players open container
             if (this.player.openContainer instanceof ContainerDistillationPatternEncoder) {
                 // Send the reset
                 ((ContainerDistillationPatternEncoder) this.player.openContainer).scanSourceItem(true);
             }
         }
 
-        
     }
 }
