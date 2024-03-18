@@ -134,20 +134,13 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
         };
 
         // Add the source aspect slots
-        // Row
-        for (int index = 0; index < 4; ++index) {
-            // Calculate Y
-            int posY = ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_POS_Y + (index * 18);
-            // Line
-            for (int line = 0; line < 4; line++) {
-                // Create the slot
-                this.slotSourceAspects[index * 4 + line] = new SlotFake(
-                        this.internalInventory,
-                        index * 4 + line,
-                        ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_POS_X + 18 * line,
-                        posY);
-                this.addSlotToContainer(this.slotSourceAspects[index * 4 + line]);
-            }
+        for (int index = 0; index < ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_COUNT; index++) {
+            // Calculate Y and X
+            int posY = ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_POS_Y + ((index / 4) * 18);
+            int posX = ContainerDistillationPatternEncoder.SLOT_SOURCE_ASPECTS_POS_X + (index & 0x3) * 18;
+            // Create the slot and add it
+            this.slotSourceAspects[index] = new SlotFake(this.internalInventory, index, posX, posY);
+            this.addSlotToContainer(this.slotSourceAspects[index]);
         }
 
         // Add the source item slot
@@ -342,15 +335,16 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
             this.loadPattern();
             return true;
         }
+
         // Does the source item need to be sync'd?
-        else if (this.cachedSource == null || this.slotSourceItem.getStack() == null
-                || (this.cachedSource != null && this.slotSourceItem.getStack() != null
-                        && !this.slotSourceItem.getStack().getDisplayName()
-                                .equals(this.cachedSource.getDisplayName()))) {
-                                    // Scan the source item
-                                    this.scanSourceItem(true);
-                                    return true;
-                                }
+        // First for insert new block in the source item slot
+        // Second is for check the cached and current one is same
+        else if (this.cachedSource == null || (this.cachedSource != null && this.slotSourceItem.getStack() != null
+                && !this.slotSourceItem.getStack().isItemEqual(this.cachedSource))) {
+                    // Scan the source item
+                    this.scanSourceItem(true);
+                    return true;
+                }
 
         return false;
     }
@@ -439,6 +433,12 @@ public class ContainerDistillationPatternEncoder extends ContainerWithPlayerInve
                 outputStack.add(this.slotSourceAspects[index].getDisplayStack());
             }
         }
+
+        // Check if no aspect in output
+        if (outputStack.size() == 0) {
+            return;
+        }
+
         this.patternHelper
                 .setPatternItems(this.slotSourceItem.getDisplayStack(), outputStack.toArray(new ItemStack[0]));
 

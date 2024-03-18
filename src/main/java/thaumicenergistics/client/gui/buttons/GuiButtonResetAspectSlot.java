@@ -34,8 +34,8 @@ public class GuiButtonResetAspectSlot extends ThEStateButton {
     public void getTooltip(List<String> tooltip) {
         this.addAboutToTooltip(
                 tooltip,
-                ThEStrings.TooltipBUtton_Reset_Aspect.getLocalized(),
-                ThEStrings.TooltipBUtton_Reset_Aspect_Description.getLocalized());
+                ThEStrings.TooltipButton_Reset_Aspect.getLocalized(),
+                ThEStrings.TooltipButton_Reset_Aspect_Description.getLocalized());
     }
 
 }

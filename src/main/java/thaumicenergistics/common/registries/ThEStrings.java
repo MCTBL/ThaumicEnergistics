@@ -88,8 +88,8 @@ public enum ThEStrings {
     TooltipButton_InscriberMissing("tooltip.button.inscriber.missing", false),
     TooltipButton_SwapArmor("tooltip.button.swap.armor", false),
     TooltipButton_SwapArmor_Title("tooltip.button.swap.armor.title", false),
-    TooltipBUtton_Reset_Aspect("tooltip.button.reset.aspect", false),
-    TooltipBUtton_Reset_Aspect_Description("tooltip.button.reset.aspect.description", false),
+    TooltipButton_Reset_Aspect("tooltip.button.reset.aspect", false),
+    TooltipButton_Reset_Aspect_Description("tooltip.button.reset.aspect.description", false),
 
     // GUI
     Gui_TitleArcaneCraftingTerminal("gui.arcane.crafting.terminal.title", false),
