@@ -68,6 +68,7 @@ public enum ThEStrings {
     Item_FocusAEWrench_Disabled("item.focus.aewrench.disabled", true),
     Item_Golem_Wifi_Backpack("item.golem.wifi.backpack", true),
     Item_Cell_Microscope("item.cell.microscope", true),
+    Item_Essentia_Encoded_Pattern("item.essentia.encoded.pattern", true),
 
     // Tooltips
     Tooltip_ItemStackDetails("tooltip.itemstack.details", false),

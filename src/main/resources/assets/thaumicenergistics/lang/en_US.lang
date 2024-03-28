@@ -58,6 +58,7 @@ thaumicenergistics.item.focus.aewrench.name=Wand Focus: AE Wrench
 thaumicenergistics.item.focus.aewrench.disabled.name=Wand Focus: AE Wrench - Wrench Mode Disabled
 thaumicenergistics.item.golem.wifi.backpack.name=Wireless Golem Backpack
 thaumicenergistics.item.cell.microscope.name=Cell Microscope
+thaumicenergistics.item.essentia.encoded.pattern.name=Encoded Pattern
 
 #Tooltips
 thaumicenergistics.tooltip.itemstack.details=Hold §eCTRL§f for details.
