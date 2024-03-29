@@ -15,6 +15,7 @@ thaumicenergistics.block.arcane.assembler.name=Arcane Assembler
 thaumicenergistics.block.knowledge.inscriber.name=Knowledge Inscriber
 thaumicenergistics.block.essentia.vibration.chamber.name=Essentia Vibration Chamber
 thaumicenergistics.block.distillation.encoder.name=Distillation Pattern Encoder
+thaumicenergistics.block.infusion.encoder.name=Infusion Pattern Encoder
 
 #Cable parts
 thaumicenergistics.aeparts.essentia.ImportBus.name=Essentia Import Bus

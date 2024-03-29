@@ -15,6 +15,7 @@ thaumicenergistics.block.arcane.assembler.name=奥术装配室
 thaumicenergistics.block.knowledge.inscriber.name=知识记录仪
 thaumicenergistics.block.essentia.vibration.chamber.name=源质谐振仓
 thaumicenergistics.block.distillation.encoder.name=蒸馏编码台
+thaumicenergistics.block.infusion.encoder.name=注魔编码台
 
 #Cable parts
 thaumicenergistics.aeparts.essentia.ImportBus.name=源质输入总线
