@@ -54,7 +54,7 @@ class ThEItems extends IThEItems {
 
         // Post-release
         this.CellMicroscope = new ThEItemDescription(ItemEnum.CELL_MICROSCOPE.getStack());
-        
+
         // Essentia encoded pattern
         this.EssentiaEncodedPattern = new ThEItemDescription(ItemEnum.ESSENTIA_ENCODED_PATTERN.getStack());
     }

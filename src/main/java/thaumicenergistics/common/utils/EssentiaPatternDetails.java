@@ -3,10 +3,6 @@ package thaumicenergistics.common.utils;
 import java.util.Arrays;
 import java.util.Objects;
 
-import appeng.api.networking.crafting.ICraftingPatternDetails;
-import appeng.api.storage.data.IAEItemStack;
-import appeng.helpers.PatternHelper;
-import appeng.util.item.AEItemStack;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -14,15 +10,20 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
 
+import appeng.api.networking.crafting.ICraftingPatternDetails;
+import appeng.api.storage.data.IAEItemStack;
+import appeng.helpers.PatternHelper;
+import appeng.util.item.AEItemStack;
+
 public class EssentiaPatternDetails implements ICraftingPatternDetails, Comparable<EssentiaPatternDetails> {
-	
+
     private final ItemStack patternStack;
     private IAEItemStack patternStackAe;
     private IAEItemStack[] inputs = null, inputsCond = null, outputs = null, outputsCond = null;
     private int priority = 0;
     private int combine = 0;
     private int beSubstitute = 0;
-	
+
     public EssentiaPatternDetails(ItemStack stack) {
         this.patternStack = stack;
         if (stack.stackTagCompound != null && stack.stackTagCompound.hasKey("author")) {
@@ -34,82 +35,82 @@ public class EssentiaPatternDetails implements ICraftingPatternDetails, Comparab
         }
     }
 
-	@Override
-	public int compareTo(EssentiaPatternDetails o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int compareTo(EssentiaPatternDetails o) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public ItemStack getPattern() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public ItemStack getPattern() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public boolean isValidItemForSlot(int slotIndex, ItemStack itemStack, World world) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean isValidItemForSlot(int slotIndex, ItemStack itemStack, World world) {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public boolean isCraftable() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean isCraftable() {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public IAEItemStack[] getInputs() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public IAEItemStack[] getInputs() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public IAEItemStack[] getCondensedInputs() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public IAEItemStack[] getCondensedInputs() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public IAEItemStack[] getCondensedOutputs() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public IAEItemStack[] getCondensedOutputs() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public IAEItemStack[] getOutputs() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public IAEItemStack[] getOutputs() {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public boolean canSubstitute() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public boolean canSubstitute() {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
-	@Override
-	public ItemStack getOutput(InventoryCrafting craftingInv, World world) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public ItemStack getOutput(InventoryCrafting craftingInv, World world) {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
-	@Override
-	public int getPriority() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    @Override
+    public int getPriority() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
 
-	@Override
-	public void setPriority(int priority) {
-		// TODO Auto-generated method stub
+    @Override
+    public void setPriority(int priority) {
+        // TODO Auto-generated method stub
 
-	}
-	
+    }
+
     private static IAEItemStack[] condenseStacks(IAEItemStack[] stacks) {
         return PatternHelper.convertToCondensedList(stacks);
     }
-	
+
     public boolean setInputs(IAEItemStack[] inputs) {
         IAEItemStack[] condensed = condenseStacks(inputs);
         if (condensed.length == 0) {
@@ -119,7 +120,7 @@ public class EssentiaPatternDetails implements ICraftingPatternDetails, Comparab
         this.inputsCond = condensed;
         return true;
     }
-    
+
     public boolean setOutputs(IAEItemStack[] outputs) {
         IAEItemStack[] condensed = condenseStacks(outputs);
         if (condensed.length == 0) {
@@ -129,7 +130,7 @@ public class EssentiaPatternDetails implements ICraftingPatternDetails, Comparab
         this.outputsCond = condensed;
         return true;
     }
-	
+
     public boolean readFromStack() {
         if (!patternStack.hasTagCompound()) {
             return false;

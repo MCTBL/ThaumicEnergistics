@@ -26,6 +26,7 @@ public enum ThEStrings {
     Block_KnowledgeInscriber("block.knowledge.inscriber", true),
     Block_EssentiaVibrationChamber("block.essentia.vibration.chamber", true),
     Block_DistillationEncoder("block.distillation.encoder", true),
+    Block_InfusionEncoder("block.infusion.encoder", true),
 
     // Parts
     Part_EssentiaImportBus("aeparts.essentia.ImportBus", true),

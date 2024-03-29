@@ -69,4 +69,10 @@ public abstract class IThEBlocks {
      */
     @Nonnull
     public IThEItemDescription ThaumiumGearBox;
+
+    /**
+     * Infusion Encoder
+     */
+    @Nonnull
+    public IThEItemDescription InfusionEncoder;
 }
