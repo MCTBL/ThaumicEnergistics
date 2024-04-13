@@ -2,6 +2,7 @@ package thaumicenergistics.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -10,6 +11,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.client.textures.BlockTextureManager;
+import thaumicenergistics.common.ThEGuiHandler;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.tiles.TileInfusionPatternEncoder;
 
@@ -32,6 +34,15 @@ public class BlockInfusionEncoder extends AbstractBlockAEWrenchable {
     @Override
     public TileEntity createNewTileEntity(final World world, final int metaData) {
         return new TileInfusionPatternEncoder();
+    }
+
+    @Override
+    protected final boolean onBlockActivated(final World world, final int x, final int y, final int z,
+            final EntityPlayer player) {
+        // Launch the gui.
+        ThEGuiHandler.launchGui(ThEGuiHandler.INFUSION_ENCODER, player, world, x, y, z);
+
+        return true;
     }
 
     /**
