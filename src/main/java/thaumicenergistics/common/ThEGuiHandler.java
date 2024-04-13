@@ -1,9 +1,5 @@
 package thaumicenergistics.common;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
-
 import appeng.api.parts.IPart;
 import appeng.api.parts.IPartHost;
 import appeng.container.AEBaseContainer;
@@ -12,6 +8,9 @@ import appeng.container.implementations.ContainerCraftConfirm;
 import appeng.container.implementations.ContainerCraftingStatus;
 import appeng.helpers.IPriorityHost;
 import cpw.mods.fml.common.network.IGuiHandler;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 import thaumicenergistics.api.grid.ICraftingIssuerHost;
 import thaumicenergistics.api.gui.ICraftingIssuerContainer;
 import thaumicenergistics.client.gui.GuiArcaneAssembler;
@@ -22,6 +21,7 @@ import thaumicenergistics.client.gui.GuiDistillationPatternEncoder;
 import thaumicenergistics.client.gui.GuiEssentiaCellTerminal;
 import thaumicenergistics.client.gui.GuiEssentiaCellWorkbench;
 import thaumicenergistics.client.gui.GuiEssentiaVibrationChamber;
+import thaumicenergistics.client.gui.GuiInfusionEncoder;
 import thaumicenergistics.client.gui.GuiKnowledgeInscriber;
 import thaumicenergistics.client.gui.GuiPriority;
 import thaumicenergistics.common.container.ContainerArcaneAssembler;
@@ -55,7 +55,8 @@ public class ThEGuiHandler implements IGuiHandler {
     public static final int ESSENTIA_CELL_ID = ThEGuiHandler.ID_STEP_VALUE * 1;
 
     /**
-     * Base ID of the priority gui. Add the ForgeDirection's side ordinal to this value.
+     * Base ID of the priority gui. Add the ForgeDirection's side ordinal to this
+     * value.
      */
     public static final int PRIORITY_ID = ThEGuiHandler.ID_STEP_VALUE * 2;
 
@@ -85,13 +86,16 @@ public class ThEGuiHandler implements IGuiHandler {
     public static final int ESSENTIA_VIBRATION_CHAMBER = ThEGuiHandler.ID_STEP_VALUE * 7;
 
     /**
-     * ID of the auto crafting amount bridge. When calling this make sure the current container implements
-     * ICraftingIssuerContainer, or extends AEBaseContainer with the target set to an ICraftingIssuerHost.
+     * ID of the auto crafting amount bridge. When calling this make sure the
+     * current container implements
+     * ICraftingIssuerContainer, or extends AEBaseContainer with the target set to
+     * an ICraftingIssuerHost.
      */
     public static final int AUTO_CRAFTING_AMOUNT = ThEGuiHandler.ID_STEP_VALUE * 8;
 
     /**
-     * ID of the auto crafting confirm bridge. When calling this make sure the current container extends AEBaseContainer
+     * ID of the auto crafting confirm bridge. When calling this make sure the
+     * current container extends AEBaseContainer
      * with the target set to an ICraftingIssuerHost.
      */
     public static final int AUTO_CRAFTING_CONFIRM = ThEGuiHandler.ID_STEP_VALUE * 9;
@@ -102,9 +106,15 @@ public class ThEGuiHandler implements IGuiHandler {
     public static final int DISTILLATION_ENCODER = ThEGuiHandler.ID_STEP_VALUE * 10;
 
     /**
+     * 
      * ID of the crafting status gui.
      */
     public static final int CRAFTING_STATUS = ThEGuiHandler.ID_STEP_VALUE * 11;
+
+    /**
+     * ΙD of the infusion endoder.
+     */
+    public static final int INFUSION_ENCODER = ThEGuiHandler.ID_STEP_VALUE * 12;
 
     /**
      * Extra data used for some GUI calls.
@@ -221,7 +231,8 @@ public class ThEGuiHandler implements IGuiHandler {
     }
 
     /**
-     * Helper function to properly generate a GUI ID that includes a forge direction.
+     * Helper function to properly generate a GUI ID that includes a forge
+     * direction.
      *
      * @param ID
      * @param side
@@ -326,6 +337,10 @@ public class ThEGuiHandler implements IGuiHandler {
             // Distillation encoder?
             case ThEGuiHandler.DISTILLATION_ENCODER:
                 return new GuiDistillationPatternEncoder(player, world, x, y, z);
+
+            // Infusion encoder
+            case ThEGuiHandler.INFUSION_ENCODER:
+                return new GuiInfusionEncoder(player, world, x, y, z);
 
             // AE2 Autocrafting Amount?
             case ThEGuiHandler.AUTO_CRAFTING_AMOUNT:
