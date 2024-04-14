@@ -12,7 +12,10 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.api.storage.IInventoryUpdateReceiver;
 import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
+import thaumicenergistics.client.gui.buttons.GuiButtonEncodePattern;
+import thaumicenergistics.client.gui.buttons.GuiButtonResetAspectSlot;
 import thaumicenergistics.client.gui.widget.ThEScrollbar;
+import thaumicenergistics.client.textures.AEStateIconsEnum;
 import thaumicenergistics.client.textures.GuiTextureManager;
 import thaumicenergistics.common.container.ContainerInfusionEncoder;
 import thaumicenergistics.common.registries.ThEStrings;
@@ -40,6 +43,12 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
      * Position of the fake slots.
      */
     private static final int FIRST_FAKE_SLOT_X = 10, FIRST_FAKE_SLOT_Y = 25;
+    
+    /*
+     * Position of the buttons.
+     */
+    private static final int RESET_BUTTON_X = 132, RESET_BUTTON_Y = 26;
+    private static final int ENCODE_BUTTON_X = 153, ENCODE_BUTTON_Y = 71;
 
     /**
      * Title of the gui.
@@ -50,6 +59,17 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
             GuiTextureManager.INFUSION_ENCODER.getTexture(),
             GuiInfusionEncoder.SCROLLBAR_X_BIAS,
             GuiInfusionEncoder.SCROLLBAR_Y_BIAS);
+    
+    /**
+     * The encode button.
+     */
+    private GuiButtonEncodePattern buttonEncode;
+
+    /**
+     * The reset button.
+     */
+    private GuiButtonResetAspectSlot buttonReset;
+    
 
     public GuiInfusionEncoder(final EntityPlayer player, final World world, final int x, final int y, final int z) {
         super(new ContainerInfusionEncoder(player, world, x, y, z));
@@ -92,11 +112,28 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
         this.scrollBar.draw(this);
 
     }
-
+    
+    @SuppressWarnings("unchecked")
     @Override
     public void initGui() {
-        // TODO Auto-generated method stub
         super.initGui();
+        
+        // Create the encode button
+        this.buttonEncode = new GuiButtonEncodePattern(0,
+        		GuiInfusionEncoder.ENCODE_BUTTON_X + this.guiLeft,
+        		GuiInfusionEncoder.ENCODE_BUTTON_Y + this.guiTop,
+        		AEStateIconsEnum.STANDARD_ICON_SIZE,
+                AEStateIconsEnum.STANDARD_ICON_SIZE);
+        this.buttonList.add(this.buttonEncode);
+        
+        // Create the reset aspect button
+        this.buttonReset = new GuiButtonResetAspectSlot(
+                1,
+                GuiInfusionEncoder.RESET_BUTTON_X + this.guiLeft,
+                GuiInfusionEncoder.RESET_BUTTON_Y + this.guiTop,
+                AEStateIconsEnum.STANDARD_ICON_SIZE,
+                AEStateIconsEnum.STANDARD_ICON_SIZE);
+        this.buttonList.add(this.buttonReset);
     }
 
     @Override
