@@ -23,14 +23,7 @@ import thaumicenergistics.client.gui.GuiEssentiaVibrationChamber;
 import thaumicenergistics.client.gui.GuiInfusionEncoder;
 import thaumicenergistics.client.gui.GuiKnowledgeInscriber;
 import thaumicenergistics.client.gui.GuiPriority;
-import thaumicenergistics.common.container.ContainerArcaneAssembler;
-import thaumicenergistics.common.container.ContainerDistillationPatternEncoder;
-import thaumicenergistics.common.container.ContainerEssentiaCell;
-import thaumicenergistics.common.container.ContainerEssentiaCellWorkbench;
-import thaumicenergistics.common.container.ContainerEssentiaVibrationChamber;
-import thaumicenergistics.common.container.ContainerKnowledgeInscriber;
-import thaumicenergistics.common.container.ContainerPriority;
-import thaumicenergistics.common.container.ContainerWirelessEssentiaTerminal;
+import thaumicenergistics.common.container.*;
 import thaumicenergistics.common.inventory.HandlerWirelessEssentiaTerminal;
 import thaumicenergistics.common.parts.ThEPartBase;
 
@@ -409,6 +402,10 @@ public class ThEGuiHandler implements IGuiHandler {
             // Distillation encoder?
             case ThEGuiHandler.DISTILLATION_ENCODER:
                 return new ContainerDistillationPatternEncoder(player, world, x, y, z);
+
+            // Infusion encoder
+            case ThEGuiHandler.INFUSION_ENCODER:
+                return new ContainerInfusionEncoder(player, world, x, y, z);
 
             // AE2 Autocrafting Amount?
             case ThEGuiHandler.AUTO_CRAFTING_AMOUNT:
