@@ -1,8 +1,9 @@
 package thaumicenergistics.common.tiles;
 
+import appeng.api.AEApi;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
-
+import thaumicenergistics.api.ThEApi;
 import thaumicenergistics.common.tiles.abstraction.ThETileInventory;
 
 public class TileInfusionPatternEncoder extends ThETileInventory implements ISidedInventory {
@@ -25,8 +26,23 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
     }
 
     @Override
-    public boolean isItemValidForSlot(int index, ItemStack stack) {
-        return false;
+    public boolean isItemValidForSlot(final int slotId, final ItemStack itemStack) {
+        // Can always clear a slot
+        if (itemStack == null) {
+            return true;
+        }
+
+        // Empty pattern slot?
+        if (slotId == TileInfusionPatternEncoder.SLOT_BLANK_PATTERNS) {
+            return AEApi.instance().definitions().materials().blankPattern().isSameAs(itemStack);
+        }
+
+        // Encoded pattern slot?
+        if (slotId == TileInfusionPatternEncoder.SLOT_ENCODED_PATTERN) {
+            return ThEApi.instance().items().EssentiaEncodedPattern.getStack().isItemEqual(itemStack);
+        }
+
+        return true;
     }
 
     @Override
