@@ -10,17 +10,18 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
     /**
      * Slot counts
      */
-    public static int SLOT_PATTERNS_COUNT = 2, SLOT_SOURCE_ITEM_COUNT = 1,
-            SLOT_TOTAL_COUNT = TileDistillationPatternEncoder.SLOT_SOURCE_ITEM_COUNT
-                    + TileDistillationPatternEncoder.SLOT_PATTERNS_COUNT;
+    public static int SLOT_PATTERNS_COUNT = 2, SLOT_SOURCE_ITEM_COUNT = 73, SLOT_TARGET_ITEM_COUNT = 1,
+            SLOT_TOTAL_COUNT = TileInfusionPatternEncoder.SLOT_PATTERNS_COUNT
+                    + TileInfusionPatternEncoder.SLOT_SOURCE_ITEM_COUNT
+                    + TileInfusionPatternEncoder.SLOT_TARGET_ITEM_COUNT;
 
     /**
      * Slot ID's
      */
-    public static int SLOT_SOURCE_ITEM = 0, SLOT_BLANK_PATTERNS = 1, SLOT_ENCODED_PATTERN = 2;
+    public static int SLOT_SOURCE_ITEM = 0, SLOT_TARGET_ITEM = 1, SLOT_BLANK_PATTERNS = 2, SLOT_ENCODED_PATTERN = 3;
 
     public TileInfusionPatternEncoder() {
-        super("infusion.inscriber", TileInfusionPatternEncoder.SLOT_TOTAL_COUNT, 64);
+        super("infusion.encoder", TileInfusionPatternEncoder.SLOT_TOTAL_COUNT, 64);
     }
 
     @Override
