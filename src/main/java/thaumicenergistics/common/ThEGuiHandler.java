@@ -23,7 +23,15 @@ import thaumicenergistics.client.gui.GuiEssentiaVibrationChamber;
 import thaumicenergistics.client.gui.GuiInfusionEncoder;
 import thaumicenergistics.client.gui.GuiKnowledgeInscriber;
 import thaumicenergistics.client.gui.GuiPriority;
-import thaumicenergistics.common.container.*;
+import thaumicenergistics.common.container.ContainerArcaneAssembler;
+import thaumicenergistics.common.container.ContainerDistillationPatternEncoder;
+import thaumicenergistics.common.container.ContainerEssentiaCell;
+import thaumicenergistics.common.container.ContainerEssentiaCellWorkbench;
+import thaumicenergistics.common.container.ContainerEssentiaVibrationChamber;
+import thaumicenergistics.common.container.ContainerInfusionEncoder;
+import thaumicenergistics.common.container.ContainerKnowledgeInscriber;
+import thaumicenergistics.common.container.ContainerPriority;
+import thaumicenergistics.common.container.ContainerWirelessEssentiaTerminal;
 import thaumicenergistics.common.inventory.HandlerWirelessEssentiaTerminal;
 import thaumicenergistics.common.parts.ThEPartBase;
 
