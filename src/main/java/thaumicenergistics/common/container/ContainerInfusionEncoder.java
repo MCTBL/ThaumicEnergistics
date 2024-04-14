@@ -160,7 +160,12 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
 
     @Override
     public boolean canInteractWith(EntityPlayer player) {
-        // TODO Auto-generated method stub
+        // Ensure there is an encoder
+        if (this.encoder != null) {
+            // Ask it if this player can interact
+            return this.encoder.isUseableByPlayer(player);
+        }
+
         return false;
     }
 
