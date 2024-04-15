@@ -1,8 +1,12 @@
 package thaumicenergistics.common.blocks;
 
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -14,6 +18,7 @@ import thaumicenergistics.client.textures.BlockTextureManager;
 import thaumicenergistics.common.ThEGuiHandler;
 import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.tiles.TileInfusionPatternEncoder;
+import thaumicenergistics.common.utils.EffectiveSide;
 
 public class BlockInfusionEncoder extends AbstractBlockAEWrenchable {
 
@@ -41,8 +46,38 @@ public class BlockInfusionEncoder extends AbstractBlockAEWrenchable {
             final EntityPlayer player) {
         // Launch the gui.
         ThEGuiHandler.launchGui(ThEGuiHandler.INFUSION_ENCODER, player, world, x, y, z);
-
         return true;
+    }
+
+    /**
+     * Called when the block is broken.
+     */
+    @Override
+    public void breakBlock(final World world, final int x, final int y, final int z, final Block block,
+            final int metaData) {
+        // Is this server side?
+        if (EffectiveSide.isServerSide()) {
+            // Get the tile
+            TileEntity tile = world.getTileEntity(x, y, z);
+
+            if (tile instanceof TileInfusionPatternEncoder) {
+                // Cast
+                TileInfusionPatternEncoder tileDE = (TileInfusionPatternEncoder) tile;
+
+                // Does it have patterns?
+                if (tileDE.hasPatterns()) {
+                    // Get the drops
+                    ArrayList<ItemStack> drops = tileDE.getDrops(new ArrayList<ItemStack>());
+                    for (ItemStack drop : drops) {
+                        // Spawn in the world
+                        world.spawnEntityInWorld(new EntityItem(world, 0.5 + x, 0.5 + y, 0.2 + z, drop));
+                    }
+                }
+            }
+        }
+
+        // Call super
+        super.breakBlock(world, x, y, z, block, metaData);
     }
 
     /**

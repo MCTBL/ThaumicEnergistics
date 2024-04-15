@@ -43,7 +43,7 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
      * Position of the fake slots.
      */
     private static final int FIRST_FAKE_SLOT_X = 10, FIRST_FAKE_SLOT_Y = 25;
-    
+
     /*
      * Position of the buttons.
      */
@@ -59,7 +59,7 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
             GuiTextureManager.INFUSION_ENCODER.getTexture(),
             GuiInfusionEncoder.SCROLLBAR_X_BIAS,
             GuiInfusionEncoder.SCROLLBAR_Y_BIAS);
-    
+
     /**
      * The encode button.
      */
@@ -69,7 +69,6 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
      * The reset button.
      */
     private GuiButtonResetAspectSlot buttonReset;
-    
 
     public GuiInfusionEncoder(final EntityPlayer player, final World world, final int x, final int y, final int z) {
         super(new ContainerInfusionEncoder(player, world, x, y, z));
@@ -112,20 +111,21 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
         this.scrollBar.draw(this);
 
     }
-    
+
     @SuppressWarnings("unchecked")
     @Override
     public void initGui() {
         super.initGui();
-        
+
         // Create the encode button
-        this.buttonEncode = new GuiButtonEncodePattern(0,
-        		GuiInfusionEncoder.ENCODE_BUTTON_X + this.guiLeft,
-        		GuiInfusionEncoder.ENCODE_BUTTON_Y + this.guiTop,
-        		AEStateIconsEnum.STANDARD_ICON_SIZE,
+        this.buttonEncode = new GuiButtonEncodePattern(
+                0,
+                GuiInfusionEncoder.ENCODE_BUTTON_X + this.guiLeft,
+                GuiInfusionEncoder.ENCODE_BUTTON_Y + this.guiTop,
+                AEStateIconsEnum.STANDARD_ICON_SIZE,
                 AEStateIconsEnum.STANDARD_ICON_SIZE);
         this.buttonList.add(this.buttonEncode);
-        
+
         // Create the reset aspect button
         this.buttonReset = new GuiButtonResetAspectSlot(
                 1,
