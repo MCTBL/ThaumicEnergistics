@@ -62,7 +62,7 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
     /**
      * Slots holding the source item's aspects.
      */
-    public final ProcessingSlotFake[] slotSourceItems = new ProcessingSlotFake[ContainerInfusionEncoder.FAKE_SLOT_COUNT];
+    public final ProcessingSlotFake[] slotCraftingItems = new ProcessingSlotFake[ContainerInfusionEncoder.FAKE_SLOT_COUNT];
 
     /**
      * Host encoder.
@@ -82,7 +82,7 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
     /**
      * Stores the source items.
      */
-    private final TheInternalInventory internalInventory;
+    private final TheInternalInventory craftingInventory;
 
     /*
      * Default active page.
@@ -95,16 +95,16 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
         // Get the encoder
         this.encoder = (TileInfusionPatternEncoder) world.getTileEntity(x, y, z);
 
-        this.internalInventory = new TheInternalInventory("sourceItems", 72, 1000);
+        this.craftingInventory = new TheInternalInventory("sourceItems", 72, 1000);
 
         this.activePage = 0;
 
         // Add the source item slots
-        for (int index = 0; index < ContainerInfusionEncoder.FAKE_SLOT_COUNT / 2; index++) {
+        for (int index = 0; index < ContainerInfusionEncoder.FAKE_SLOT_COUNT; index++) {
 
             // Create the slot and add it
-            this.slotSourceItems[index] = new ProcessingSlotFake(
-                    this.internalInventory,
+            this.slotCraftingItems[index] = new ProcessingSlotFake(
+                    this.craftingInventory,
                     this,
                     index,
                     ContainerInfusionEncoder.FIRST_FAKE_SLOT_X,
@@ -112,18 +112,9 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
                     (index % 6),
                     (index / 6),
                     0);
-            this.slotSourceItems[index + 36] = new ProcessingSlotFake(
-                    this.internalInventory,
-                    this,
-                    index + 36,
-                    ContainerInfusionEncoder.FIRST_FAKE_SLOT_X,
-                    ContainerInfusionEncoder.FIRST_FAKE_SLOT_Y,
-                    (index % 6),
-                    (index / 6),
-                    1);
-            this.slotSourceItems[index + 36].setHidden(true);
-            this.addSlotToContainer(this.slotSourceItems[index]);
-            this.addSlotToContainer(this.slotSourceItems[index + 36]);
+            this.addSlotToContainer(this.slotCraftingItems[index]);
+            // Hidden the half
+            this.slotCraftingItems[index].setHidden(index >= 36 ? true : false);
         }
 
         // Add the source and target item slot
@@ -281,8 +272,25 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
         }
 
         // check if is slotSourceItems
-        if (!handled) {
-            // TODO
+        if (!handled && slotNumber < ContainerInfusionEncoder.FAKE_SLOT_COUNT && slotNumber >= 0) {
+            // Get the item the player is dragging
+            ItemStack heldItem = player.inventory.getItemStack();
+            // Set the source slot
+            if (heldItem != null) {
+                ItemStack copy = heldItem.copy();
+
+                // If player dragging item is same as the item in slot
+                if (this.slotCraftingItems[slotNumber].getStack() != null
+                        && this.slotCraftingItems[slotNumber].getStack().isItemEqual(copy)) {
+                    // Add the number
+                    copy.stackSize = this.slotCraftingItems[slotNumber].getStack().stackSize + copy.stackSize;
+                }
+
+                this.slotCraftingItems[slotNumber].putStack(copy);
+            } else {
+                this.slotCraftingItems[slotNumber].putStack(null);
+            }
+            handled = true;
         }
 
         // Was the click handled?
@@ -298,9 +306,41 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
         return super.slotClick(slotNumber, buttonPressed, flag, player);
     }
 
-    public void changeActivePage() {
+    public void changeActivePage(final int currentScroll) {
         // TODO
+        System.out.println("==========Roll==========");
+    }
 
+    public void clearSlots() {
+
+        // Clear all the slot
+        this.slotSourceItem.clearStack();
+        this.slotTragetItem.clearStack();
+
+        // Clear all slots
+        for (ProcessingSlotFake slot : this.slotCraftingItems) {
+            slot.clearStack();
+        }
+    }
+
+    public void encodePattern() {
+        // TODO
+        System.out.println("==========encodePattern==========");
+    }
+
+    /**
+     * Returns the player for this container.
+     *
+     * @return
+     */
+    public EntityPlayer getPlayer() {
+        return this.player;
+    }
+
+    @Override
+    public void onContainerClosed(EntityPlayer player) {
+        this.encoder.craftingInventory = this.craftingInventory;
+        super.onContainerClosed(player);
     }
 
     private static class ProcessingSlotFake extends OptionalSlotFake {
