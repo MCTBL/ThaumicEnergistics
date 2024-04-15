@@ -8,6 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import appeng.api.AEApi;
 import thaumicenergistics.api.ThEApi;
+import thaumicenergistics.common.inventory.TheInternalInventory;
 import thaumicenergistics.common.tiles.abstraction.ThETileInventory;
 
 public class TileInfusionPatternEncoder extends ThETileInventory implements ISidedInventory {
@@ -24,11 +25,14 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
      * NBT Keys
      */
     private static String NBTKEY_INVENTORY = "inventory";
+    private static String NBTKEY_CRAFTING_INVENTORY = "crafting_inventory";
 
     /**
      * Slot ID's
      */
     public static int SLOT_SOURCE_ITEM = 0, SLOT_TARGET_ITEM = 1, SLOT_BLANK_PATTERNS = 2, SLOT_ENCODED_PATTERN = 3;
+
+    public TheInternalInventory craftingInventory;
 
     public TileInfusionPatternEncoder() {
         super("infusion.encoder", TileInfusionPatternEncoder.SLOT_TOTAL_COUNT, 64);
@@ -131,6 +135,7 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
 
         // Write the inventory
         this.internalInventory.writeToNBT(data, TileInfusionPatternEncoder.NBTKEY_INVENTORY);
+        // sourceItems
     }
 
 }

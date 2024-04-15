@@ -1,6 +1,7 @@
 package thaumicenergistics.client.gui;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiButton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.world.World;
@@ -18,6 +19,7 @@ import thaumicenergistics.client.gui.widget.ThEScrollbar;
 import thaumicenergistics.client.textures.AEStateIconsEnum;
 import thaumicenergistics.client.textures.GuiTextureManager;
 import thaumicenergistics.common.container.ContainerInfusionEncoder;
+import thaumicenergistics.common.network.packet.server.Packet_S_InfusionEncoder;
 import thaumicenergistics.common.registries.ThEStrings;
 
 @SideOnly(Side.CLIENT)
@@ -70,6 +72,11 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
      */
     private GuiButtonResetAspectSlot buttonReset;
 
+    /**
+     * The GUI's container.
+     */
+    private final ContainerInfusionEncoder deContainer;
+
     public GuiInfusionEncoder(final EntityPlayer player, final World world, final int x, final int y, final int z) {
         super(new ContainerInfusionEncoder(player, world, x, y, z));
         this.title = ThEStrings.Block_InfusionEncoder.getLocalized();
@@ -82,12 +89,9 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
         scrollBar.setHeight(GuiInfusionEncoder.SCROLLBAR_HEIGHT).setWidth(GuiInfusionEncoder.SCROLLBAR_WIDTH);
         scrollBar.setLeft(GuiInfusionEncoder.SCROLLBAR_X).setTop(GuiInfusionEncoder.SCROLLBAR_Y);
         scrollBar.setRange(0, 1, 1);
-    }
 
-    @Override
-    public void onInventoryChanged(IInventory sourceInventory) {
-        // TODO Auto-generated method stub
-
+        // get container
+        this.deContainer = (ContainerInfusionEncoder) this.inventorySlots;
     }
 
     @Override
@@ -188,7 +192,25 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
         }
     }
 
+    @Override
+    protected void onButtonClicked(final GuiButton button, final int mouseButton) {
+        // Which button
+        if (button == this.buttonEncode) {
+            // Ask server to encode the pattern
+            Packet_S_InfusionEncoder.sendEncodePattern(this.deContainer.getPlayer());
+        } else if (button == this.buttonReset) {
+            // Ask server to clear the slots
+            Packet_S_InfusionEncoder.sendResetSlot(this.deContainer.getPlayer());
+        }
+    }
+
     private void changeActivePage() {
-        // TODO
+        // Ask server to roll
+        Packet_S_InfusionEncoder.sendRollScorllBar(this.deContainer.getPlayer(), this.scrollBar.getCurrentScroll());
+    }
+
+    @Override
+    public void onInventoryChanged(IInventory sourceInventory) {
+
     }
 }
