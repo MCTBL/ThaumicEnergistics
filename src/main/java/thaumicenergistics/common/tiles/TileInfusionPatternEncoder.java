@@ -16,10 +16,8 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
     /**
      * Slot counts
      */
-    public static int SLOT_PATTERNS_COUNT = 2, SLOT_SOURCE_ITEM_COUNT = 73, SLOT_TARGET_ITEM_COUNT = 1,
-            SLOT_TOTAL_COUNT = TileInfusionPatternEncoder.SLOT_PATTERNS_COUNT
-                    + TileInfusionPatternEncoder.SLOT_SOURCE_ITEM_COUNT
-                    + TileInfusionPatternEncoder.SLOT_TARGET_ITEM_COUNT;
+    public static int SLOT_PATTERNS_COUNT = 2, SLOT_CRAFTING_ITEM_COUNT = 72, SLOT_SOURCE_ITEM_COUNT = 1,
+            SLOT_TARGET_ITEM_COUNT = 1;
 
     /**
      * NBT Keys
@@ -32,10 +30,18 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
      */
     public static int SLOT_SOURCE_ITEM = 0, SLOT_TARGET_ITEM = 1, SLOT_BLANK_PATTERNS = 2, SLOT_ENCODED_PATTERN = 3;
 
-    public TheInternalInventory craftingInventory;
+    private final TheInternalInventory craftingInventory;
 
     public TileInfusionPatternEncoder() {
-        super("infusion.encoder", TileInfusionPatternEncoder.SLOT_TOTAL_COUNT, 64);
+        super(
+                "infusion.encoder",
+                TileInfusionPatternEncoder.SLOT_PATTERNS_COUNT + TileInfusionPatternEncoder.SLOT_SOURCE_ITEM_COUNT
+                        + TileInfusionPatternEncoder.SLOT_TARGET_ITEM_COUNT,
+                64);
+        this.craftingInventory = new TheInternalInventory(
+                TileInfusionPatternEncoder.NBTKEY_CRAFTING_INVENTORY,
+                TileInfusionPatternEncoder.SLOT_CRAFTING_ITEM_COUNT,
+                1000);
     }
 
     /**
@@ -88,6 +94,10 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
         return true;
     }
 
+    public TheInternalInventory getCraftingInventory() {
+        return this.craftingInventory;
+    }
+
     @Override
     public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
         return null;
@@ -123,6 +133,9 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
         if (data.hasKey(TileInfusionPatternEncoder.NBTKEY_INVENTORY)) {
             this.internalInventory.readFromNBT(data, TileInfusionPatternEncoder.NBTKEY_INVENTORY);
         }
+        if (data.hasKey(TileInfusionPatternEncoder.NBTKEY_CRAFTING_INVENTORY)) {
+            this.craftingInventory.readFromNBT(data, TileInfusionPatternEncoder.NBTKEY_CRAFTING_INVENTORY);
+        }
     }
 
     /**
@@ -135,7 +148,9 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
 
         // Write the inventory
         this.internalInventory.writeToNBT(data, TileInfusionPatternEncoder.NBTKEY_INVENTORY);
-        // sourceItems
+
+        // Save the Crafting Inventory
+        this.craftingInventory.writeToNBT(data, TileInfusionPatternEncoder.NBTKEY_CRAFTING_INVENTORY);
     }
 
 }
