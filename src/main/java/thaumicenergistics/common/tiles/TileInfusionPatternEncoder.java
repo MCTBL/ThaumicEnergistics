@@ -1,8 +1,12 @@
 package thaumicenergistics.common.tiles;
 
-import appeng.api.AEApi;
+import java.util.ArrayList;
+
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
+import appeng.api.AEApi;
 import thaumicenergistics.api.ThEApi;
 import thaumicenergistics.common.tiles.abstraction.ThETileInventory;
 
@@ -17,12 +21,47 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
                     + TileInfusionPatternEncoder.SLOT_TARGET_ITEM_COUNT;
 
     /**
+     * NBT Keys
+     */
+    private static String NBTKEY_INVENTORY = "inventory";
+
+    /**
      * Slot ID's
      */
     public static int SLOT_SOURCE_ITEM = 0, SLOT_TARGET_ITEM = 1, SLOT_BLANK_PATTERNS = 2, SLOT_ENCODED_PATTERN = 3;
 
     public TileInfusionPatternEncoder() {
         super("infusion.encoder", TileInfusionPatternEncoder.SLOT_TOTAL_COUNT, 64);
+    }
+
+    /**
+     * Returns a list of items to drop when broken.
+     *
+     * @return
+     */
+    public ArrayList<ItemStack> getDrops(final ArrayList<ItemStack> drops) {
+        // Add encoded
+        if (this.internalInventory.getHasStack(TileInfusionPatternEncoder.SLOT_ENCODED_PATTERN)) {
+            drops.add(this.internalInventory.getStackInSlot(TileInfusionPatternEncoder.SLOT_ENCODED_PATTERN));
+        }
+
+        // Add blank
+        if (this.internalInventory.getHasStack(TileInfusionPatternEncoder.SLOT_BLANK_PATTERNS)) {
+            drops.add(this.internalInventory.getStackInSlot(TileInfusionPatternEncoder.SLOT_BLANK_PATTERNS));
+        }
+
+        return drops;
+    }
+
+    /**
+     * True if there is a pattern to encode onto.
+     *
+     * @return
+     */
+    public boolean hasPatterns() {
+        // Is there anything in the pattern slots?
+        return this.internalInventory.getHasStack(TileInfusionPatternEncoder.SLOT_ENCODED_PATTERN)
+                || this.internalInventory.getHasStack(TileInfusionPatternEncoder.SLOT_BLANK_PATTERNS);
     }
 
     @Override
@@ -66,6 +105,32 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
     @Override
     public boolean canUpdate() {
         return false;
+    }
+
+    /**
+     * Read tile state from NBT.
+     */
+    @Override
+    public void readFromNBT(final NBTTagCompound data) {
+        // Call super
+        super.readFromNBT(data);
+
+        // Has saved inventory?
+        if (data.hasKey(TileInfusionPatternEncoder.NBTKEY_INVENTORY)) {
+            this.internalInventory.readFromNBT(data, TileInfusionPatternEncoder.NBTKEY_INVENTORY);
+        }
+    }
+
+    /**
+     * Write tile state to NBT.
+     */
+    @Override
+    public void writeToNBT(final NBTTagCompound data) {
+        // Call super
+        super.writeToNBT(data);
+
+        // Write the inventory
+        this.internalInventory.writeToNBT(data, TileInfusionPatternEncoder.NBTKEY_INVENTORY);
     }
 
 }

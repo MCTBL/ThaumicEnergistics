@@ -1,7 +1,11 @@
 package thaumicenergistics.common.container;
 
+import javax.annotation.Nonnull;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import appeng.container.slot.IOptionalSlotHost;
@@ -10,6 +14,7 @@ import appeng.container.slot.SlotFake;
 import thaumicenergistics.common.container.slot.SlotRestrictive;
 import thaumicenergistics.common.inventory.TheInternalInventory;
 import thaumicenergistics.common.tiles.TileInfusionPatternEncoder;
+import thaumicenergistics.common.utils.EffectiveSide;
 
 public class ContainerInfusionEncoder extends ContainerWithPlayerInventory implements IOptionalSlotHost {
 
@@ -167,6 +172,135 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
         }
 
         return false;
+    }
+
+    @Override
+    public ItemStack transferStackInSlot(final EntityPlayer player, final int slotIndex) {
+        if (EffectiveSide.isClientSide()) {
+            // Ignored client side
+            return null;
+        }
+
+        // Get the slot
+        Slot clickedSlot = this.getSlotOrNull(slotIndex);
+
+        // Slot empty?
+        if ((clickedSlot == null) || !clickedSlot.getHasStack()) {
+            // Done
+            return null;
+        }
+        // Was this handled?
+        if (this.handleSlotTransfer(clickedSlot)) {
+            // Was the itemstack in the slot drained?
+            if (clickedSlot.getHasStack() && (clickedSlot.getStack().stackSize <= 0)) {
+                // Set to null
+                clickedSlot.putStack(null);
+            } else {
+                // Let the slot know it has changed.
+                clickedSlot.onSlotChanged();
+            }
+
+            // Update
+            this.detectAndSendChanges();
+        }
+
+        return null;
+    }
+
+    private boolean handleSlotTransfer(@Nonnull final Slot clickedSlot) {
+        // Get the stack
+        ItemStack slotStack = clickedSlot.getStack();
+
+        // Is the slot in the player inventory?
+        if (clickedSlot.inventory == this.player.inventory) {
+            // Will the blank pattern slot take this?
+            if (this.slotPatternsBlank.isItemValid(slotStack)) {
+                return this.mergeItemStack(
+                        slotStack,
+                        this.slotPatternsBlank.slotNumber,
+                        this.slotPatternsBlank.slotNumber + 1,
+                        false);
+            }
+
+            // Will the encoded pattern take this?
+            if (this.slotPatternEncoded.isItemValid(slotStack)) {
+                return this.mergeItemStack(
+                        slotStack,
+                        this.slotPatternEncoded.slotNumber,
+                        this.slotPatternEncoded.slotNumber + 1,
+                        false);
+            }
+            if (!this.slotSourceItem.getHasStack()) {
+                this.slotSourceItem.putStack(slotStack);
+                return true;
+            }
+            if (!this.slotTragetItem.getHasStack()) {
+                this.slotTragetItem.putStack(slotStack);
+                return true;
+            }
+        }
+
+        // Pattern slot?
+        if (((this.slotPatternsBlank == clickedSlot) || (this.slotPatternEncoded == clickedSlot))) {
+            // Merge with the hotbar?
+            if (!this.mergeSlotWithHotbarInventory(slotStack)) {
+                // Merge with the player inventory
+                return this.mergeSlotWithPlayerInventory(slotStack);
+            }
+            // Merged with hotbar
+            return true;
+        }
+
+        // End
+        return false;
+    }
+
+    @Override
+    public ItemStack slotClick(final int slotNumber, final int buttonPressed, final int flag,
+            final EntityPlayer player) {
+        // If true detect will be called, and null returned.
+        boolean handled = false;
+
+        // click these two slot
+        if (this.slotSourceItem.slotNumber == slotNumber || this.slotTragetItem.slotNumber == slotNumber) {
+            // Get the slot
+            SlotFake targetSlot = this.slotSourceItem.slotNumber == slotNumber ? this.slotSourceItem
+                    : this.slotTragetItem;
+            // Get the item the player is dragging
+            ItemStack heldItem = player.inventory.getItemStack();
+
+            // Set the source slot
+            if (heldItem != null) {
+                ItemStack copy = heldItem.copy();
+                copy.stackSize = 1;
+                targetSlot.putStack(copy);
+            } else {
+                targetSlot.putStack(null);
+            }
+            handled = true;
+        }
+
+        // check if is slotSourceItems
+        if (!handled) {
+            // TODO
+        }
+
+        // Was the click handled?
+        if (handled) {
+            // Detect any changes
+            this.detectAndSendChanges();
+
+            // Done
+            return null;
+        }
+
+        // better call sual
+        return super.slotClick(slotNumber, buttonPressed, flag, player);
+    }
+
+    public void changeActivePage() {
+        // TODO
+
     }
 
     private static class ProcessingSlotFake extends OptionalSlotFake {
