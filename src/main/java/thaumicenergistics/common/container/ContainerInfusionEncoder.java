@@ -3,18 +3,17 @@ package thaumicenergistics.common.container;
 import javax.annotation.Nonnull;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import appeng.container.slot.IOptionalSlotHost;
-import appeng.container.slot.OptionalSlotFake;
 import appeng.container.slot.SlotFake;
 import thaumicenergistics.common.container.slot.SlotRestrictive;
 import thaumicenergistics.common.inventory.TheInternalInventory;
 import thaumicenergistics.common.tiles.TileInfusionPatternEncoder;
 import thaumicenergistics.common.utils.EffectiveSide;
+import thaumicenergistics.common.utils.ProcessingSlotFake;
 
 public class ContainerInfusionEncoder extends ContainerWithPlayerInventory implements IOptionalSlotHost {
 
@@ -80,7 +79,7 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
     private final SlotRestrictive slotPatternEncoded;
 
     /**
-     * Stores the source items.
+     * Stores the crafting items.
      */
     private final TheInternalInventory craftingInventory;
 
@@ -95,12 +94,12 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
         // Get the encoder
         this.encoder = (TileInfusionPatternEncoder) world.getTileEntity(x, y, z);
 
-        this.craftingInventory = new TheInternalInventory("sourceItems", 72, 1000);
+        this.craftingInventory = this.encoder.getCraftingInventory();
 
         this.activePage = 0;
 
         // Add the source item slots
-        for (int index = 0; index < ContainerInfusionEncoder.FAKE_SLOT_COUNT; index++) {
+        for (int index = 0; index < craftingInventory.getSizeInventory(); index++) {
 
             // Create the slot and add it
             this.slotCraftingItems[index] = new ProcessingSlotFake(
@@ -222,10 +221,12 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
                         false);
             }
             if (!this.slotSourceItem.getHasStack()) {
+                slotStack.stackSize = 1;
                 this.slotSourceItem.putStack(slotStack);
                 return true;
             }
             if (!this.slotTragetItem.getHasStack()) {
+                slotStack.stackSize = 1;
                 this.slotTragetItem.putStack(slotStack);
                 return true;
             }
@@ -282,13 +283,27 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
                 // If player dragging item is same as the item in slot
                 if (this.slotCraftingItems[slotNumber].getStack() != null
                         && this.slotCraftingItems[slotNumber].getStack().isItemEqual(copy)) {
+                    int addNum;
+                    if (buttonPressed == 0) {
+                        addNum = copy.stackSize;
+                    } else if (buttonPressed == 1) {
+                        addNum = 1;
+                    } else {
+                        addNum = 0;
+                    }
                     // Add the number
-                    copy.stackSize = this.slotCraftingItems[slotNumber].getStack().stackSize + copy.stackSize;
+                    copy.stackSize = this.slotCraftingItems[slotNumber].getStack().stackSize + addNum;
                 }
-
                 this.slotCraftingItems[slotNumber].putStack(copy);
             } else {
-                this.slotCraftingItems[slotNumber].putStack(null);
+                if (buttonPressed == 0) {
+                    this.slotCraftingItems[slotNumber].putStack(null);
+                } else if (buttonPressed == 1) {
+                    if (this.slotCraftingItems[slotNumber].getStack().stackSize != 1) {
+                        this.slotCraftingItems[slotNumber].getStack().stackSize -= 1;
+                    }
+                }
+
             }
             handled = true;
         }
@@ -335,30 +350,6 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
      */
     public EntityPlayer getPlayer() {
         return this.player;
-    }
-
-    @Override
-    public void onContainerClosed(EntityPlayer player) {
-        this.encoder.craftingInventory = this.craftingInventory;
-        super.onContainerClosed(player);
-    }
-
-    private static class ProcessingSlotFake extends OptionalSlotFake {
-
-        private static final int POSITION_SHIFT = 9000;
-        private boolean hidden = false;
-
-        public ProcessingSlotFake(IInventory inv, IOptionalSlotHost containerBus, int idx, int x, int y, int offX,
-                int offY, int groupNum) {
-            super(inv, containerBus, idx, x, y, offX, offY, groupNum);
-        }
-
-        public void setHidden(boolean hide) {
-            if (this.hidden != hide) {
-                this.hidden = hide;
-                this.xDisplayPosition += (hide ? -1 : 1) * POSITION_SHIFT;
-            }
-        }
     }
 
     @Override
