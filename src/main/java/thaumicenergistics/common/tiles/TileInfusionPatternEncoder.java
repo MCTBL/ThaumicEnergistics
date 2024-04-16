@@ -8,6 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import appeng.api.AEApi;
 import thaumicenergistics.api.ThEApi;
+import thaumicenergistics.common.container.ContainerInfusionEncoder;
 import thaumicenergistics.common.inventory.TheInternalInventory;
 import thaumicenergistics.common.tiles.abstraction.ThETileInventory;
 
@@ -16,8 +17,9 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
     /**
      * Slot counts
      */
-    public static int SLOT_PATTERNS_COUNT = 2, SLOT_CRAFTING_ITEM_COUNT = 72, SLOT_SOURCE_ITEM_COUNT = 1,
-            SLOT_TARGET_ITEM_COUNT = 1;
+    public static int SLOT_PATTERNS_COUNT = 2,
+            SLOT_CRAFTING_ITEM_COUNT = ContainerInfusionEncoder.PAGE_COUNT * ContainerInfusionEncoder.SLOTS_IN_ONE_PAGE,
+            SLOT_SOURCE_ITEM_COUNT = 1, SLOT_TARGET_ITEM_COUNT = 1;
 
     /**
      * NBT Keys
@@ -41,7 +43,7 @@ public class TileInfusionPatternEncoder extends ThETileInventory implements ISid
         this.craftingInventory = new TheInternalInventory(
                 TileInfusionPatternEncoder.NBTKEY_CRAFTING_INVENTORY,
                 TileInfusionPatternEncoder.SLOT_CRAFTING_ITEM_COUNT,
-                1000);
+                ContainerInfusionEncoder.SLOT_STACK_SIZE_LIMIT);
     }
 
     /**

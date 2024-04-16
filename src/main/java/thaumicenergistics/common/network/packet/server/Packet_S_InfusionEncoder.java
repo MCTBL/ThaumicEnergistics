@@ -19,7 +19,7 @@ public class Packet_S_InfusionEncoder extends ThEServerPacket {
     private static final byte MODE_RESET_SLOT = 2;
     private static final byte MODE_SCORLL_BAR_ROLL = 3;
 
-    private int currentScroll;
+    private int currentPage;
 
     public static void sendEncodePattern(final EntityPlayer player) {
         // Create a new packet
@@ -49,7 +49,7 @@ public class Packet_S_InfusionEncoder extends ThEServerPacket {
         NetworkHandler.sendPacketToServer(packet);
     }
 
-    public static void sendRollScorllBar(final EntityPlayer player, final int currentScroll) {
+    public static void sendRollScorllBar(final EntityPlayer player, final int currentPage) {
         // Create a new packet
         Packet_S_InfusionEncoder packet = new Packet_S_InfusionEncoder();
 
@@ -59,18 +59,25 @@ public class Packet_S_InfusionEncoder extends ThEServerPacket {
         // Set the mode
         packet.mode = MODE_SCORLL_BAR_ROLL;
 
-        // Set the currentScroll
-        packet.currentScroll = currentScroll;
+        packet.currentPage = currentPage;
 
         // Send it
         NetworkHandler.sendPacketToServer(packet);
     }
 
     @Override
-    protected void readData(ByteBuf stream) {}
+    protected void readData(final ByteBuf stream) {
+        if (this.mode == MODE_SCORLL_BAR_ROLL) {
+            this.currentPage = stream.readInt();
+        }
+    }
 
     @Override
-    protected void writeData(ByteBuf stream) {}
+    protected void writeData(final ByteBuf stream) {
+        if (this.mode == MODE_SCORLL_BAR_ROLL) {
+            stream.writeInt(this.currentPage);
+        }
+    }
 
     @Override
     public void execute() {
@@ -85,7 +92,7 @@ public class Packet_S_InfusionEncoder extends ThEServerPacket {
                 container.clearSlots();
             } else if (this.mode == MODE_SCORLL_BAR_ROLL) {
                 // Rolling
-                container.changeActivePage(this.currentScroll);
+                container.setActivePage(this.currentPage);
             }
         }
     }
