@@ -13,7 +13,6 @@ import thaumicenergistics.common.container.slot.SlotRestrictive;
 import thaumicenergistics.common.inventory.TheInternalInventory;
 import thaumicenergistics.common.tiles.TileInfusionPatternEncoder;
 import thaumicenergistics.common.utils.EffectiveSide;
-import thaumicenergistics.common.utils.ProcessingSlotFake;
 
 public class ContainerInfusionEncoder extends ContainerWithPlayerInventory implements IOptionalSlotHost {
 
@@ -43,10 +42,16 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
      */
     private static final int SLOT_TARGET_ITEM_POS_X = 132, SLOT_TARGET_ITEM_POS_Y = 93;
 
-    /**
-     * Position of the fake slots.
+    /*
+     * Crafting page parameter
      */
-    private static final int FIRST_FAKE_SLOT_X = 10, FIRST_FAKE_SLOT_Y = 25, FAKE_SLOT_COUNT = 72;
+    public static final int PAGE_COUNT = 4, SLOTS_IN_ONE_PAGE = 36, SLOT_STACK_SIZE_LIMIT = 1000;
+
+    /**
+     * Position of the crafting slots.
+     */
+    private static final int FIRST_FAKE_SLOT_X = 10, FIRST_FAKE_SLOT_Y = 25,
+            FAKE_SLOT_COUNT = PAGE_COUNT * SLOTS_IN_ONE_PAGE;
 
     /**
      * Slot holding the source item.
@@ -59,9 +64,9 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
     public final SlotFake slotTragetItem;
 
     /**
-     * Slots holding the source item's aspects.
+     * Slots holding the crafting source items.
      */
-    public final ProcessingSlotFake[] slotCraftingItems = new ProcessingSlotFake[ContainerInfusionEncoder.FAKE_SLOT_COUNT];
+    public final SlotFake[] showingCraftingItems = new SlotFake[SLOTS_IN_ONE_PAGE];
 
     /**
      * Host encoder.
@@ -83,10 +88,14 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
      */
     private final TheInternalInventory craftingInventory;
 
+    private final TheInternalInventory internalInventory;
+
     /*
      * Default active page.
      */
-    private int activePage;
+    public int activePage;
+
+    private boolean changePage = false;
 
     public ContainerInfusionEncoder(final EntityPlayer player, final World world, final int x, final int y,
             final int z) {
@@ -96,24 +105,25 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
 
         this.craftingInventory = this.encoder.getCraftingInventory();
 
+        this.internalInventory = new TheInternalInventory(
+                "showingCraftingItem",
+                SLOTS_IN_ONE_PAGE,
+                SLOT_STACK_SIZE_LIMIT);
+
         this.activePage = 0;
 
         // Add the source item slots
-        for (int index = 0; index < craftingInventory.getSizeInventory(); index++) {
-
+        for (int index = 0; index < ContainerInfusionEncoder.FAKE_SLOT_COUNT; index++) {
             // Create the slot and add it
-            this.slotCraftingItems[index] = new ProcessingSlotFake(
-                    this.craftingInventory,
-                    this,
-                    index,
-                    ContainerInfusionEncoder.FIRST_FAKE_SLOT_X,
-                    ContainerInfusionEncoder.FIRST_FAKE_SLOT_Y,
-                    (index % 6),
-                    (index / 6),
-                    0);
-            this.addSlotToContainer(this.slotCraftingItems[index]);
-            // Hidden the half
-            this.slotCraftingItems[index].setHidden(index >= 36 ? true : false);
+            if (index < SLOTS_IN_ONE_PAGE) {
+                showingCraftingItems[index] = new SlotFake(
+                        this.internalInventory,
+                        index,
+                        FIRST_FAKE_SLOT_X + (index % 6) * 18,
+                        FIRST_FAKE_SLOT_Y + (index / 6) * 18);
+                showingCraftingItems[index].putStack(this.craftingInventory.getStackInSlot(index));
+                this.addSlotToContainer(this.showingCraftingItems[index]);
+            }
         }
 
         // Add the source and target item slot
@@ -221,11 +231,13 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
                         false);
             }
             if (!this.slotSourceItem.getHasStack()) {
+                slotStack = slotStack.copy();
                 slotStack.stackSize = 1;
                 this.slotSourceItem.putStack(slotStack);
                 return true;
             }
             if (!this.slotTragetItem.getHasStack()) {
+                slotStack = slotStack.copy();
                 slotStack.stackSize = 1;
                 this.slotTragetItem.putStack(slotStack);
                 return true;
@@ -273,16 +285,18 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
         }
 
         // check if is slotSourceItems
-        if (!handled && slotNumber < ContainerInfusionEncoder.FAKE_SLOT_COUNT && slotNumber >= 0) {
+        if (!handled && slotNumber < ContainerInfusionEncoder.SLOTS_IN_ONE_PAGE && slotNumber >= 0) {
             // Get the item the player is dragging
             ItemStack heldItem = player.inventory.getItemStack();
+            int slotNum = slotNumber + activePage * SLOTS_IN_ONE_PAGE;
+
             // Set the source slot
             if (heldItem != null) {
                 ItemStack copy = heldItem.copy();
 
                 // If player dragging item is same as the item in slot
-                if (this.slotCraftingItems[slotNumber].getStack() != null
-                        && this.slotCraftingItems[slotNumber].getStack().isItemEqual(copy)) {
+                if (this.craftingInventory.getStackInSlot(slotNum) != null
+                        && this.craftingInventory.getStackInSlot(slotNum).isItemEqual(copy)) {
                     int addNum;
                     if (buttonPressed == 0) {
                         addNum = copy.stackSize;
@@ -292,19 +306,20 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
                         addNum = 0;
                     }
                     // Add the number
-                    copy.stackSize = this.slotCraftingItems[slotNumber].getStack().stackSize + addNum;
+                    copy.stackSize = this.craftingInventory.getStackInSlot(slotNum).stackSize + addNum;
                 }
-                this.slotCraftingItems[slotNumber].putStack(copy);
+                this.craftingInventory.setInventorySlotContents(slotNum, copy);
             } else {
                 if (buttonPressed == 0) {
-                    this.slotCraftingItems[slotNumber].putStack(null);
+                    this.craftingInventory.setInventorySlotContents(slotNum, null);
                 } else if (buttonPressed == 1) {
-                    if (this.slotCraftingItems[slotNumber].getStack().stackSize != 1) {
-                        this.slotCraftingItems[slotNumber].getStack().stackSize -= 1;
+                    if (this.craftingInventory.getStackInSlot(slotNum).stackSize != 1) {
+                        this.craftingInventory.decrStackSize(slotNum, 1);
                     }
                 }
 
             }
+            this.showingCraftingItems[slotNumber].putStack(this.craftingInventory.getStackInSlot(slotNum));
             handled = true;
         }
 
@@ -321,19 +336,28 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
         return super.slotClick(slotNumber, buttonPressed, flag, player);
     }
 
-    public void changeActivePage(final int currentScroll) {
-        // TODO
-        System.out.println("==========Roll==========");
+    public void changeActivePage() {
+        for (int index = 0; index < SLOTS_IN_ONE_PAGE; index++) {
+            this.showingCraftingItems[index]
+                    .putStack(this.craftingInventory.getStackInSlot(index + (this.activePage * SLOTS_IN_ONE_PAGE)));
+        }
+    }
+
+    public void setActivePage(final int actviePage) {
+        this.activePage = actviePage;
+        this.changePage = true;
     }
 
     public void clearSlots() {
-
         // Clear all the slot
         this.slotSourceItem.clearStack();
         this.slotTragetItem.clearStack();
 
-        // Clear all slots
-        for (ProcessingSlotFake slot : this.slotCraftingItems) {
+        // Clear all crafting slots
+        for (int index = 0; index < FAKE_SLOT_COUNT; index++) {
+            this.craftingInventory.setInventorySlotContents(index, null);
+        }
+        for (SlotFake slot : showingCraftingItems) {
             slot.clearStack();
         }
     }
@@ -354,6 +378,15 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
 
     @Override
     public boolean isSlotEnabled(int idx) {
-        return idx == this.activePage;
+        return true;
+    }
+
+    @Override
+    public void detectAndSendChanges() {
+        if (this.changePage) {
+            this.changePage = false;
+            this.changeActivePage();
+        }
+        super.detectAndSendChanges();
     }
 }

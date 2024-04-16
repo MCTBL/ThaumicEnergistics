@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
+import appeng.container.guisync.GuiSync;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.api.storage.IInventoryUpdateReceiver;
@@ -77,6 +78,9 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
      */
     private final ContainerInfusionEncoder deContainer;
 
+    @GuiSync(1)
+    public int activePage;
+
     public GuiInfusionEncoder(final EntityPlayer player, final World world, final int x, final int y, final int z) {
         super(new ContainerInfusionEncoder(player, world, x, y, z));
         this.title = ThEStrings.Block_InfusionEncoder.getLocalized();
@@ -88,7 +92,8 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
         // Init the scroll bar
         scrollBar.setHeight(GuiInfusionEncoder.SCROLLBAR_HEIGHT).setWidth(GuiInfusionEncoder.SCROLLBAR_WIDTH);
         scrollBar.setLeft(GuiInfusionEncoder.SCROLLBAR_X).setTop(GuiInfusionEncoder.SCROLLBAR_Y);
-        scrollBar.setRange(0, 1, 1);
+        scrollBar.setRange(0, ContainerInfusionEncoder.PAGE_COUNT - 1, 1);
+        this.activePage = this.scrollBar.getCurrentScroll();
 
         // get container
         this.deContainer = (ContainerInfusionEncoder) this.inventorySlots;
