@@ -20,6 +20,11 @@ import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.tiles.TileInfusionPatternEncoder;
 import thaumicenergistics.common.utils.EffectiveSide;
 
+/**
+ * Block of Infusion Encoder
+ * 
+ * @author MTCBL
+ */
 public class BlockInfusionEncoder extends AbstractBlockAEWrenchable {
 
     protected BlockInfusionEncoder() {

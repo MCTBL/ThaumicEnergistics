@@ -20,8 +20,9 @@ public class Packet_S_InfusionEncoder extends ThEServerPacket {
     private static final byte MODE_SCORLL_BAR_ROLL = 3;
 
     private int currentPage;
+    private boolean isShift;
 
-    public static void sendEncodePattern(final EntityPlayer player) {
+    public static void sendEncodePattern(final EntityPlayer player, final boolean isShift) {
         // Create a new packet
         Packet_S_InfusionEncoder packet = new Packet_S_InfusionEncoder();
 
@@ -30,6 +31,8 @@ public class Packet_S_InfusionEncoder extends ThEServerPacket {
 
         // Set the mode
         packet.mode = MODE_ENCODE;
+
+        packet.isShift = isShift;
 
         // Send it
         NetworkHandler.sendPacketToServer(packet);
@@ -69,6 +72,8 @@ public class Packet_S_InfusionEncoder extends ThEServerPacket {
     protected void readData(final ByteBuf stream) {
         if (this.mode == MODE_SCORLL_BAR_ROLL) {
             this.currentPage = stream.readInt();
+        } else if (this.mode == MODE_ENCODE) {
+            this.isShift = stream.readBoolean();
         }
     }
 
@@ -76,6 +81,8 @@ public class Packet_S_InfusionEncoder extends ThEServerPacket {
     protected void writeData(final ByteBuf stream) {
         if (this.mode == MODE_SCORLL_BAR_ROLL) {
             stream.writeInt(this.currentPage);
+        } else if (this.mode == MODE_ENCODE) {
+            stream.writeBoolean(this.isShift);
         }
     }
 
@@ -86,7 +93,7 @@ public class Packet_S_InfusionEncoder extends ThEServerPacket {
             // Sanity check
             if (this.mode == MODE_ENCODE) {
                 // Send the encode
-                container.encodePattern();
+                container.encodePattern(this.isShift);
             } else if (this.mode == MODE_RESET_SLOT) {
                 // Send the reset
                 container.clearSlots();

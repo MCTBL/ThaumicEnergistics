@@ -10,6 +10,11 @@ import thaumicenergistics.common.ThaumicEnergistics;
 import thaumicenergistics.common.registries.ThEStrings;
 import thaumicenergistics.common.utils.EssentiaPatternDetails;
 
+/**
+ * Item Essentia Encoded Pattern
+ * 
+ * @author MCTBL
+ */
 public class ItemEssentiaEncodedPattern extends ItemEncodedPattern {
 
     @Override
