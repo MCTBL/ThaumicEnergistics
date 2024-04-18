@@ -1,19 +1,31 @@
 package thaumicenergistics.common.container;
 
+import java.util.ArrayList;
+
 import javax.annotation.Nonnull;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
+import appeng.api.storage.data.IAEItemStack;
 import appeng.container.slot.IOptionalSlotHost;
 import appeng.container.slot.SlotFake;
+import appeng.util.item.AEItemStack;
+import thaumicenergistics.common.blocks.BlockInfusionEncoder;
 import thaumicenergistics.common.container.slot.SlotRestrictive;
 import thaumicenergistics.common.inventory.TheInternalInventory;
 import thaumicenergistics.common.tiles.TileInfusionPatternEncoder;
 import thaumicenergistics.common.utils.EffectiveSide;
+import thaumicenergistics.common.utils.EssentiaPatternDetails;
 
+/**
+ * Container for {@link BlockInfusionEncoder}
+ * 
+ * @author MTCBL
+ */
 public class ContainerInfusionEncoder extends ContainerWithPlayerInventory implements IOptionalSlotHost {
 
     /**
@@ -54,6 +66,11 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
             FAKE_SLOT_COUNT = PAGE_COUNT * SLOTS_IN_ONE_PAGE;
 
     /**
+     * 
+     */
+    private static final String NBTKEY_AUTHOR = "author";
+
+    /**
      * Slot holding the source item.
      */
     public final SlotFake slotSourceItem;
@@ -88,14 +105,25 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
      */
     private final TheInternalInventory craftingInventory;
 
+    /**
+     * Stores which page's items shows up.
+     */
     private final TheInternalInventory internalInventory;
 
-    /*
+    /**
      * Default active page.
      */
     public int activePage;
 
+    /**
+     * If change page will revert, then wait to fresh.
+     */
     private boolean changePage = false;
+
+    /**
+     * Stores the pattern detail for encode pattern.
+     */
+    private EssentiaPatternDetails patternDetail;
 
     public ContainerInfusionEncoder(final EntityPlayer player, final World world, final int x, final int y,
             final int z) {
@@ -161,6 +189,7 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
                 player.inventory,
                 ContainerInfusionEncoder.PLAYER_INV_POSITION_Y,
                 ContainerInfusionEncoder.HOTBAR_INV_POSITION_Y);
+
     }
 
     @Override
@@ -362,9 +391,73 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
         }
     }
 
-    public void encodePattern() {
-        // TODO
-        System.out.println("==========encodePattern==========");
+    public void encodePattern(final boolean isShift) {
+        boolean shouldTakePattern;
+        // If there's no blank pattern.
+        if (!this.slotPatternsBlank.getHasStack()) {
+            return;
+        }
+
+        // Get a new essentia pattern details.
+        if (this.slotPatternEncoded.getHasStack()) {
+            this.patternDetail = new EssentiaPatternDetails(this.slotPatternEncoded.getStack());
+            shouldTakePattern = false;
+        } else {
+            this.patternDetail = new EssentiaPatternDetails();
+            shouldTakePattern = true;
+        }
+
+        // Get Input and Output arrays
+        ArrayList<AEItemStack> tempInputs = new ArrayList<>();
+        // Check is there have source item set.
+        if (this.slotSourceItem.getHasStack()) {
+            tempInputs.add(AEItemStack.create(this.slotSourceItem.getStack()));
+        } else {
+            return;
+        }
+
+        for (int index = 0; index < FAKE_SLOT_COUNT; index++) {
+            if (this.craftingInventory.getStackInSlot(index) != null) {
+                tempInputs.add(AEItemStack.create(this.craftingInventory.getStackInSlot(index)));
+            }
+        }
+        // If no inputs
+        if (tempInputs.size() == 0) {
+            return;
+        }
+        IAEItemStack[] inputs = tempInputs.stream().toArray(IAEItemStack[]::new);
+        IAEItemStack[] outputs;
+        // Check is there any output
+        if (slotTragetItem.getHasStack()) {
+            outputs = new AEItemStack[] { AEItemStack.create(slotTragetItem.getStack()) };
+        } else {
+            return;
+        }
+        // Set in and output for pattern
+        patternDetail.setInputAndOutput(inputs, outputs);
+        ItemStack encodedPattern = patternDetail.writeToStack();
+        this.signUpPattern(encodedPattern);
+
+        // When holding shift, try merge into backpack and hotbar
+        // If can't, just put into encoded slot
+        if (isShift && (this.mergeSlotWithHotbarInventory(encodedPattern)
+                || this.mergeSlotWithPlayerInventory(encodedPattern))) {} else {
+            this.slotPatternEncoded.putStack(encodedPattern);
+        }
+
+        // Take one blank pattern
+        if (shouldTakePattern) {
+            this.slotPatternsBlank.decrStackSize(1);
+        }
+
+    }
+
+    private void signUpPattern(ItemStack pattern) {
+        if (pattern.stackTagCompound == null) {
+            pattern.stackTagCompound = new NBTTagCompound();
+        } else {
+            pattern.stackTagCompound.setString(NBTKEY_AUTHOR, this.getPlayer().getCommandSenderName());
+        }
     }
 
     /**

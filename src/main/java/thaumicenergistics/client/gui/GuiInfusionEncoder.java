@@ -19,10 +19,16 @@ import thaumicenergistics.client.gui.buttons.GuiButtonResetAspectSlot;
 import thaumicenergistics.client.gui.widget.ThEScrollbar;
 import thaumicenergistics.client.textures.AEStateIconsEnum;
 import thaumicenergistics.client.textures.GuiTextureManager;
+import thaumicenergistics.common.blocks.BlockInfusionEncoder;
 import thaumicenergistics.common.container.ContainerInfusionEncoder;
 import thaumicenergistics.common.network.packet.server.Packet_S_InfusionEncoder;
 import thaumicenergistics.common.registries.ThEStrings;
 
+/**
+ * {@link BlockInfusionEncoder}'s GUI
+ * 
+ * @author MCTBL
+ */
 @SideOnly(Side.CLIENT)
 public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateReceiver {
 
@@ -202,7 +208,7 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
         // Which button
         if (button == this.buttonEncode) {
             // Ask server to encode the pattern
-            Packet_S_InfusionEncoder.sendEncodePattern(this.deContainer.getPlayer());
+            Packet_S_InfusionEncoder.sendEncodePattern(this.deContainer.getPlayer(), this.isShiftKeyDown());
         } else if (button == this.buttonReset) {
             // Ask server to clear the slots
             Packet_S_InfusionEncoder.sendResetSlot(this.deContainer.getPlayer());

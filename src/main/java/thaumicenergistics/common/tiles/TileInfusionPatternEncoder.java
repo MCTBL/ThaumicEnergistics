@@ -8,10 +8,16 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import appeng.api.AEApi;
 import thaumicenergistics.api.ThEApi;
+import thaumicenergistics.common.blocks.BlockInfusionEncoder;
 import thaumicenergistics.common.container.ContainerInfusionEncoder;
 import thaumicenergistics.common.inventory.TheInternalInventory;
 import thaumicenergistics.common.tiles.abstraction.ThETileInventory;
 
+/**
+ * Tile of the {@link BlockInfusionEncoder}
+ * 
+ * @author MTCBL
+ */
 public class TileInfusionPatternEncoder extends ThETileInventory implements ISidedInventory {
 
     /**

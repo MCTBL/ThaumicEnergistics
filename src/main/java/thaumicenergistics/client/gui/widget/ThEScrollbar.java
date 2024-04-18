@@ -7,6 +7,11 @@ import org.lwjgl.opengl.GL11;
 
 import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
 
+/**
+ * ThE's scroll bar
+ * 
+ * @author MCTBL
+ */
 public class ThEScrollbar {
 
     private int txtShiftX = 232;
