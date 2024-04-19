@@ -134,8 +134,10 @@ public class EssentiaPatternDetails implements ICraftingPatternDetails, Comparab
             return false;
         }
         NBTTagCompound tag = Objects.requireNonNull(patternStack.getTagCompound());
-        // may be possible to enter a partially-correct state if setInputs succeeds but setOutputs failed
-        // but outside code should treat it as completely incorrect and not attempt to make calls
+        // may be possible to enter a partially-correct state if setInputs succeeds but
+        // setOutputs failed
+        // but outside code should treat it as completely incorrect and not attempt to
+        // make calls
         return setInputs(readStackArray(tag.getTagList(NBTKEY_AE_IN, Constants.NBT.TAG_COMPOUND)))
                 && setOutputs(readStackArray(tag.getTagList(NBTKEY_AE_OUT, Constants.NBT.TAG_COMPOUND)));
     }

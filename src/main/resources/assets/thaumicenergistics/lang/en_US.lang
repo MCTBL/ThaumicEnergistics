@@ -90,6 +90,7 @@ thaumicenergistics.tooltip.advanced.infusion.provider.working.on=Workig Mode
 thaumicenergistics.tooltip.advanced.infusion.provider.normal=Normal Provider
 thaumicenergistics.tooltip.advanced.infusion.provider.advanced=Advanced Provider
 thaumicenergistics.tooltip.advanced.infusion.provider.totalbind=Total binded to %d matrices
+thaumicenergistics.tooltip.button.encode.description=Write the entered pattern to the current encoded pattern, or to available blank pattern. Hold Shift to transfer directly to your inventory.
 
 
 #GUI

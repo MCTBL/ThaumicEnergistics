@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.annotation.Nonnull;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -121,9 +122,9 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
     private boolean changePage = false;
 
     /**
-     * Stores the pattern detail for encode pattern.
+     * Hold the pattern last time encode.
      */
-    private EssentiaPatternDetails patternDetail;
+    private ItemStack cachedPattern;
 
     public ContainerInfusionEncoder(final EntityPlayer player, final World world, final int x, final int y,
             final int z) {
@@ -236,7 +237,7 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
         return null;
     }
 
-    private boolean handleSlotTransfer(@Nonnull final Slot clickedSlot) {
+    private boolean handleSlotTransfer(final Slot clickedSlot) {
         // Get the stack
         ItemStack slotStack = clickedSlot.getStack();
 
@@ -253,11 +254,16 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
 
             // Will the encoded pattern take this?
             if (this.slotPatternEncoded.isItemValid(slotStack)) {
-                return this.mergeItemStack(
+                if (this.mergeItemStack(
                         slotStack,
                         this.slotPatternEncoded.slotNumber,
                         this.slotPatternEncoded.slotNumber + 1,
-                        false);
+                        false)) {
+                    this.changePage = true;
+                    return true;
+                } else {
+                    return false;
+                }
             }
             if (!this.slotSourceItem.getHasStack()) {
                 slotStack = slotStack.copy();
@@ -326,13 +332,11 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
                 // If player dragging item is same as the item in slot
                 if (this.craftingInventory.getStackInSlot(slotNum) != null
                         && this.craftingInventory.getStackInSlot(slotNum).isItemEqual(copy)) {
-                    int addNum;
+                    int addNum = 0;
                     if (buttonPressed == 0) {
                         addNum = copy.stackSize;
                     } else if (buttonPressed == 1) {
                         addNum = 1;
-                    } else {
-                        addNum = 0;
                     }
                     // Add the number
                     copy.stackSize = this.craftingInventory.getStackInSlot(slotNum).stackSize + addNum;
@@ -397,13 +401,13 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
         if (!this.slotPatternsBlank.getHasStack()) {
             return;
         }
-
+        EssentiaPatternDetails patternDetail;
         // Get a new essentia pattern details.
         if (this.slotPatternEncoded.getHasStack()) {
-            this.patternDetail = new EssentiaPatternDetails(this.slotPatternEncoded.getStack());
+            patternDetail = new EssentiaPatternDetails(this.slotPatternEncoded.getStack());
             shouldTakePattern = false;
         } else {
-            this.patternDetail = new EssentiaPatternDetails();
+            patternDetail = new EssentiaPatternDetails();
             shouldTakePattern = true;
         }
 
@@ -441,10 +445,13 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
         // When holding shift, try merge into backpack and hotbar
         // If can't, just put into encoded slot
         if (isShift && (this.mergeSlotWithHotbarInventory(encodedPattern)
-                || this.mergeSlotWithPlayerInventory(encodedPattern))) {} else {
+                || this.mergeSlotWithPlayerInventory(encodedPattern))) {
+            this.slotPatternEncoded.putStack(null);
+        } else {
             this.slotPatternEncoded.putStack(encodedPattern);
         }
-
+        // cache the pattern
+        this.cachedPattern = encodedPattern;
         // Take one blank pattern
         if (shouldTakePattern) {
             this.slotPatternsBlank.decrStackSize(1);
@@ -457,6 +464,23 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
             pattern.stackTagCompound = new NBTTagCompound();
         } else {
             pattern.stackTagCompound.setString(NBTKEY_AUTHOR, this.getPlayer().getCommandSenderName());
+        }
+    }
+
+    private void readAndLoadFromPattern(ItemStack pattern) {
+        this.cachedPattern = pattern;
+        // clean the old contents
+        this.clearSlots();
+        EssentiaPatternDetails patternDetail = new EssentiaPatternDetails(pattern);
+        // checkout if the pattern is valid
+        if (patternDetail.readFromStack()) {
+            IAEItemStack[] inputs = patternDetail.getInputs();
+            IAEItemStack[] outputs = patternDetail.getOutputs();
+            this.slotSourceItem.putStack(inputs[0].getItemStack());
+            this.slotTragetItem.putStack(outputs[0].getItemStack());
+            for (int index = 1; index < inputs.length; index++) {
+                this.craftingInventory.setInventorySlotContents(index - 1, inputs[index].getItemStack());
+            }
         }
     }
 
@@ -481,5 +505,16 @@ public class ContainerInfusionEncoder extends ContainerWithPlayerInventory imple
             this.changeActivePage();
         }
         super.detectAndSendChanges();
+    }
+
+    @Override
+    protected boolean detectAndSendChangesMP(@Nonnull final EntityPlayerMP playerMP) {
+        if (this.slotPatternEncoded.getHasStack() && this.slotPatternEncoded.getStack() != this.cachedPattern) {
+            this.readAndLoadFromPattern(this.slotPatternEncoded.getStack());
+            // update showing page
+            this.changePage = true;
+            return true;
+        }
+        return false;
     }
 }
