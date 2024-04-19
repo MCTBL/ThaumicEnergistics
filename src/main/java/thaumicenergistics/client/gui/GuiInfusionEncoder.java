@@ -1,5 +1,7 @@
 package thaumicenergistics.client.gui;
 
+import java.util.List;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,12 +12,13 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
 import appeng.container.guisync.GuiSync;
+import appeng.core.localization.ButtonToolTips;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import thaumicenergistics.api.storage.IInventoryUpdateReceiver;
 import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
+import thaumicenergistics.client.gui.buttons.GuiButtonClearCraftingGrid;
 import thaumicenergistics.client.gui.buttons.GuiButtonEncodePattern;
-import thaumicenergistics.client.gui.buttons.GuiButtonResetAspectSlot;
 import thaumicenergistics.client.gui.widget.ThEScrollbar;
 import thaumicenergistics.client.textures.AEStateIconsEnum;
 import thaumicenergistics.client.textures.GuiTextureManager;
@@ -77,7 +80,7 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
     /**
      * The reset button.
      */
-    private GuiButtonResetAspectSlot buttonReset;
+    private GuiButtonClearCraftingGrid buttonReset;
 
     /**
      * The GUI's container.
@@ -142,12 +145,19 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
         this.buttonList.add(this.buttonEncode);
 
         // Create the reset aspect button
-        this.buttonReset = new GuiButtonResetAspectSlot(
+        this.buttonReset = new GuiButtonClearCraftingGrid(
                 1,
                 GuiInfusionEncoder.RESET_BUTTON_X + this.guiLeft,
                 GuiInfusionEncoder.RESET_BUTTON_Y + this.guiTop,
                 AEStateIconsEnum.STANDARD_ICON_SIZE,
-                AEStateIconsEnum.STANDARD_ICON_SIZE);
+                AEStateIconsEnum.STANDARD_ICON_SIZE,
+                true) {
+
+            @Override
+            public void getTooltip(final List<String> tooltip) {
+                this.addAboutToTooltip(tooltip, ButtonToolTips.Clear.getLocal(), "");
+            }
+        };
         this.buttonList.add(this.buttonReset);
     }
 
@@ -208,7 +218,7 @@ public class GuiInfusionEncoder extends ThEBaseGui implements IInventoryUpdateRe
         // Which button
         if (button == this.buttonEncode) {
             // Ask server to encode the pattern
-            Packet_S_InfusionEncoder.sendEncodePattern(this.deContainer.getPlayer(), this.isShiftKeyDown());
+            Packet_S_InfusionEncoder.sendEncodePattern(this.deContainer.getPlayer(), isShiftKeyDown());
         } else if (button == this.buttonReset) {
             // Ask server to clear the slots
             Packet_S_InfusionEncoder.sendResetSlot(this.deContainer.getPlayer());

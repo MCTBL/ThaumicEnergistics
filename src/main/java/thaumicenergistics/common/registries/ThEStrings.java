@@ -92,6 +92,7 @@ public enum ThEStrings {
     TooltipButton_SwapArmor_Title("tooltip.button.swap.armor.title", false),
     TooltipButton_Reset_Aspect("tooltip.button.reset.aspect", false),
     TooltipButton_Reset_Aspect_Description("tooltip.button.reset.aspect.description", false),
+    TooltipButton_Encode_Pattern("tooltip.button.encode.description", false),
 
     // GUI
     Gui_TitleArcaneCraftingTerminal("gui.arcane.crafting.terminal.title", false),
