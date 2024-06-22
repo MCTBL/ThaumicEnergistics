@@ -15,6 +15,8 @@ thaumicenergistics.block.arcane.assembler.name=奥术装配室
 thaumicenergistics.block.knowledge.inscriber.name=知识记录仪
 thaumicenergistics.block.essentia.vibration.chamber.name=源质谐振仓
 thaumicenergistics.block.distillation.encoder.name=蒸馏编码台
+thaumicenergistics.block.infusion.encoder.name=注魔编码台
+thaumicenergistics.block.essentia.interface.name=ME源质二合一接口
 
 #Cable parts
 thaumicenergistics.aeparts.essentia.ImportBus.name=源质输入总线
@@ -58,6 +60,7 @@ thaumicenergistics.item.focus.aewrench.name=法杖核心: AE扳手
 thaumicenergistics.item.focus.aewrench.disabled.name=法杖核心: AE扳手 - 扳手模式已禁用
 thaumicenergistics.item.golem.wifi.backpack.name=无线傀儡背包
 thaumicenergistics.item.cell.microscope.name=元件显微镜
+thaumicenergistics.item.essentia.encoded.pattern.name=编码样板
 
 #Tooltips
 thaumicenergistics.tooltip.itemstack.details=按住§eshift§f查看详细信息.
@@ -78,6 +81,7 @@ thaumicenergistics.tooltip.button.swap.armor.title=交换护甲
 thaumicenergistics.tooltip.arcane.assembler.hasVis=已存储Vis
 thaumicenergistics.tooltip.button.reset.aspect=重置源质
 thaumicenergistics.tooltip.button.reset.aspect.description=重置左侧源质表格为初始状态
+thaumicenergistics.tooltip.button.encode.description=将输入的样板写入当前编码样板或可用的空样板;按住Shift使样板直接进入物品栏.
 
 
 #GUI
@@ -208,3 +212,5 @@ thaumicenergistics.research_page.TEGOLEMWIFIBACKPACK.ADVANCEDGOLEM=§n高级傀�
 
 # Research Cell Microscope
 tc.research_name.thaumicenergistics.TECELLMICROSCOPE=元件显微镜
+tc.research_text.thaumicenergistics.TECELLMICROSCOPE=风夸克与地夸克
+thaumicenergistics.research_page.TECELLMICROSCOPE.1=经过仔细的研究与实验,你发明了一种显微扫描设备,可以生成存储元件中所包含能量的详细图像. 这个过程十分复杂,在此过程中元件需要处于地面上.<LINE>元件中包含的所有物品都将被扫描,就像使用§l魔导透镜§r扫描一样.

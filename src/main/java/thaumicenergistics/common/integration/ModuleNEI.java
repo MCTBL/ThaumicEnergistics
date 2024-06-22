@@ -25,7 +25,6 @@ import cpw.mods.fml.common.Optional;
 import thaumicenergistics.client.gui.GuiArcaneCraftingTerminal;
 import thaumicenergistics.client.gui.abstraction.ThEBaseGui;
 import thaumicenergistics.common.container.ContainerPartArcaneCraftingTerminal;
-import thaumicenergistics.common.items.ItemEnum;
 import thaumicenergistics.common.network.NetworkHandler;
 import thaumicenergistics.common.network.packet.server.Packet_S_NEIRecipe;
 
@@ -281,6 +280,6 @@ public class ModuleNEI {
         API.registerNEIGuiHandler(new NEIGuiHandler());
 
         // Hide the crafting aspect item
-        API.hideItem(ItemEnum.CRAFTING_ASPECT.getStack());
+        // API.hideItem(ItemEnum.CRAFTING_ASPECT.getStack());
     }
 }
