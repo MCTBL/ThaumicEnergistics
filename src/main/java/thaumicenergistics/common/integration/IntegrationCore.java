@@ -70,12 +70,11 @@ public final class IntegrationCore {
         } catch (NoSuchFieldException e) {
             isBigInterface = false;
         }
-        
+
         if (isBigInterface) {
             Upgrades.PATTERN_CAPACITY.registerItem(ThEApi.instance().blocks().EssentiaInterface.getStack(), 3);
         }
-        
-        
+
         ThELog.endSection("Integration", startTime);
     }
 }

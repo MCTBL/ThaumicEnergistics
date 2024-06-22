@@ -1,6 +1,7 @@
 package thaumicenergistics.common.registries;
 
 import net.minecraft.util.StatCollector;
+
 import thaumicenergistics.common.ThaumicEnergistics;
 
 /**

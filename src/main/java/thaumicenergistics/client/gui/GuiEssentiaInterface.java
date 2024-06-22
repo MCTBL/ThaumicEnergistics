@@ -1,8 +1,10 @@
 package thaumicenergistics.client.gui;
 
-import org.lwjgl.input.Keyboard;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
+
 import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
 
 import appeng.api.config.AdvancedBlockingMode;
 import appeng.api.config.InsertionMode;
@@ -10,31 +12,20 @@ import appeng.api.config.LockCraftingMode;
 import appeng.api.config.Settings;
 import appeng.api.config.Upgrades;
 import appeng.api.config.YesNo;
-import appeng.client.gui.implementations.GuiInterface;
 import appeng.client.gui.implementations.GuiUpgradeable;
 import appeng.client.gui.widgets.GuiImgButton;
 import appeng.client.gui.widgets.GuiSimpleImgButton;
 import appeng.client.gui.widgets.GuiTabButton;
 import appeng.client.gui.widgets.GuiToggleButton;
-import appeng.container.implementations.ContainerInterface;
-import appeng.core.AELog;
 import appeng.core.localization.ButtonToolTips;
 import appeng.core.localization.GuiColors;
 import appeng.core.localization.GuiText;
-import appeng.core.sync.GuiBridge;
-import appeng.core.sync.network.NetworkHandler;
-import appeng.core.sync.packets.PacketConfigButton;
-import appeng.core.sync.packets.PacketSwitchGuis;
-import appeng.core.sync.packets.PacketValueConfig;
 import appeng.helpers.IInterfaceHost;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
 import thaumicenergistics.common.container.ContainerEssentiaInterface;
 import thaumicenergistics.common.registries.ThEStrings;
 
-public class GuiEssentiaInterface extends GuiUpgradeable{
-	
+public class GuiEssentiaInterface extends GuiUpgradeable {
+
     private GuiTabButton priority;
     private GuiImgButton BlockMode;
     private GuiToggleButton interfaceMode;
@@ -45,13 +36,12 @@ public class GuiEssentiaInterface extends GuiUpgradeable{
     private GuiImgButton advancedBlockingMode;
     private GuiImgButton lockCraftingMode;
 
-	public GuiEssentiaInterface(final EntityPlayer player, final World world, final int x, final int y,
-            final int z) {
-		super(new ContainerEssentiaInterface(player.inventory, (IInterfaceHost) world.getTileEntity(x, y, z)));
-		this.ySize = 211;
-	}
-	
-	@Override
+    public GuiEssentiaInterface(final EntityPlayer player, final World world, final int x, final int y, final int z) {
+        super(new ContainerEssentiaInterface(player.inventory, (IInterfaceHost) world.getTileEntity(x, y, z)));
+        this.ySize = 211;
+    }
+
+    @Override
     protected void addButtons() {
         this.priority = new GuiTabButton(
                 this.guiLeft + 154,
@@ -123,7 +113,7 @@ public class GuiEssentiaInterface extends GuiUpgradeable{
         this.lockCraftingMode.visible = this.bc.getInstalledUpgrades(Upgrades.LOCK_CRAFTING) > 0;
         this.buttonList.add(lockCraftingMode);
     }
-	
+
     protected String getBackground() {
         return switch (((ContainerEssentiaInterface) this.cvb).getPatternCapacityCardsInstalled()) {
             case -1 -> "guis/interfacenone.png";
@@ -141,7 +131,8 @@ public class GuiEssentiaInterface extends GuiUpgradeable{
         }
 
         if (this.interfaceMode != null) {
-            this.interfaceMode.setState(((ContainerEssentiaInterface) this.cvb).getInterfaceTerminalMode() == YesNo.YES);
+            this.interfaceMode
+                    .setState(((ContainerEssentiaInterface) this.cvb).getInterfaceTerminalMode() == YesNo.YES);
         }
 
         if (this.insertionMode != null) {
@@ -157,7 +148,8 @@ public class GuiEssentiaInterface extends GuiUpgradeable{
         }
 
         if (this.patternOptimization != null) {
-            this.patternOptimization.setState(((ContainerEssentiaInterface) this.cvb).getPatternOptimization() == YesNo.YES);
+            this.patternOptimization
+                    .setState(((ContainerEssentiaInterface) this.cvb).getPatternOptimization() == YesNo.YES);
         }
 
         if (this.advancedBlockingMode != null) {
@@ -174,7 +166,7 @@ public class GuiEssentiaInterface extends GuiUpgradeable{
                 6,
                 GuiColors.InterfaceTitle.getColor());
     }
-    
+
     @Override
     protected void actionPerformed(final GuiButton btn) {
         super.actionPerformed(btn);
@@ -182,7 +174,7 @@ public class GuiEssentiaInterface extends GuiUpgradeable{
         final boolean backwards = Mouse.isButtonDown(1);
 
     }
-    
+
     @Override
     protected void handleButtonVisibility() {
         super.handleButtonVisibility();
@@ -193,5 +185,5 @@ public class GuiEssentiaInterface extends GuiUpgradeable{
             this.lockCraftingMode.setVisibility(this.bc.getInstalledUpgrades(Upgrades.LOCK_CRAFTING) > 0);
         }
     }
-    
+
 }

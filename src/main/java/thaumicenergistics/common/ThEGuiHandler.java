@@ -11,7 +11,6 @@ import appeng.container.implementations.ContainerCraftAmount;
 import appeng.container.implementations.ContainerCraftConfirm;
 import appeng.helpers.IInterfaceHost;
 import appeng.helpers.IPriorityHost;
-import appeng.tile.misc.TileInterface;
 import cpw.mods.fml.common.network.IGuiHandler;
 import thaumicenergistics.api.grid.ICraftingIssuerHost;
 import thaumicenergistics.api.gui.ICraftingIssuerContainer;
@@ -104,16 +103,16 @@ public class ThEGuiHandler implements IGuiHandler {
      * ID of the distillation encoder.
      */
     public static final int DISTILLATION_ENCODER = ThEGuiHandler.ID_STEP_VALUE * 10;
-    
-    /**
-     * ID of the essentia interface.
-     */
-    public static final int ESSENTIA_INTERFACE = ThEGuiHandler.ID_STEP_VALUE * 11;
 
     /**
      * ΙD of the infusion endoder.
      */
     public static final int INFUSION_ENCODER = ThEGuiHandler.ID_STEP_VALUE * 11;
+
+    /**
+     * ID of the essentia interface.
+     */
+    public static final int ESSENTIA_INTERFACE = ThEGuiHandler.ID_STEP_VALUE * 12;
 
     /**
      * Extra data used for some GUI calls.
@@ -335,9 +334,9 @@ public class ThEGuiHandler implements IGuiHandler {
             // Distillation encoder?
             case ThEGuiHandler.DISTILLATION_ENCODER:
                 return new GuiDistillationPatternEncoder(player, world, x, y, z);
-                
+
             case ThEGuiHandler.ESSENTIA_INTERFACE:
-            	return new GuiEssentiaInterface(player, world, x, y, z);
+                return new GuiEssentiaInterface(player, world, x, y, z);
 
             // Infusion encoder
             case ThEGuiHandler.INFUSION_ENCODER:
@@ -422,9 +421,11 @@ public class ThEGuiHandler implements IGuiHandler {
             // Distillation encoder?
             case ThEGuiHandler.DISTILLATION_ENCODER:
                 return new ContainerDistillationPatternEncoder(player, world, x, y, z);
-                
+
             case ThEGuiHandler.ESSENTIA_INTERFACE:
-            	return new ContainerEssentiaInterface(player, world, x, y, z);
+                return new ContainerEssentiaInterface(
+                        player.inventory,
+                        ((IInterfaceHost) world.getTileEntity(x, y, z)));
 
             // Infusion encoder
             case ThEGuiHandler.INFUSION_ENCODER:

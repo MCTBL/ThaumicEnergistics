@@ -1,8 +1,9 @@
 package thaumicenergistics.client.textures;
 
+import net.minecraft.util.ResourceLocation;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.util.ResourceLocation;
 import thaumicenergistics.common.ThaumicEnergistics;
 
 /**

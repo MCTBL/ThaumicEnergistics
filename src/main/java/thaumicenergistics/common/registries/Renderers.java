@@ -45,13 +45,12 @@ public class Renderers {
 
         // Register the infusion provider renderer
         RenderingRegistry.registerBlockHandler(new RenderBlockInfusionProvider());
-        
+
         // Get the next render ID
         Renderers.EssentiaInterfaceRenderID = RenderingRegistry.getNextAvailableRenderId();
 
         // Register the infusion provider renderer
         RenderingRegistry.registerBlockHandler(new RenderBlockEssentiaInterface());
-        
 
         // Are gearbox models enabled?
         if (!ThEApi.instance().config().disableGearboxModel()) {
